@@ -5,4 +5,7 @@ class Question < ApplicationRecord
   has_many :answers
 
   belongs_to :question_group
+
+  translates :description
+  globalize_accessors
 end

@@ -12,6 +12,8 @@ no = AnswerPossibility.create!(value: -1, description: 'Nein?')
 
 Question.create!(
   description: 'Empfindest du das Plätschern des Brunnens als angenehm?',
+  description_fr: 'Trouvez-vous agréable l’éclaboussure de la fontaine?',
+  description_it: 'Ritieni che gli schizzi della fontana siano piacevoli?',
   question_group: group,
   answer_possibilities: [unangenehm, mittel, neutral, einigermassen_gut, total_geil]
 )
@@ -21,7 +23,7 @@ second_question = Question.create!(
   answer_possibilities: [yes, no]
 )
 
-philipps_entry_but_is_anonymous = SurveyEntry.create!
+philipps_entry_but_is_anonymous = SurveyEntry.create!(survey: survey)
 
 Answer.create!(
   [

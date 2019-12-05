@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_120832) do
+ActiveRecord::Schema.define(version: 2019_12_05_120639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,18 +53,36 @@ ActiveRecord::Schema.define(version: 2019_11_28_120832) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "question_groups", force: :cascade do |t|
+  create_table "question_group_translations", force: :cascade do |t|
+    t.bigint "question_group_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "description"
+    t.index ["locale"], name: "index_question_group_translations_on_locale"
+    t.index ["question_group_id"], name: "index_question_group_translations_on_question_group_id"
+  end
+
+  create_table "question_groups", force: :cascade do |t|
     t.bigint "survey_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["survey_id"], name: "index_question_groups_on_survey_id"
   end
 
+  create_table "question_translations", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "description"
+    t.index ["locale"], name: "index_question_translations_on_locale"
+    t.index ["question_id"], name: "index_question_translations_on_question_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.bigint "question_group_id"
     t.bigint "answer_possibilities_id"
-    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["answer_possibilities_id"], name: "index_questions_on_answer_possibilities_id"
@@ -78,10 +96,21 @@ ActiveRecord::Schema.define(version: 2019_11_28_120832) do
     t.index ["survey_id"], name: "index_survey_entries_on_survey_id"
   end
 
-  create_table "surveys", force: :cascade do |t|
-    t.string "title"
+  create_table "survey_translations", force: :cascade do |t|
+    t.bigint "survey_id", null: false
+    t.string "locale", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
+    t.index ["locale"], name: "index_survey_translations_on_locale"
+    t.index ["survey_id"], name: "index_survey_translations_on_survey_id"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "active_from"
+    t.datetime "active_to"
   end
 
 end
