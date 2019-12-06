@@ -36,6 +36,9 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
-gem 'redis', group: :production
+group :production do
+  gem 'redis'
+  gem 'sentry-raven'
+end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
