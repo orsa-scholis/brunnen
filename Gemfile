@@ -43,9 +43,9 @@ group :production do
 end
 
 group :test do
+  gem 'capybara'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'capybara'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end
