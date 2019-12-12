@@ -7,12 +7,12 @@ ruby '2.6.4'
 
 gem 'administrate'
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'delayed_job_active_record'
 gem 'globalize'
 gem 'globalize-accessors'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.12'
 gem 'rails', '~> 6.0.0'
+gem 'sidekiq'
 gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
