@@ -7,11 +7,11 @@ default: &default
 
 development:
   <<: *default
-  database: brunnen_development
+  database: evaweb_development
 
 test:
   <<: *default
-  database: brunnen_test
+  database: evaweb_test
 
 production:
   <<: *default
