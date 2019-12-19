@@ -6,6 +6,8 @@ class Question < ApplicationRecord
 
   belongs_to :question_group, inverse_of: :questions
 
+  validates :question_group, presence: true
+
   translates :description
   globalize_accessors
 end

@@ -17,6 +17,7 @@ gem 'rails', '~> 6.0.0'
 gem 'sidekiq'
 gem 'simple_form'
 gem 'turbolinks', '~> 5'
+gem 'validates_timeliness', '~> 5.0.0.alpha3'
 gem 'webpacker', '~> 4.0'
 
 group :development, :test do
