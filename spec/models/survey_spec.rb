@@ -55,7 +55,7 @@ RSpec.describe Survey, type: :model do
       end
 
       it 'returns the active one' do
-        expect(described_class.active).to eq []
+        expect(described_class.active).to be_empty
       end
     end
   end
