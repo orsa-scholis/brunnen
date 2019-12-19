@@ -1,3 +1,12 @@
 it:
   root:
     active_surveys: Currently active surveys
+  log_out: "Log out"
+  admin_toolbar:
+    admin_dashboard: "Admin Dashboard"
+    title_html: >-
+      <strong>SBV-EvaWeb</strong>
+      <span class="text-muted ml-1">
+        Accesso come amministratore
+      </span>
+

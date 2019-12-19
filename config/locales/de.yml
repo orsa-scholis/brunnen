@@ -1,3 +1,11 @@
 de:
   root:
     active_surveys: Aktuell aktive Umfragen
+  log_out: "Log out"
+  admin_toolbar:
+    admin_dashboard: "Admin Dashboard"
+    title_html: >-
+      <strong>SBV-EvaWeb</strong>
+      <span class="text-muted ml-1">
+        Eingeloggt als Administrator
+      </span>

@@ -10,7 +10,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/flashes' %>
-    <%= yield %>
+    <% if administrator_signed_in? %>
+      <%= render 'layouts/admin_toolbar' %>
+    <% end %>
+    <div class="container mt-5">
+      <%= render 'layouts/flashes' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

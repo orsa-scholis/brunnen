@@ -1,0 +1,32 @@
+@import "variables";
+
+$toolbar-item-spacing: .75em;
+
+.admin-toolbar {
+  background: $sbv-color;
+  color: $white;
+  padding: .3em 3em;
+
+  a {
+    color: $white;
+  }
+
+  .toolbar-item {
+    margin-right: $toolbar-item-spacing;
+  }
+
+  .toolbar-link::after {
+    content: '|';
+    margin-left: $toolbar-item-spacing;
+  }
+
+  .toolbar-link:last-child::after {
+    content: '';
+    margin-left: 0;
+    all: initial;
+  }
+
+  .text-muted {
+    color: lighten($text-muted, 40%) !important;
+  }
+}
