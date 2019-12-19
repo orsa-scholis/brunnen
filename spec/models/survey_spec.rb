@@ -44,8 +44,8 @@ RSpec.describe Survey, type: :model do
 
       let!(:active_survey) { create :survey }
 
-      it 'should return the active one' do
-        expect(Survey.active).to eq [ active_survey ]
+      it 'returns the active one' do
+        expect(described_class.active).to eq [active_survey]
       end
     end
 
@@ -54,8 +54,8 @@ RSpec.describe Survey, type: :model do
         create :survey, :inactive
       end
 
-      it 'should return the active one' do
-        expect(Survey.active).to eq []
+      it 'returns the active one' do
+        expect(described_class.active).to eq []
       end
     end
   end
