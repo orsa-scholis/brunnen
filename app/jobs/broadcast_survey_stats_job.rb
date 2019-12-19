@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BroadcastSurveyStatsJob < ApplicationJob
-  queue_as :default
+  queue_as :broadcasts
 
   def perform(survey)
     SurveyResultChannel.broadcast_to(survey, 'message': 'testing')
