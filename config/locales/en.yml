@@ -9,3 +9,5 @@ en:
       <span class="text-muted ml-1">
         Logged in as Administrator
       </span>
+
+  home: "Home"

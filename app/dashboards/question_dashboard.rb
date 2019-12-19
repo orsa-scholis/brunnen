@@ -16,6 +16,9 @@ class QuestionDashboard < Administrate::BaseDashboard
     id: Field::Number,
     answer_possibilities_id: Field::Number,
     description: Field::String,
+    description_de: Field::String,
+    description_fr: Field::String,
+    description_it: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -27,9 +30,8 @@ class QuestionDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     answer_possibilities
-    answers
     question_group
-    id
+    description
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -40,7 +42,9 @@ class QuestionDashboard < Administrate::BaseDashboard
     question_group
     id
     answer_possibilities_id
-    description
+    description_de
+    description_fr
+    description_it
     created_at
     updated_at
   ].freeze
@@ -53,7 +57,9 @@ class QuestionDashboard < Administrate::BaseDashboard
     answers
     question_group
     answer_possibilities_id
-    description
+    description_de
+    description_fr
+    description_it
   ].freeze
 
   # COLLECTION_FILTERS
@@ -71,7 +77,7 @@ class QuestionDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how questions are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(question)
-  #   "Question ##{question.id}"
-  # end
+   def display_resource(question)
+     "\"#{question.description}\""
+   end
 end

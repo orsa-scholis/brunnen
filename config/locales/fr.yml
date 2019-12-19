@@ -9,3 +9,5 @@ fr:
       <span class="text-muted ml-1">
         Connecté en tant qu'administrateur
       </span>
+
+  home: "Home"
