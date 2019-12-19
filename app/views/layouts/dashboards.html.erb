@@ -17,6 +17,13 @@
 </head>
 
 <body>
-<%= yield %>
+  <div class="alert alert-danger" role="alert">
+    <%= alert %>
+  </div>
+  <div class="alert alert-info" role="alert">
+    <%= notice %>
+  </div>
+
+  <%= yield %>
 </body>
 </html>

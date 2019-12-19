@@ -3,6 +3,8 @@
 Rails.application.routes.draw do
   root 'surveys#index'
 
+  devise_for :administrators
+
   resources :surveys, only: :index do
     resources :survey_entries, only: %i[index create], as: 'entries'
     get 'dashboard', to: 'dashboards#index', on: :member
