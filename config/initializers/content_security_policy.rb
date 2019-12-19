@@ -6,7 +6,7 @@
 # For further information see the following documentation
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
 
-#Rails.application.config.content_security_policy do |policy|
+# Rails.application.config.content_security_policy do |policy|
 #  policy.default_src :self, :https
 #  policy.font_src    :self, :https, :data
 #  policy.img_src     :self, :https, :data
@@ -18,9 +18,9 @@
 #
 #  # Specify URI for violation reports
 #  # policy.report_uri "/csp-violation-report-endpoint"
-#end
+# end
 #
-#Rails.application.config.content_security_policy_nonce_generator = ->(_request) { SecureRandom.base64(16) }
+# Rails.application.config.content_security_policy_nonce_generator = ->(_request) { SecureRandom.base64(16) }
 
 # Set the nonce only to specific directives
 # Rails.application.config.content_security_policy_nonce_directives = %w(script-src)
