@@ -1,23 +1,62 @@
-name: Ruby
+name: Rails
 
-on: [push]
+on:
+  pull_request:
+    branches:
+      - 'master'
+      - 'develop'
+  push:
+    branches:
+      - 'master'
+      - 'develop'
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:11.5
+        ports: ["5432:5432"]
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
       - uses: actions/checkout@v1
+
       - name: Load Ruby version
         run: echo "##[set-output name=RUBYV;]$(cat .ruby-version)"
         id: rnv
+
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
         with:
           ruby-version: "${{ steps.rnv.outputs.RUBYV }}"
-      - name: Rubocop and Rspec
+
+      - name: Install PostgreSQL 11 client
+        run: |
+          sudo apt-get -yqq install libpq-dev
+
+      - name: Build App
+        env:
+          PGHOST: localhost
+          PGUSER: postgres
+          RAILS_ENV: test
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
+          bin/rails db:setup
+
+      - name: Linting
+        env:
+          RAILS_ENV: test
+        run: |
           bundle exec rubocop
+
+      - name: Run Tests
+        env:
+          PGHOST: localhost
+          PGUSER: postgres
+          RAILS_ENV: test
+        run: |
           bundle exec rspec
+
