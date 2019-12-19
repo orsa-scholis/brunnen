@@ -1,0 +1,3 @@
+SECRET_KEY_BASE: "run `bundle exec rake secret`"
+DEVISE_SECRET_KEY: "run `bundle exec rake secret`"
+DEVISE_PEPPER: "run `bundle exec rake secret`"

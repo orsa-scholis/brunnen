@@ -7,6 +7,8 @@ ruby '2.6.3'
 
 gem 'administrate'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'devise'
+gem 'figaro'
 gem 'globalize'
 gem 'globalize-accessors'
 gem 'pg', '>= 0.18', '< 2.0'
