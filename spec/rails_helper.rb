@@ -1,17 +1,16 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'capybara/rspec'
-require 'capybara/rails'
-require 'selenium/webdriver'
 
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../config/environment', __dir__)
 
-# Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+require 'capybara/rspec'
+require 'capybara/rails'
+require 'selenium/webdriver'
 
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
@@ -28,13 +27,9 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
 
-  config.before(:each, type: :system) do
-    driven_by :rack_test
-  end
-
-  config.before(:each, type: :system, js: true) do
-    driven_by :selenium_chrome_headless
-  end
+  config.before(:all, type: :system) { Capybara.server = :puma, { Silent: true } }
+  config.before(:each, type: :system) { driven_by :rack_test }
+  config.before(:each, type: :system, js: true) { driven_by :selenium_chrome_headless }
 
   config.after(:each, type: :system, js: true) do
     errors = page.driver.browser.manage.logs.get(:browser)
@@ -49,5 +44,12 @@ RSpec.configure do |config|
         end
       end
     end
+  end
+end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
   end
 end
