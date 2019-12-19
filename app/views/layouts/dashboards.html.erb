@@ -17,12 +17,7 @@
 </head>
 
 <body>
-  <div class="alert alert-danger" role="alert">
-    <%= alert %>
-  </div>
-  <div class="alert alert-info" role="alert">
-    <%= notice %>
-  </div>
+  <%= render 'layouts/flashes' %>
 
   <%= yield %>
 </body>
