@@ -5,6 +5,8 @@ class QuestionGroup < ApplicationRecord
 
   has_many :questions, dependent: :destroy, inverse_of: :question_group
 
+  validates :survey, presence: true
+
   translates :description
   globalize_accessors
 end

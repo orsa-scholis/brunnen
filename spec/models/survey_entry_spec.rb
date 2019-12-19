@@ -6,6 +6,8 @@ RSpec.describe SurveyEntry, type: :model do
   it { is_expected.to have_many :answers }
   it { is_expected.to belong_to :survey }
 
+  it { is_expected.to validate_presence_of :survey }
+
   describe 'broadcast statistics sending' do
     let(:survey_entry) { build :survey_entry }
 
