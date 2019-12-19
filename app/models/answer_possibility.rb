@@ -2,5 +2,7 @@
 
 class AnswerPossibility < ApplicationRecord
   has_and_belongs_to_many :questions
-  has_many :answers
+  has_many :answers, dependent: :destroy
+
+  validates :value, presence: true
 end

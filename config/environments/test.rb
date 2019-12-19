@@ -31,5 +31,4 @@ Rails.application.configure do
   config.active_support.deprecation = :stderr
 
   config.active_job.queue_adapter = :test
-
 end
