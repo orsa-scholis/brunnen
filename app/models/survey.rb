@@ -6,7 +6,7 @@ class Survey < ApplicationRecord
 
   validates :active_from, :active_to, :title, presence: true
   validates_datetime :active_from, :active_to
-  validates_datetime :active_to, :after => :active_from
+  validates_datetime :active_to, after: :active_from
 
   translates :title
   globalize_accessors
