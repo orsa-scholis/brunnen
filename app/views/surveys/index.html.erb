@@ -1,3 +1,8 @@
-<% @surveys.each do |survey| %>
-  <%= link_to "Survey #{survey.id}", survey_entries_path(survey) %>
-<% end %>
+<div class="container mt-5">
+  <h2><%= t('root.active_surveys') %></h2>
+  <div class="list-group">
+    <% @surveys.each do |survey| %>
+      <%= link_to "#{survey.title}", survey_entries_path(survey), class: 'list-group-item list-group-item-action' %>
+    <% end %>
+  </div>
+</div>
