@@ -30,6 +30,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gem-
 
+      - name: Get yarn cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - name: Load Ruby version
         run: echo "##[set-output name=RUBYV;]$(cat .ruby-version)"
         id: rnv
