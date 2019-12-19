@@ -10,4 +10,6 @@ class Survey < ApplicationRecord
 
   translates :title
   globalize_accessors
+
+  scope :active, -> { where('active_from <= ? AND active_to >= ?', Time.zone.now, Time.zone.now) }
 end

@@ -2,6 +2,6 @@
 
 class SurveysController < ApplicationController
   def index
-    @surveys = Survey.all
+    @surveys = Survey.active
   end
 end
