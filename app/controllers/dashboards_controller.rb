@@ -10,6 +10,6 @@ class DashboardsController < ApplicationController
   private
 
   def load_survey
-    @survey = Survey.find(params[:survey_id])
+    @survey = Survey.find(params[:id])
   end
 end

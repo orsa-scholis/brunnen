@@ -5,9 +5,8 @@ Rails.application.routes.draw do
 
   resources :surveys, only: :index do
     resources :survey_entries, only: %i[index create], as: 'entries'
+    get 'dashboard', to: 'dashboards#index', on: :member
   end
-
-  get 'surveys/:survey_id/dashboard', to: 'dashboards#index'
 
   namespace :admin do
     resources :questions
