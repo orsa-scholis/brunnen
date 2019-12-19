@@ -17,7 +17,6 @@ jobs:
           ruby-version: "${{ steps.rnv.outputs.RUBYV }}"
       - name: Rubocop and Rspec
         run: |
-          cd cli
           gem install bundler
           bundle install --jobs 4 --retry 3
           bundle exec rubocop
