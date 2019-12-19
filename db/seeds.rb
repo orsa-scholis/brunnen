@@ -34,3 +34,5 @@ Answer.create!(
     }
   ]
 )
+
+Administrator.create!(email: 'admin@orsa-schol.is', password: '123456')
