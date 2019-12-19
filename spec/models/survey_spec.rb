@@ -35,4 +35,28 @@ RSpec.describe Survey, type: :model do
       it { is_expected.to be true }
     end
   end
+
+  describe '#active' do
+    context 'when there is an active Survey' do
+      before do
+        create :survey, :inactive
+      end
+
+      let!(:active_survey) { create :survey }
+
+      it 'should return the active one' do
+        expect(Survey.active).to eq [ active_survey ]
+      end
+    end
+
+    context 'when there is no active Survey' do
+      before do
+        create :survey, :inactive
+      end
+
+      it 'should return the active one' do
+        expect(Survey.active).to eq []
+      end
+    end
+  end
 end

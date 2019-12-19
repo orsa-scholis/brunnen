@@ -3,7 +3,11 @@
 FactoryBot.define do
   factory :survey do
     title { 'My Survey' }
-    active_from { '2019-12-15 10:00:00' }
-    active_to { '2019-12-19 10:00:00' }
+    active_from { 1.day.ago }
+    active_to { 2.hours.since }
+
+    trait :inactive do
+      active_to { 1.hour.ago }
+    end
   end
 end
