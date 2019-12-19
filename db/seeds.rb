@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-survey = Survey.create!(title: 'My cool survey')
+require 'factory_bot'
+
+survey = FactoryBot.build(:survey, title: 'My cool survey').tap(&:save!)
 group = QuestionGroup.create!(description: 'My awesome group', survey: survey)
 unangenehm = AnswerPossibility.create!(value: -2, description: 'Sehr unangenehm')
 mittel = AnswerPossibility.create!(value: -1, description: 'Naja')
