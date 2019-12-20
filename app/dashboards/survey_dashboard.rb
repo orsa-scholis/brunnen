@@ -13,6 +13,12 @@ class SurveyDashboard < Administrate::BaseDashboard
     question_groups: Field::HasMany,
     id: Field::Number,
     title: Field::String,
+    title_de: Field::String,
+    title_fr: Field::String,
+    title_it: Field::String,
+    active?: Field::Boolean,
+    active_from: Field::DateTime,
+    active_to: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -23,10 +29,10 @@ class SurveyDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    question_groups
-    id
     title
-    created_at
+    active?
+    active_from
+    active_to
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -34,7 +40,11 @@ class SurveyDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     question_groups
     id
-    title
+    title_de
+    title_fr
+    title_it
+    active_from
+    active_to
     created_at
     updated_at
   ].freeze
@@ -44,7 +54,11 @@ class SurveyDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     question_groups
-    title
+    title_de
+    title_fr
+    title_it
+    active_from
+    active_to
   ].freeze
 
   # COLLECTION_FILTERS
@@ -62,7 +76,8 @@ class SurveyDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how surveys are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(survey)
-  #   "Survey ##{survey.id}"
-  # end
+  def display_resource(survey)
+    model_name = I18n.t('activerecord.models.survey', count: 1)
+    "#{model_name} ##{survey.id}"
+  end
 end
