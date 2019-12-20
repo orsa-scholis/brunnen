@@ -7,5 +7,5 @@ RSpec.describe AnswerPossibility, type: :model do
   it { is_expected.to have_many :answers }
 
   it { is_expected.to validate_presence_of :value }
-  it { is_expected.to validate_presence_of :description }
+  it { is_expected.to validate_presence_of :description_de }
 end
