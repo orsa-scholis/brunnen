@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_19_143208) do
+ActiveRecord::Schema.define(version: 2019_12_20_133039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2019_12_19_143208) do
 
   create_table "answer_possibilities", force: :cascade do |t|
     t.integer "value"
-    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -37,6 +36,16 @@ ActiveRecord::Schema.define(version: 2019_12_19_143208) do
   create_table "answer_possibilities_questions", id: false, force: :cascade do |t|
     t.bigint "answer_possibility_id", null: false
     t.bigint "question_id", null: false
+  end
+
+  create_table "answer_possibility_translations", force: :cascade do |t|
+    t.bigint "answer_possibility_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "description"
+    t.index ["answer_possibility_id"], name: "index_answer_possibility_translations_on_answer_possibility_id"
+    t.index ["locale"], name: "index_answer_possibility_translations_on_locale"
   end
 
   create_table "answers", force: :cascade do |t|
