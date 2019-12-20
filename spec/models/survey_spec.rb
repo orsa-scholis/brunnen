@@ -59,4 +59,22 @@ RSpec.describe Survey, type: :model do
       end
     end
   end
+
+  describe '#active?' do
+    subject do
+      survey.active?
+    end
+
+    context 'when the survey is active' do
+      let(:survey) { create :survey }
+
+      it { is_expected.to be true }
+    end
+
+    context 'when the survey is not active' do
+      let(:survey) { create :survey, :inactive }
+
+      it { is_expected.to be false }
+    end
+  end
 end
