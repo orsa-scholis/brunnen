@@ -1,3 +1,46 @@
 de:
+  helpers:
+    label:
+      question:
+        question_group: Fragengruppe
+        answers: Antworten
+        answer_possibilities: Antwortmöglichkeiten
+  activerecord:
+    models:
+      survey_entry:
+        one: Umfrageneingabe
+        other: Umfrageneingaben
+      survey:
+        one: Umfrage
+        other: Umfragen
+      answer:
+        one: Antwort
+        other: Antworten
+      answer_possibility:
+        one: Antwortmöglichkeit
+        other: Antwortmöglichkeiten
+      question_group:
+        one: Fragengruppe
+        other: Fragengruppen
+      question:
+        one: Frage
+        other: Fragen
+    attributes:
+      question:
+        answers: Antworten
+        answer_possibilities: Antwortmöglichkeiten
+        question_group:
+          one: Fragengruppe
+          other: Fragengruppen
+        description: Beschreibung
   root:
-    active_surveys: Aktuell aktive Umfragen
+    active_surveys: "Aktuell aktive Umfragen"
+  log_out: "Abmelden"
+  home: "Startseite"
+  admin_toolbar:
+    admin_dashboard: "Admin Dashboard"
+    title_html: >-
+      <strong>SBV-EvaWeb</strong>
+      <span class="text-muted ml-1">
+        Eingeloggt als Administrator
+      </span>

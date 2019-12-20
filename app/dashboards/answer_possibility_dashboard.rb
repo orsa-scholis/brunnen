@@ -26,8 +26,7 @@ class AnswerPossibilityDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     questions
-    answers
-    id
+    description
     value
   ].freeze
 
@@ -35,7 +34,6 @@ class AnswerPossibilityDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     questions
-    answers
     id
     value
     description
@@ -48,7 +46,6 @@ class AnswerPossibilityDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     questions
-    answers
     value
     description
   ].freeze
@@ -68,7 +65,8 @@ class AnswerPossibilityDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how answer possibilities are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(answer_possibility)
-  #   "AnswerPossibility ##{answer_possibility.id}"
-  # end
+  def display_resource(answer_possibility)
+    model_name = I18n.t('activerecord.models.answer_possibility', count: 1)
+    "#{model_name} \"#{answer_possibility.description}\""
+  end
 end

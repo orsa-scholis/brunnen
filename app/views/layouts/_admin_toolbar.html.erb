@@ -1,0 +1,9 @@
+<div class="w-100 admin-toolbar d-flex align-items-center">
+  <div class="toolbar-item"><%= t('admin_toolbar.title_html') %></div>
+  <div class="toolbar-item toolbar-link ml-4">
+    <%= link_to t('admin_toolbar.admin_dashboard'), admin_questions_path %>
+  </div>
+  <div class="toolbar-item toolbar-link">
+    <%= link_to t('log_out'), destroy_administrator_session_path, method: :delete %>
+  </div>
+</div>
