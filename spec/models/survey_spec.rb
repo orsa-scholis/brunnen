@@ -60,6 +60,16 @@ RSpec.describe Survey, type: :model do
     end
   end
 
+  describe '#descending' do
+    let!(:survey1) { create :survey }
+    let!(:survey2) { create :survey, active_to: 3.hours.ago }
+    let!(:survey3) { create :survey, active_to: 10.hours.ago }
+
+    it 'returns the surveys in the correct order' do
+      expect(described_class.descending).to eq [survey1, survey2, survey3]
+    end
+  end
+
   describe '#active?' do
     subject do
       survey.active?
