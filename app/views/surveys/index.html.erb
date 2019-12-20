@@ -1,6 +1,11 @@
-<h2><%= t('root.active_surveys') %></h2>
+<h2><%= administrator_signed_in? ? t('root.all_surveys') : t('root.active_surveys') %></h2>
 <div class="list-group">
   <% @surveys.each do |survey| %>
-    <%= link_to "#{survey.title}", survey_entries_path(survey), class: 'list-group-item list-group-item-action' %>
+    <%
+      classes = 'list-group-item list-group-item-action list-group-item-'
+      classes += 'primary' if survey.active?
+      classes += 'secondary' unless survey.active?
+    %>
+    <%= link_to "#{survey.title}", survey_entries_path(survey), class: classes %>
   <% end %>
 </div>

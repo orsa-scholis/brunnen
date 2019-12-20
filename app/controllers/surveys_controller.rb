@@ -2,6 +2,6 @@
 
 class SurveysController < ApplicationController
   def index
-    @surveys = Survey.active
+    @surveys = (administrator_signed_in? ? Survey.all : Survey.active).order(active_to: :desc)
   end
 end

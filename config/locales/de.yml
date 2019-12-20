@@ -35,6 +35,7 @@ de:
         description: Beschreibung
   root:
     active_surveys: "Aktuell aktive Umfragen"
+    all_surveys: Alle Umfragen
   log_out: "Abmelden"
   home: "Startseite"
   admin_toolbar:
