@@ -1,4 +1,5 @@
-require("@rails/ujs").start();
-require("turbolinks").start();
+require("@rails/ujs").start()
+require("turbolinks").start()
 
-require("../javascripts/administrate");
+require("../javascripts/administrate/index")
+require("../stylesheets/administrate/application.scss")

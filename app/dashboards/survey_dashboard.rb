@@ -13,6 +13,9 @@ class SurveyDashboard < Administrate::BaseDashboard
     question_groups: Field::HasMany,
     id: Field::Number,
     title: Field::String,
+    active?: Field::Boolean,
+    active_from: Field::DateTime,
+    active_to: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -26,6 +29,7 @@ class SurveyDashboard < Administrate::BaseDashboard
     question_groups
     id
     title
+    active?
     created_at
   ].freeze
 
@@ -35,6 +39,8 @@ class SurveyDashboard < Administrate::BaseDashboard
     question_groups
     id
     title
+    active_from
+    active_to
     created_at
     updated_at
   ].freeze
@@ -45,6 +51,8 @@ class SurveyDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     question_groups
     title
+    active_from
+    active_to
   ].freeze
 
   # COLLECTION_FILTERS
