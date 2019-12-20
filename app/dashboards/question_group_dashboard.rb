@@ -65,8 +65,8 @@ class QuestionGroupDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how question groups are displayed
   # across all pages of the admin dashboard.
   #
-   def display_resource(question_group)
-     model_name = I18n.t('activerecord.models.question_group', count: 1)
-     "#{model_name} \"#{question_group.description}\""
-   end
+  def display_resource(question_group)
+    model_name = I18n.t('activerecord.models.question_group', count: 1)
+    "#{model_name} \"#{question_group.description}\""
+  end
 end

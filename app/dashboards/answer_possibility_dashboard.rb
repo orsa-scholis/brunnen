@@ -65,8 +65,8 @@ class AnswerPossibilityDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how answer possibilities are displayed
   # across all pages of the admin dashboard.
   #
-   def display_resource(answer_possibility)
-     model_name = I18n.t('activerecord.models.answer_possibility', count: 1)
-     "#{model_name} \"#{answer_possibility.description}\""
-   end
+  def display_resource(answer_possibility)
+    model_name = I18n.t('activerecord.models.answer_possibility', count: 1)
+    "#{model_name} \"#{answer_possibility.description}\""
+  end
 end
