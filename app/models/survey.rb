@@ -14,6 +14,6 @@ class Survey < ApplicationRecord
   scope :active, -> { where('active_from <= ? AND active_to >= ?', Time.zone.now, Time.zone.now) }
 
   def active?
-    active_from <= Time.zone.now && active_to >= Time.zone.now
+  Time.zone.now.in?(active_from..active_to)
   end
 end
