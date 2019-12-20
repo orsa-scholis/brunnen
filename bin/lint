@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -e
+pwd
+bundle exec rubocop
