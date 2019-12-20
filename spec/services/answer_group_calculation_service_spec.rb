@@ -3,14 +3,18 @@
 require 'rails_helper'
 
 RSpec.describe AnswerGroupCalculationService, type: :service do
-  subject do
-    described_class.new(survey).calculate
-  end
+  subject(:service_statistics) { described_class.new(survey).calculate }
 
   let(:survey) { create :survey }
 
   context 'when there is no question group' do
-    it { is_expected.to be_empty }
+    it 'return empty service statistics averages' do
+      expect(service_statistics.averages).to be_empty
+    end
+
+    it 'return correct service statistics survey' do
+      expect(service_statistics.survey).to eq survey
+    end
   end
 
   context 'when there is one question group with one answer' do
@@ -25,7 +29,13 @@ RSpec.describe AnswerGroupCalculationService, type: :service do
 
     before { create :survey_entry, survey: survey, answers: [answer] }
 
-    it { is_expected.to eq(question_group => 3.0) }
+    it 'return empty service statistics averages' do
+      expect(service_statistics.averages).to eq(question_group => 3.0)
+    end
+
+    it 'return correct service statistics survey' do
+      expect(service_statistics.survey).to eq survey
+    end
   end
 
   context 'when there is one question group with multiple answers' do
@@ -55,7 +65,13 @@ RSpec.describe AnswerGroupCalculationService, type: :service do
       create :survey_entry, survey: survey, answers: [answer_1, answer_2, answer_3]
     end
 
-    it { is_expected.to eq(question_group => 2.0) }
+    it 'return empty service statistics averages' do
+      expect(service_statistics.averages).to eq(question_group => 2.0)
+    end
+
+    it 'return correct service statistics survey' do
+      expect(service_statistics.survey).to eq survey
+    end
   end
 
   context 'when there is multiple question groups with multiple answers' do
@@ -102,6 +118,12 @@ RSpec.describe AnswerGroupCalculationService, type: :service do
 
     before { create :survey_entry, survey: survey, answers: answers_1 + answers_2 }
 
-    it { is_expected.to eq(expected_hash) }
+    it 'return empty service statistics averages' do
+      expect(service_statistics.averages).to eq(expected_hash)
+    end
+
+    it 'return correct service statistics survey' do
+      expect(service_statistics.survey).to eq survey
+    end
   end
 end
