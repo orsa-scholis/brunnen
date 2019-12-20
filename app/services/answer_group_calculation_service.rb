@@ -15,11 +15,7 @@ class AnswerGroupCalculationService
   end
 
   def calculate
-    wrap_results(
-      format_results(
-        query_for_results
-      )
-    )
+    wrap_results(format_results(query_for_results))
   end
 
   private
