@@ -1,10 +1,28 @@
 de:
+  time:
+    formats:
+      default: "%d.%m.%y %H:%M"
   helpers:
+    submit:
+      create: '%{model} erstellen'
+      update: '%{model} aktualisieren'
     label:
+      question_group:
+        survey: Umfrage
+        questions: Umfragen
+        description: Beschreibung
       question:
         question_group: Fragengruppe
         answers: Antworten
         answer_possibilities: Antwortmöglichkeiten
+      survey:
+        active?: Aktiv
+        question_groups: Fragengruppen
+        title_de: Deutscher Titel
+        title_fr: Französischer Titel
+        title_it: Italienischer Titel
+        active_from: Aktiv von
+        active_to: Aktiv bis
   activerecord:
     models:
       survey_entry:
@@ -26,6 +44,12 @@ de:
         one: Frage
         other: Fragen
     attributes:
+      survey:
+        title_de: Deutscher Titel
+        title_fr: Französischer Titel
+        title_it: Italienischer Titel
+        active_from: Aktiv von
+        active_to: Aktiv bis
       question:
         answers: Antworten
         answer_possibilities: Antwortmöglichkeiten
@@ -38,6 +62,7 @@ de:
     all_surveys: Alle Umfragen
   log_out: "Abmelden"
   home: "Startseite"
+  update: "Aktualisieren"
   admin_toolbar:
     admin_dashboard: "Admin Dashboard"
     title_html: >-

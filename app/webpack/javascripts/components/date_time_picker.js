@@ -1,10 +1,12 @@
 import flatpickr from 'flatpickr'
+import { German } from 'flatpickr/dist/l10n/de'
 
 function bindDateTimePickers() {
   [...document.querySelectorAll('[data-type="time"]')].forEach((time) => {
     flatpickr(time, {
+      locale: German,
       enableTime: true,
-      enableSeconds: true,
+      enableSeconds: false,
       noCalendar: true,
       altInput: true,
       altFormat: ' h:i:S K',
@@ -16,7 +18,9 @@ function bindDateTimePickers() {
     flatpickr(time, {
       enableTime: true,
       altInput: true,
-      altFormat: 'F J (D), Y - h:i:S K',
+      enableSeconds: false,
+      locale: German,
+      altFormat: 'l, j.m.Y H:i',
       dateFormat: 'Z' // Y-m-d H:i
     })
   })
