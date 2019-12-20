@@ -1,6 +1,7 @@
 fr:
   root:
     active_surveys: Currently active surveys
+    all_surveys: All surveys
   log_out: "Déconnexion"
   admin_toolbar:
     admin_dashboard: "Admin Dashboard"

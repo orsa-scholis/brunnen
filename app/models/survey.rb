@@ -12,4 +12,9 @@ class Survey < ApplicationRecord
   globalize_accessors
 
   scope :active, -> { where('active_from <= ? AND active_to >= ?', Time.zone.now, Time.zone.now) }
+  scope :descending, -> { order(active_to: :desc) }
+
+  def active?
+    Time.zone.now.in?(active_from..active_to)
+  end
 end
