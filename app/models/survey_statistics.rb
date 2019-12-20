@@ -6,5 +6,5 @@ class SurveyStatistics
   attr_accessor :survey
   attr_accessor :averages
 
-  validates :survey, presence: true
+  validates :survey, :averages, presence: true
 end
