@@ -4,7 +4,8 @@ class SurveyEntriesController < ApplicationController
   before_action :load_survey
 
   def index
-    @survey_entry = @survey.survey_entries.new
+    @survey_entry = SurveyEntryBlueprint.new(@survey).survey_entry
+    @grouped_answers = @survey_entry.answers.group_by { |answer| answer.question.question_group }
   end
 
   def create

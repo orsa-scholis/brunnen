@@ -8,6 +8,8 @@ class SurveyEntry < ApplicationRecord
 
   after_create_commit :broadcast_statistics
 
+  accepts_nested_attributes_for :answers
+
   private
 
   def broadcast_statistics
