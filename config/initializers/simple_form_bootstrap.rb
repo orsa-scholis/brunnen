@@ -456,8 +456,8 @@ SimpleForm.setup do |config|
     time: :vertical_multi_select
   }
 
-  config.wrappers :survey_vertical_collection, item_wrapper_class: 'form-check form-check-inline col',
-                                               item_label_class: 'form-check-label', tag: 'fieldset',
+  config.wrappers :survey_vertical_collection, item_wrapper_class: 'form-check form-check-inline mr-md-3',
+                                               item_label_class: 'form-check-label p-lg-2', tag: 'fieldset',
                                                class: 'form-group', error_class: 'form-group-invalid',
                                                valid_class: 'form-group-valid' do |b|
     b.use :html5
@@ -465,7 +465,7 @@ SimpleForm.setup do |config|
     b.wrapper :legend_tag, tag: 'legend', class: 'col-form-label pt-0' do |ba|
       ba.use :label_text
     end
-    b.wrapper :answer_possibilities, tag: 'div', class: 'row' do |ba|
+    b.wrapper :answer_possibilities, tag: 'div' do |ba|
       ba.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
     end
     b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }

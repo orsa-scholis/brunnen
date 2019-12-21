@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :question_group do
     survey
-    association :questions, factory: :question
+    questions { build_pair :question }
   end
 end
