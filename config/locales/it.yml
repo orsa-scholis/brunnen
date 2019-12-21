@@ -11,3 +11,8 @@ it:
         Accesso come amministratore
       </span>
   home: "Home"
+  flashes:
+    survey:
+      create:
+        successful: "Grazie mille per la vostra partecipazione al sondaggio!"
+        failure: "Purtroppo non abbiamo potuto salvare la vostra risposta"

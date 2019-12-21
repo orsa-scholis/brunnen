@@ -12,3 +12,8 @@ en:
       </span>
 
   home: "Home"
+  flashes:
+    survey:
+      create:
+        successful: "Thank you very much for participating!"
+        failure: "Unfortunately we could not save your answer"

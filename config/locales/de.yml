@@ -70,3 +70,8 @@ de:
       <span class="text-muted ml-1">
         Eingeloggt als Administrator
       </span>
+  flashes:
+    survey:
+      create:
+        successful: "Vielen Dank für das Mitmachen bei der Umfrage!"
+        failure: "Wir konnten Ihre Antwort leider nicht abspeichern"

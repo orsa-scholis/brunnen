@@ -6,12 +6,12 @@
       <% answers.each do |answer| %>
         <%= f.simple_fields_for :answers, answer do |answer_field| %>
           <div class="question-container">
-            <%= answer_field.input :answer_possibility,
+            <%= answer_field.input :question_id, as: :hidden, input_html: { value: answer.question.id } %>
+            <%= answer_field.input :answer_possibility_id,
                                    collection: answer.question.answer_possibilities,
                                    as: :radio_buttons,
                                    label: answer.question.description,
                                    label_method: :description,
-                                   include_hidden: false,
                                    wrapper: :survey_vertical_collection %>
           </div>
         <% end %>
