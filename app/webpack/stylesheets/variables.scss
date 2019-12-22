@@ -1,2 +1,18 @@
+@import "~bootstrap/scss/variables";
+
 $sbv-color: #2260A9;
 $white: #fff;
+
+$theme-colors: map-merge(
+    (
+      "primary": $sbv-color,
+      "secondary": $secondary,
+      "success": $success,
+      "info": $info,
+      "warning": $warning,
+      "danger": $danger,
+      "light": $light,
+      "dark": $dark
+    ),
+    $theme-colors
+);
