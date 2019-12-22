@@ -3,6 +3,7 @@
 class Question < ApplicationRecord
   has_and_belongs_to_many :answer_possibilities
   has_many :answers, dependent: :destroy
+  has_one :survey, through: :question_group, inverse_of: :questions
 
   belongs_to :question_group, inverse_of: :questions
 
