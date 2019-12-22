@@ -1,3 +1,5 @@
+<h1 class="text-center mb-md-5"><%= @survey_entry.survey.title %></h1>
+
 <%= simple_form_for @survey_entry do |f| %>
   <% @grouped_answers.each do |question_group, answers| %>
     <div class="card card-body mt-4">
