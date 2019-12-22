@@ -57,6 +57,15 @@ de:
           one: Fragengruppe
           other: Fragengruppen
         description: Beschreibung
+      survey_entry:
+        answers: Antworten
+        survey: Umfrage
+    errors:
+      models:
+        survey_entry:
+          attributes:
+            answers:
+              not_all_answered: "es wurden nicht alle Fragen beanrwortet"
   root:
     active_surveys: "Aktuell aktive Umfragen"
     all_surveys: Alle Umfragen

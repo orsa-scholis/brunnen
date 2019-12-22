@@ -17,3 +17,10 @@ en:
       create:
         successful: "Thank you very much for participating!"
         failure: "Unfortunately we could not save your answer"
+  activerecord:
+    errors:
+      models:
+        survey_entry:
+          attributes:
+            answers:
+              not_all_answered: "not all questions have been answered"

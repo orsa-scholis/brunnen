@@ -17,3 +17,10 @@ fr:
       create:
         successful: "Merci beaucoup pour votre participation à l'enquête!"
         failure: "Malheureusement, nous n'avons pas pu sauvegarder votre réponse"
+  activerecord:
+    errors:
+      models:
+        survey_entry:
+          attributes:
+            answers:
+              not_all_answered: "on n'a pas répondu à toutes les questions"

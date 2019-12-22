@@ -8,6 +8,7 @@ RSpec.shared_context 'with complete survey' do
 
   let(:first_questions) { build_pair(:question, answer_possibilities: first_scale) }
   let(:second_questions) { build_pair(:question, answer_possibilities: second_scale) }
+  let(:questions) { first_questions + second_questions }
 
   let!(:question_groups) do
     [

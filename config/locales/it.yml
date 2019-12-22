@@ -16,3 +16,10 @@ it:
       create:
         successful: "Grazie mille per la vostra partecipazione al sondaggio!"
         failure: "Purtroppo non abbiamo potuto salvare la vostra risposta"
+  activerecord:
+    errors:
+      models:
+        survey_entry:
+          attributes:
+            answers:
+              not_all_answered: "non tutte le domande hanno avuto risposta"
