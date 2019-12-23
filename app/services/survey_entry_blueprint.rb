@@ -14,10 +14,8 @@ class SurveyEntryBlueprint
   private
 
   def build_answers(entry)
-    @survey.question_groups.includes(:questions).map do |question_group|
-      question_group.questions.map do |question|
-        entry.answers.build(question: question)
-      end
+    @survey.question_groups.includes(:questions).each do |question_group|
+      question_group.questions.each { |question| entry.answers.build(question: question) }
     end
   end
 end
