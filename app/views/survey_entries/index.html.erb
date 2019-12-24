@@ -1,3 +1,24 @@
+<h1 class="text-center mb-md-5"><%= @survey_entry.survey.title %></h1>
+
 <%= simple_form_for @survey_entry do |f| %>
-  <%= f.button :submit %>
+  <% @grouped_answers.each do |question_group, answers| %>
+    <div class="card card-body mt-4">
+      <h2 class="card-title"><%= question_group.description %></h2>
+
+      <% answers.each do |answer| %>
+        <%= f.simple_fields_for :answers, answer do |answer_field| %>
+          <div class="question-container">
+            <%= answer_field.input :question_id, as: :hidden, input_html: { value: answer.question.id } %>
+            <%= answer_field.association :answer_possibility,
+                                         collection: answer.question.answer_possibilities,
+                                         as: :radio_buttons,
+                                         label: answer.question.description,
+                                         label_method: :description,
+                                         wrapper: :survey_vertical_collection %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <%= f.button :submit, class: 'mt-4' %>
 <% end %>

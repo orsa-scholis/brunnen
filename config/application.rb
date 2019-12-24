@@ -27,6 +27,7 @@ module Evaweb
 
     config.generators.system_tests = nil
 
+    config.time_zone = 'Zurich'
     config.i18n.default_locale = :de
     config.i18n.available_locales = %i[fr de it]
   end

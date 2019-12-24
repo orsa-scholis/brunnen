@@ -2,8 +2,7 @@
 
 FactoryBot.define do
   factory :question do
-    question_group
-    association :answer_possibilities, factory: :answer_possibility
+    answer_possibilities { build_pair :answer_possibility }
     description { 'My description' }
   end
 end

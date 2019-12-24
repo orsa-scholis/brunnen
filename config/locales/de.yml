@@ -57,6 +57,15 @@ de:
           one: Fragengruppe
           other: Fragengruppen
         description: Beschreibung
+      survey_entry:
+        answers: Antworten
+        survey: Umfrage
+    errors:
+      models:
+        survey_entry:
+          attributes:
+            answers:
+              not_all_answered: "es wurden nicht alle Fragen beanrwortet"
   root:
     active_surveys: "Aktuell aktive Umfragen"
     all_surveys: Alle Umfragen
@@ -70,3 +79,8 @@ de:
       <span class="text-muted ml-1">
         Eingeloggt als Administrator
       </span>
+  flashes:
+    survey:
+      create:
+        successful: "Vielen Dank für das Mitmachen bei der Umfrage!"
+        failure: "Wir konnten Ihre Antwort leider nicht abspeichern"

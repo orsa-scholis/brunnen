@@ -10,14 +10,12 @@ RSpec.describe Survey, type: :model do
   it { is_expected.to validate_presence_of :title }
 
   describe '#active_to' do
-    subject do
-      described_class.new(active_from: active_from,
-                          active_to: active_to)
-                     .tap(&:validate).errors.added?(:active_to, :after, restriction: '2019-12-16 10:00:00')
-    end
+    subject { survey.tap(&:validate).errors.added?(:active_to, :after, restriction: active_from) }
 
-    let(:active_from) { DateTime.parse '16.12.2019 10:00:00' }
-    let(:active_to) { DateTime.parse '16.12.2019 18:00:00' }
+    let(:survey) { build(:survey, active_from: active_from, active_to: active_to) }
+
+    let(:active_from) { '2019-12-16 10:00:00' }
+    let(:active_to) { '2019-12-16 18:00:00' }
 
     context 'when active_to is after active_from' do
       it { is_expected.to be false }
@@ -30,7 +28,7 @@ RSpec.describe Survey, type: :model do
     end
 
     context 'when active_to is before active_from' do
-      let(:active_to) { DateTime.parse '16.12.2019 08:00:00' }
+      let(:active_to) { '2019-12-16 08:00:00' }
 
       it { is_expected.to be true }
     end

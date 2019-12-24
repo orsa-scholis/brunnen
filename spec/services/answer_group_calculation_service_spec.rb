@@ -39,33 +39,23 @@ RSpec.describe AnswerGroupCalculationService, type: :service do
   end
 
   context 'when there is one question group with multiple answers' do
-    let!(:question_group) { create :question_group, survey: survey, questions: [] }
-    let(:answer_possibility_3) { build :answer_possibility, value: 3 }
-    let(:answer_possibility_2) { build :answer_possibility, value: 2 }
-    let(:answer_possibility_1) { build :answer_possibility, value: 1 }
+    let(:question_group) { create :question_group, survey: survey, questions: [] }
+    let(:answer_possibilities) { (1..3).reverse_each.map { |value| build(:answer_possibility, value: value) } }
     let!(:question) do
-      create :question, question_group: question_group,
-                        answer_possibilities: [
-                          answer_possibility_1,
-                          answer_possibility_2,
-                          answer_possibility_3
-                        ]
+      create :question, question_group: question_group, answer_possibilities: answer_possibilities
     end
-    let!(:answer_1) do
-      build :answer, question: question, answer_possibility: answer_possibility_1
-    end
-    let!(:answer_2) do
-      build :answer, question: question, answer_possibility: answer_possibility_2
-    end
-    let!(:answer_3) do
-      build :answer, question: question, answer_possibility: answer_possibility_3
+
+    let(:answers) do
+      answer_possibilities.map { |possibility| build :answer, question: question, answer_possibility: possibility }
     end
 
     before do
-      create :survey_entry, survey: survey, answers: [answer_1, answer_2, answer_3]
+      answers.each do |answer|
+        create :survey_entry, survey: survey, answers: [answer]
+      end
     end
 
-    it 'return empty service statistics averages' do
+    it 'returns service statistics averages' do
       expect(service_statistics.averages).to eq(question_group => 2.0)
     end
 
@@ -75,50 +65,43 @@ RSpec.describe AnswerGroupCalculationService, type: :service do
   end
 
   context 'when there is multiple question groups with multiple answers' do
-    let!(:question_group_1) { create :question_group, survey: survey, questions: [] }
-    let!(:question_group_2) { create :question_group, survey: survey, questions: [] }
+    let!(:questions) { question_groups.map { |group| group.questions.first } }
+    let(:question_groups) do
+      answer_possibilities.map do |possibility|
+        create(:question_group,
+               survey: survey,
+               questions: [build(:question, answer_possibilities: possibility)])
+      end
+    end
 
-    # QUESTION GROUP 1
-    let(:answer_possibilities_1) do
+    let(:answer_possibilities) do
       [
-        build(:answer_possibility, value: 3), build(:answer_possibility, value: 2), build(:answer_possibility, value: 1)
+        (1..3).reverse_each.map { |value| build(:answer_possibility, value: value) },
+        (0..2).reverse_each.map { |value| build(:answer_possibility, value: value) }
       ]
     end
-    let!(:question_1) do
-      create :question, question_group: question_group_1, answer_possibilities: answer_possibilities_1
-    end
-    let!(:answers_1) do
-      [
-        build(:answer, question: question_1, answer_possibility: answer_possibilities_1.first),
-        build(:answer, question: question_1, answer_possibility: answer_possibilities_1.second),
-        build(:answer, question: question_1, answer_possibility: answer_possibilities_1.third)
-      ]
-    end
-    # END QUESTION GROUP 1
 
-    # QUESTION GROUP 2
-    let(:answer_possibilities_2) do
-      [
-        build(:answer_possibility, value: 2), build(:answer_possibility, value: 1), build(:answer_possibility, value: 0)
-      ]
+    let(:answers_1) do
+      answer_possibilities.first.map do |possibility|
+        build(:answer, question: questions.first, answer_possibility: possibility)
+      end
     end
-    let!(:question_2) do
-      create :question, question_group: question_group_2, answer_possibilities: answer_possibilities_2
+
+    let(:answers_2) do
+      answer_possibilities.second.map do |possibility|
+        build(:answer, question: questions.second, answer_possibility: possibility)
+      end
     end
-    let!(:answers_2) do
-      [
-        build(:answer, question: question_2, answer_possibility: answer_possibilities_2.first),
-        build(:answer, question: question_2, answer_possibility: answer_possibilities_2.second),
-        build(:answer, question: question_2, answer_possibility: answer_possibilities_2.third)
-      ]
+
+    let(:expected_hash) { { question_groups.first => 2.0, question_groups.second => 1.0 } }
+
+    before do
+      answers_1.zip(answers_2).each do |answer_pair|
+        create :survey_entry, survey: survey, answers: answer_pair
+      end
     end
-    # END QUESTION GROUP 2
 
-    let(:expected_hash) { { question_group_1 => 2.0, question_group_2 => 1.0 } }
-
-    before { create :survey_entry, survey: survey, answers: answers_1 + answers_2 }
-
-    it 'return empty service statistics averages' do
+    it 'returns correct service statistics averages' do
       expect(service_statistics.averages).to eq(expected_hash)
     end
 
