@@ -25,6 +25,9 @@ de:
         active_to: Aktiv bis
   activerecord:
     models:
+      administrator:
+        one: Administrator
+        other: Administratoren
       survey_entry:
         one: Umfrageneingabe
         other: Umfrageneingaben
@@ -44,6 +47,10 @@ de:
         one: Frage
         other: Fragen
     attributes:
+      administrator:
+        email: E-Mail
+        password: Passwort
+        password_confirmation: Passwort-Wiederholung
       survey:
         title_de: Deutscher Titel
         title_fr: Französischer Titel
