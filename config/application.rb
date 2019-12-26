@@ -30,5 +30,6 @@ module Evaweb
     config.time_zone = 'Zurich'
     config.i18n.default_locale = :de
     config.i18n.available_locales = %i[fr de it]
+    config.action_mailer.default_url_options = { host: ENV['APP_HOST'], port: ENV['APP_PORT'] }
   end
 end
