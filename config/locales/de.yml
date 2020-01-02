@@ -95,3 +95,5 @@ de:
     surveys:
       show:
         export: "Excel exportieren"
+        flashes:
+          preparing_export: "Dein Export wird erstellt und an <b>%{email}</b> verschickt."

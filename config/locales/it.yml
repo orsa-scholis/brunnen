@@ -27,3 +27,5 @@ it:
     surveys:
       show:
         export: "Export Excel"
+        flashes:
+          preparing_export: "Preparing your export. It will be sent to %{email}"
