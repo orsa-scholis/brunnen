@@ -30,7 +30,9 @@ as well as a link to its edit page.
           class: 'button',
         ) if valid_action?(:edit) && show_action?(:edit, page.resource) %>
 
-    <%= link_to('Exportieren', '#', class: 'button') %>
+    <%= link_to('#', class: 'button') do %>
+      <i class="fas fa-file-excel mr-1"></i> <%= t('administrate.surveys.show.export') %>
+    <% end %>
   </div>
 </header>
 

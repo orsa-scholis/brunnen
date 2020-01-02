@@ -23,3 +23,7 @@ it:
           attributes:
             answers:
               not_all_answered: "non tutte le domande hanno avuto risposta"
+  administrate:
+    surveys:
+      show:
+        export: "Export Excel"

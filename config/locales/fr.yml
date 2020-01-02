@@ -24,3 +24,7 @@ fr:
           attributes:
             answers:
               not_all_answered: "on n'a pas répondu à toutes les questions"
+  administrate:
+    surveys:
+      show:
+        export: "Export Excel"
