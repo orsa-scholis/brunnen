@@ -97,3 +97,17 @@ de:
         export: "Excel exportieren"
         flashes:
           preparing_export: "Dein Export wird erstellt und an <b>%{email}</b> verschickt."
+      export:
+        excel:
+          worksheets:
+            analysis: "Auswertung"
+            raw_data: "Rohdaten"
+          columns:
+            headers:
+              analysis:
+                - Frage
+                - Antworten
+              raw_data:
+                - Bewertung
+                - Beschreibung
+                - Zeit

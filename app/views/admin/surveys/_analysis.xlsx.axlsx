@@ -1,0 +1,40 @@
+# frozen_string_literal: true
+
+def start_at(index)
+  [SurveyExportHelper::CHART_COLUMN_START, (index * SurveyExportHelper::CHART_HEIGHT)]
+end
+
+def end_at(index)
+  [SurveyExportHelper::CHART_COLUMN_END, SurveyExportHelper::CHART_HEIGHT + (index * SurveyExportHelper::CHART_HEIGHT)]
+end
+
+def data_range_at_index(sheet, index, row_length)
+  column_end_letter = ('A'..'Z').to_a[row_length]
+  sheet["B#{index}:#{column_end_letter}#{index}"]
+end
+
+def add_chart(index, question, sheet)
+  answer_possibility_count = question.answer_possibilities.count
+
+  sheet.add_chart(Axlsx::BarChart,
+                  start_at: start_at(index),
+                  end_at: end_at(index),
+                  title: question.description) do |chart|
+    data_range = data_range_at_index(sheet, 3 + (index * 2), answer_possibility_count)
+    label_range = data_range_at_index(sheet, 2 + (index * 2), answer_possibility_count)
+
+    chart.add_series data: data_range, labels: label_range
+  end
+end
+
+wb.add_worksheet(name: I18n.t('administrate.surveys.export.excel.worksheets.analysis')) do |sheet|
+  sheet.add_row I18n.t('administrate.surveys.export.excel.columns.headers.analysis'), sz: 20
+  sheet.merge_cells 'B1:F1'
+
+  @survey.questions.each.with_index do |question, index|
+    sheet.add_row([question.description, question.answer_possibilities.map(&:description)].flatten)
+    sheet.add_row(['', question.answer_possibility_counts].flatten)
+
+    add_chart(index, question, sheet)
+  end
+end

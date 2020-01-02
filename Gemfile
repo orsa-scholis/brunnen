@@ -7,6 +7,7 @@ ruby '2.6.3'
 
 gem 'administrate'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'caxlsx_rails'
 gem 'devise'
 gem 'figaro'
 gem 'globalize'

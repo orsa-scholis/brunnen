@@ -1,0 +1,16 @@
+# frozen_string_literal: true
+
+wb.add_worksheet(name: I18n.t('administrate.surveys.export.excel.worksheets.raw_data')) do |sheet|
+  sheet.add_row I18n.t('administrate.surveys.export.excel.columns.headers.raw_data'), sz: 20
+
+  @survey.questions.each do |question|
+    sheet.add_row [question.description]
+    question.answers.each do |answer|
+      sheet.add_row [
+        answer.answer_possibility.value,
+        answer.answer_possibility.description,
+        I18n.l(answer.created_at, format: :short)
+      ]
+    end
+  end
+end

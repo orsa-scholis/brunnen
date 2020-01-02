@@ -11,4 +11,10 @@ class Question < ApplicationRecord
 
   translates :description
   globalize_accessors
+
+  def answer_possibility_counts
+    answer_possibilities.map do |answer_possibility|
+      answers.where(answer_possibility_id: answer_possibility.id).count
+    end
+  end
 end
