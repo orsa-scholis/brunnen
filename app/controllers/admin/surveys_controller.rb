@@ -3,13 +3,9 @@
 module Admin
   class SurveysController < Admin::ApplicationController
     def export
-      email = current_administrator.email
+      @survey = Survey.includes(questions: [:answers]).find(requested_resource.id)
 
-      flash[:notice] = I18n.t('administrate.surveys.show.flashes.preparing_export', email: email)
-
-      SurveyExportJob.perform_later(email, requested_resource.id)
-
-      render 'admin/surveys/show', locals: export_locals
+      render xlsx: 'admin/surveys/export.xlsx'
     end
 
     private
