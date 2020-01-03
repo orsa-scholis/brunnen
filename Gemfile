@@ -51,6 +51,7 @@ end
 group :test do
   gem 'capybara'
   gem 'faker'
+  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
