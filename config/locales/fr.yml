@@ -24,3 +24,21 @@ fr:
           attributes:
             answers:
               not_all_answered: "on n'a pas répondu à toutes les questions"
+  administrate:
+    surveys:
+      show:
+        export: "Export Excel"
+      export:
+        excel:
+          worksheets:
+            analysis: "Auswertung"
+            raw_data: "Raw data"
+          columns:
+            headers:
+              analysis:
+                - Frage
+                - Antworten
+              raw_data:
+                - Bewertung
+                - Beschreibung
+                - Zeit

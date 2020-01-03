@@ -91,3 +91,21 @@ de:
       create:
         successful: "Vielen Dank für das Mitmachen bei der Umfrage!"
         failure: "Wir konnten Ihre Antwort leider nicht abspeichern"
+  administrate:
+    surveys:
+      show:
+        export: "Excel exportieren"
+      export:
+        excel:
+          worksheets:
+            analysis: "Auswertung"
+            raw_data: "Rohdaten"
+          columns:
+            headers:
+              analysis:
+                - Frage
+                - Antworten
+              raw_data:
+                - Bewertung
+                - Beschreibung
+                - Zeit

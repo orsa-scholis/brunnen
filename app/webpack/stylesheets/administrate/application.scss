@@ -26,6 +26,8 @@
 
 @import "./utilities/text-color";
 
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+
 //@import "trix/dist/trix";
 
 // We need to override trix.css’s image gallery styles to accommodate the
@@ -62,6 +64,10 @@
   .field-unit__field {
     width: 80%;
   }
+}
+
+.mr-1 {
+  padding-right: 0.5em;
 }
 
 @import "~flatpickr/dist/flatpickr.min";

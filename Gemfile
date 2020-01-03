@@ -7,6 +7,7 @@ ruby '2.6.3'
 
 gem 'administrate'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'caxlsx_rails'
 gem 'devise'
 gem 'figaro'
 gem 'globalize'
@@ -50,6 +51,7 @@ end
 group :test do
   gem 'capybara'
   gem 'faker'
+  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
