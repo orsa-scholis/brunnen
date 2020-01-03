@@ -5,7 +5,7 @@ module Admin
     def export
       @survey = Survey.includes(questions: [:answers]).find(requested_resource.id)
 
-      render xlsx: 'admin/surveys/export.xlsx'
+      render xlsx: 'admin/surveys/export.xlsx', filename: 'export.xlsx'
     end
 
     private
