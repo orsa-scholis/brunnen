@@ -31,7 +31,7 @@ wb.add_worksheet(name: I18n.t('administrate.surveys.export.excel.worksheets.anal
   sheet.add_row I18n.t('administrate.surveys.export.excel.columns.headers.analysis'), sz: 20
   sheet.merge_cells 'B1:F1'
 
-  @survey.questions.each.with_index do |question, index|
+  survey.questions.each.with_index do |question, index|
     sheet.add_row([question.description, question.answer_possibilities.map(&:description)].flatten)
     sheet.add_row(['', question.answer_possibility_counts].flatten)
 

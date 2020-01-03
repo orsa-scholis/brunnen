@@ -7,11 +7,5 @@ module Admin
 
       render xlsx: 'admin/surveys/export.xlsx', filename: 'export.xlsx'
     end
-
-    private
-
-    def export_locals
-      { page: Administrate::Page::Show.new(dashboard, requested_resource) }
-    end
   end
 end
