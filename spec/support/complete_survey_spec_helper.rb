@@ -36,25 +36,28 @@ RSpec.shared_context 'with completely filled out survey' do
   end
 
   before do
-    3.times do
+    5.times do |i|
       survey_entry = create :survey_entry, survey: survey
+
+      first_index = i % first_scale.length
+      second_index = i % second_scale.length
 
       create(:answer,
              survey_entry: survey_entry,
-             answer_possibility: first_scale.sample,
+             answer_possibility: first_scale[first_index],
              question: first_questions.first)
       create(:answer,
              survey_entry: survey_entry,
-             answer_possibility: first_scale.sample,
+             answer_possibility: first_scale[first_index],
              question: first_questions.second)
 
       create(:answer,
              survey_entry: survey_entry,
-             answer_possibility: second_scale.sample,
+             answer_possibility: second_scale[second_index],
              question: second_questions.first)
       create(:answer,
              survey_entry: survey_entry,
-             answer_possibility: second_scale.sample,
+             answer_possibility: second_scale[second_index],
              question: second_questions.second)
     end
   end
