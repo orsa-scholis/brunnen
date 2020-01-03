@@ -17,4 +17,12 @@ class Question < ApplicationRecord
       answers.where(answer_possibility_id: answer_possibility.id).count
     end
   end
+
+  # def answer_possibilities_min_value
+  #  answer_possibilities.min(&:value).value
+  # end
+  #
+  # def answer_possibilities_max_value
+  #  answer_possibilities.max(&:value).value
+  # end
 end
