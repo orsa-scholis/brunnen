@@ -9,9 +9,6 @@ class SurveyStatistics
   validates :survey, :averages, presence: true
 
   def export
-    pp min_possible_value
-    pp max_possible_value
-
     {
       survey: survey.slice(:title, :id),
       averages: {
