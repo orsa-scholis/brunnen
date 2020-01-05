@@ -17,7 +17,11 @@ class SurveyStatistics
         min: min_possible_value,
         max: max_possible_value
       }
-    }.to_json
+    }
+  end
+
+  def to_json(*_args)
+    export.to_json
   end
 
   private
