@@ -4,8 +4,9 @@
   </h1>
 
   <script>
-    let Evaweb = {};
-    Evaweb.data = <%= raw @survey_statistics.export %>;
+    var Evaweb = {
+      data: <%= raw @survey_statistics.export %>
+    };
   </script>
   <div id="chart"></div>
 </div>

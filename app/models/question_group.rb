@@ -10,15 +10,17 @@ class QuestionGroup < ApplicationRecord
   translates :description
   globalize_accessors
 
-  # def questions_min_value
-  #  questions.min do |question_a, question_b|
-  #    question_a.answer_possibilities_min_value <=> question_b.answer_possibilities_min_value
-  #  end
-  # end
-  #
-  # def questions_max_value
-  #  questions.max(:answer_possibilities_max_value).answer_possibilities_max_value
-  # end
+  def questions_min_possible_value
+    questions.map do |question|
+      question.answer_possibilities.minimum(:value)
+    end.min
+  end
+
+  def questions_max_possible_value
+    questions.map do |question|
+      question.answer_possibilities.maximum(:value)
+    end.max
+  end
   #
   # def questions_descriptions; end
 end

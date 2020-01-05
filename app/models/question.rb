@@ -18,11 +18,11 @@ class Question < ApplicationRecord
     end
   end
 
-  # def answer_possibilities_min_value
-  #  answer_possibilities.min(&:value).value
-  # end
-  #
-  # def answer_possibilities_max_value
-  #  answer_possibilities.max(&:value).value
-  # end
+  def answer_possibilities_min_value
+    answer_possibilities.minimum(:value).value
+  end
+
+  def answer_possibilities_max_value
+    answer_possibilities.maximum(:value)
+  end
 end

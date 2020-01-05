@@ -35,19 +35,19 @@ const _options = {
 
 export const chart = {
   render(data) {
-    const { group_labels, values, min, max } = data.averages;
+    const { group_labels, group_values, min, max } = data.averages;
 
     let options = _options;
     options.series = [{
       name: '∅',
-      data: values
+      data: group_values
     }];
     options.xaxis.categories = group_labels;
     options.yaxis.min = min;
     options.yaxis.max = max;
-    options.yaxis.formatter = (value) => {
-
-    };
+    // options.yaxis.formatter = (value) => {
+    //
+    // };
 
     if (_chart == null) {
       _chart = new ApexCharts(document.querySelector("#chart"), options);

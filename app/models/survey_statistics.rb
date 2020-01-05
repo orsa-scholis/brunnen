@@ -9,18 +9,27 @@ class SurveyStatistics
   validates :survey, :averages, presence: true
 
   def export
-    pp averages.values
-    # pp averages.keys.min(&:questions_min_value)
-    # pp averages.keys.max(&:questions_max_value)
+    pp min_possible_value
+    pp max_possible_value
 
     {
       survey: survey.slice(:title, :id),
       averages: {
         group_labels: averages.keys.map(&:description),
         group_values: averages.values,
-        min: 0, # averages.keys.min(&:questions_min_value).questions_min_value,
-        max: 4 # averages.keys.max(&:questions_max_value).questions_max_value
+        min: min_possible_value,
+        max: max_possible_value
       }
     }.to_json
+  end
+
+  private
+
+  def max_possible_value
+    averages.keys.map(&:questions_max_possible_value).max
+  end
+
+  def min_possible_value
+    averages.keys.map(&:questions_min_possible_value).min
   end
 end
