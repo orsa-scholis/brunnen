@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
+require 'concerns/submission_trackable'
+
 class SurveyEntriesController < ApplicationController
   before_action :load_survey
+  include Concerns::SubmissionTrackable
 
   def index
     @survey_entry = SurveyEntryBlueprint.new(@survey).survey_entry
@@ -11,6 +14,7 @@ class SurveyEntriesController < ApplicationController
   def create
     @survey_entry = @survey.survey_entries.build survey_entry_params
     if @survey_entry.save
+      track_survey_submission @survey_entry
       redirect_to root_path, notice: I18n.t('flashes.survey.create.successful', resource: @survey_entry)
     else
       set_grouped_answers
