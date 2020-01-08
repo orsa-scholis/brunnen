@@ -9,50 +9,49 @@ RSpec.describe SurveyStatistics, type: :model do
   describe '#export' do
     include_context 'with completely filled out survey'
 
-    let(:survey_statistics) { AnswerGroupCalculationService.new(Survey.first).calculate }
+    let(:survey_statistics) { AnswerGroupCalculationService.new(survey).calculate }
     let(:expected_hash) do
       {
-        survey: Survey.first.slice(:title, :id),
+        survey: survey.slice(:title, :id),
         averages: {
           group_labels: [
-            'My awesome group'
+            nil, nil
           ],
           group_values: [
-            4.0
+            3.0,
+            0.0
           ],
           min: 0,
-          max: 4
+          max: 3
         }
       }
     end
 
     it 'exports expected values' do
-      expect(AnswerGroupCalculationService.new(Survey.first).calculate.export).to eq expected_hash
+      expect(AnswerGroupCalculationService.new(survey).calculate.export).to eq expected_hash
     end
   end
 
   describe '#to_json' do
     include_context 'with completely filled out survey'
 
-    let(:survey_statistics) { AnswerGroupCalculationService.new(Survey.first).calculate }
+    let(:survey_statistics) { AnswerGroupCalculationService.new(survey).calculate }
     let(:expected_json) do
       {
-        survey: Survey.first.slice(:title, :id),
+        survey: survey.slice(:title, :id),
         averages: {
           group_labels: [
-            'My awesome group'
+            nil, nil
           ],
-          group_values: [
-            '4.0'
-          ],
+          group_values: %w[3.0 0.0],
           min: 0,
-          max: 4
+          max: 3
         }
       }.to_json
     end
 
     it 'exports expected values' do
-      expect(AnswerGroupCalculationService.new(Survey.first).calculate.to_json).to eq expected_json
+      expect(AnswerGroupCalculationService.new(survey).calculate.to_json).to eq expected_json
     end
   end
 end
