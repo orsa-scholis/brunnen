@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe BroadcastSurveyStatsJob, type: :job do
   let(:survey) { build :survey }
-  let(:survey_statistics) { AnswerGroupCalculationService.new(survey).calculate.export }
+  let(:survey_statistics) { AnswerGroupCalculationService.new(survey).calculate.to_json }
 
   describe '#perform' do
     subject(:perform) { described_class.new.perform(survey) }

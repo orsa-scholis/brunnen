@@ -2,7 +2,7 @@
 
 class AnswerGroupCalculationService
   INNER_QUERY = <<~SQL
-    (select round(avg(answer_possibilities.value), 2)
+    (select avg(answer_possibilities.value)
         from question_groups qg
         join questions on qg.id = questions.question_group_id
         join answers on questions.id = answers.question_id
