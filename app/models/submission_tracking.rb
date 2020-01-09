@@ -13,8 +13,8 @@ class SubmissionTracking
     @survey_entries = survey_entries || []
   end
 
-  def submitted?(survey_entry)
-    survey_entry.in? survey_entries
+  def submitted?(survey)
+    survey_entries.one? { |entry| entry.survey == survey }
   end
 
   def save(cookies)

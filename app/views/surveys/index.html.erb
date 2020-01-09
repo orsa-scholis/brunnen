@@ -1,6 +1,6 @@
 <h2><%= administrator_signed_in? ? t('root.all_surveys') : t('root.active_surveys') %></h2>
 <div class="list-group">
   <% @surveys.each do |survey| %>
-    <%= link_to "#{survey.title}", survey_entries_path(survey), class: link_classes(survey) %>
+    <%= survey_list_link(survey, @submission_tracking) %>
   <% end %>
 </div>

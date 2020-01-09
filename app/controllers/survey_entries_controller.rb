@@ -4,7 +4,7 @@ require 'concerns/submission_trackable'
 
 class SurveyEntriesController < ApplicationController
   before_action :load_survey
-  include Concerns::SubmissionTrackable
+  include SubmissionTrackable
 
   def index
     @survey_entry = SurveyEntryBlueprint.new(@survey).survey_entry
