@@ -1,9 +1,11 @@
 import consumer from "./consumer"
+import { chart } from "../chart";
 
 consumer.subscriptions.create({ channel: "SurveyResultChannel", survey_id: EvawebDashboard.surveyId }, {
   connected() {
     // Called when the subscription is ready for use on the server
     console.log('connected');
+
   },
 
   disconnected() {
@@ -11,8 +13,8 @@ consumer.subscriptions.create({ channel: "SurveyResultChannel", survey_id: Evawe
   },
 
   received(data) {
-    console.log('received data');
-    console.dir(data);
-    document.write(data.message);
+    const parsedData = JSON.parse(data);
+    console.log(parsedData);
+    chart.render(parsedData);
   }
 });

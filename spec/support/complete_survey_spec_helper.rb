@@ -22,7 +22,7 @@ RSpec.shared_context 'with completely filled out survey' do
   let(:survey) { create :survey }
 
   let(:first_scale) { create_list(:answer_possibility, 4) }
-  let(:second_scale) { create_list(:answer_possibility, 2) }
+  let(:second_scale) { create_list(:answer_possibility, 2, value: 0) }
 
   let(:first_questions) { build_pair(:question, answer_possibilities: first_scale) }
   let(:second_questions) { build_pair(:question, answer_possibilities: second_scale) }

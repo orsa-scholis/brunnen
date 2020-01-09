@@ -3,13 +3,13 @@
 survey = Survey.create!(title: 'My cool survey', active_to: 1.week.since, active_from: 1.day.ago)
 group = QuestionGroup.create!(description: 'My awesome group', survey: survey)
 
-unangenehm = AnswerPossibility.create!(value: -2, description: 'Sehr unangenehm')
-mittel = AnswerPossibility.create!(value: -1, description: 'Naja')
-neutral = AnswerPossibility.create!(value: 0, description: 'Ischt ok')
-einigermassen_gut = AnswerPossibility.create!(value: 1, description: 'Einigermassen angenehm')
-total_geil = AnswerPossibility.create!(value: 2, description: 'Ultra geil 😍')
-yes = AnswerPossibility.create!(value: 1, description: 'Ja.')
-no = AnswerPossibility.create!(value: -1, description: 'Nein?')
+unangenehm = AnswerPossibility.create!(value: 0, description: 'Sehr unangenehm')
+mittel = AnswerPossibility.create!(value: 1, description: 'Naja')
+neutral = AnswerPossibility.create!(value: 2, description: 'Ischt ok')
+einigermassen_gut = AnswerPossibility.create!(value: 3, description: 'Einigermassen angenehm')
+total_geil = AnswerPossibility.create!(value: 4, description: 'Ultra geil 😍')
+yes = AnswerPossibility.create!(value: 4, description: 'Ja.')
+no = AnswerPossibility.create!(value: 0, description: 'Nein?')
 
 Question.create!(
   description: 'Empfindest du das Plätschern des Brunnens als angenehm?',

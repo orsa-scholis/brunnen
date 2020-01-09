@@ -34,30 +34,6 @@ RSpec.describe Survey, type: :model do
     end
   end
 
-  describe '#active' do
-    context 'when there is an active Survey' do
-      before do
-        create :survey, :inactive
-      end
-
-      let!(:active_survey) { create :survey }
-
-      it 'returns the active one' do
-        expect(described_class.active).to eq [active_survey]
-      end
-    end
-
-    context 'when there is no active Survey' do
-      before do
-        create :survey, :inactive
-      end
-
-      it 'returns the active one' do
-        expect(described_class.active).to be_empty
-      end
-    end
-  end
-
   describe '#descending' do
     let!(:survey1) { create :survey }
     let!(:survey2) { create :survey, active_to: 3.hours.ago }
