@@ -1,12 +1,26 @@
-<div class="container mt-5">
-  <h1 class="text-center mb-md-5">
-    <%= @survey.title %>
-  </h1>
+<div class="container-fluid mt-5">
+  <div class="row">
+    <h1 class="col-12 text-center mb-md-5">
+      <%= @survey.title %>
+    </h1>
+  </div>
+
+  <div class="row">
+    <div id="url_infos" class="text-center col-<%= @survey_statistics.results? ? 4 : 12 %>">
+      <div id="short_url">
+        <h4><%= @short_url %></h4>
+      </div>
+      <div id="qr">
+        <%= raw @qr_code.to_svg %>
+      </div>
+    </div>
+
+    <div id="chart" class="col-<%= @survey_statistics.results? ? 8 : 12 %>"></div>
+  </div>
 
   <script>
     var Evaweb = {
       data: <%= raw @survey_statistics.to_json %>
     };
   </script>
-  <div id="chart"></div>
 </div>

@@ -8,6 +8,10 @@ class SurveyStatistics
 
   validates :survey, :averages, presence: true
 
+  def results?
+    averages.values.any? { |average| average }
+  end
+
   def export
     {
       survey: survey.slice(:title, :id),
