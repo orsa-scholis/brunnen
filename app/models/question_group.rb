@@ -21,6 +21,4 @@ class QuestionGroup < ApplicationRecord
       question.answer_possibilities.maximum(:value)
     end.max
   end
-  #
-  # def questions_descriptions; end
 end

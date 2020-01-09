@@ -20,8 +20,8 @@ class SurveyStatistics
     }
   end
 
-  def to_json(*_args)
-    export.to_json
+  def to_json(*args)
+    export.to_json(*args)
   end
 
   private

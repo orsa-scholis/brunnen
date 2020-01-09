@@ -40,14 +40,11 @@ export const chart = {
     let options = _options;
     options.series = [{
       name: '∅',
-      data: group_values
+      data: group_values.map((group_value) => parseFloat(group_value).toFixed(2))
     }];
     options.xaxis.categories = group_labels;
     options.yaxis.min = min;
     options.yaxis.max = max;
-    // options.yaxis.formatter = (value) => {
-    //
-    // };
 
     if (_chart == null) {
       _chart = new ApexCharts(document.querySelector("#chart"), options);
