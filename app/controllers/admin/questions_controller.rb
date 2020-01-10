@@ -38,9 +38,8 @@ module Admin
     private
 
     def load_answer_possibility_groups
-      @answer_possibility_groups = AnswerPossibilityGroup.includes(answer_possibilities: [:id])
-                                                         .map do |answer_possibility_group|
-        { id: answer_possibility_group.id, ids: answer_possibility_group.answer_possibility_ids }
+      @answer_possibility_groups = AnswerPossibilityGroup.all.map do |answer_possibility_group|
+        { description: answer_possibility_group.description, ids: answer_possibility_group.answer_possibility_ids }
       end
     end
   end

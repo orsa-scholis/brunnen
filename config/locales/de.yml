@@ -139,7 +139,7 @@ de:
     label:
       answer_possibility_group:
         answer_possibilities: Antwortmöglichkeiten
-        id: ID
+        select_answer_possibility_group: Wähle eine vordefinierte Gruppe aus
       question:
         answer_possibilities: Antwortmöglichkeiten
         answers: Antworten

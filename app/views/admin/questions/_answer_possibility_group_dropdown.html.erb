@@ -1,0 +1,15 @@
+<div class="field-unit">
+  <div class="field-unit__label">
+    <label><%= t 'activerecord.models.answer_possibility_group.other' %></label>
+  </div>
+  <div class="field-unit__field">
+    <select id="answer_possibility_groups">
+      <option value="[]">--- <%= t 'helpers.label.answer_possibility_group.select_answer_possibility_group' %> ---</option>
+      <% @answer_possibility_groups.each do |answer_possibility_group| %>
+        <option value="<%= answer_possibility_group[:ids].map(&:to_s).to_json %>">
+          <%= answer_possibility_group[:description] %>
+        </option>
+      <% end -%>
+    </select>
+  </div>
+</div>

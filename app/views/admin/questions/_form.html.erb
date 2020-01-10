@@ -14,15 +14,15 @@ and renders all form fields for a resource's editable attributes.
 [1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Form
 %>
 
-<%= form_for([namespace, page.resource], html: { class: "form" }) do |f| %>
+<%= form_for([namespace, page.resource], html: {class: "form"}) do |f| %>
   <% if page.resource.errors.any? %>
     <div id="error_explanation">
       <h2>
         <%= t(
-          "administrate.form.errors",
-          pluralized_errors: pluralize(page.resource.errors.count, t("administrate.form.error")),
-          resource_name: display_resource_name(page.resource_name)
-        ) %>
+              "administrate.form.errors",
+              pluralized_errors: pluralize(page.resource.errors.count, t("administrate.form.error")),
+              resource_name: display_resource_name(page.resource_name)
+            ) %>
       </h2>
 
       <ul>
@@ -33,7 +33,14 @@ and renders all form fields for a resource's editable attributes.
     </div>
   <% end %>
 
-  <% page.attributes.each do |attribute| -%>
+  <% pageAttributes =  page.attributes
+    firstAttribute = pageAttributes.shift %>
+  <div class="field-unit field-unit--<%= firstAttribute.html_class %>">
+    <%= render_field firstAttribute, f: f %>
+  </div>
+  <%= render('answer_possibility_group_dropdown', answer_possibility_groups: @answer_possibility_groups) %>
+
+  <% pageAttributes.each do |attribute| -%>
     <div class="field-unit field-unit--<%= attribute.html_class %>">
       <%= render_field attribute, f: f %>
     </div>
@@ -45,7 +52,19 @@ and renders all form fields for a resource's editable attributes.
 <% end %>
 
 <script>
-  <%= @answer_possibility_groups.to_json %>
-  // console.log($('#question_answer_possibility_ids'));
-  // document.getElementById('question_answer_possibility_ids');
+  document.getElementById('answer_possibility_groups').addEventListener("change", function (element) {
+    var selectedOption = element.target.selectedOptions[0];
+    var selectedIds = JSON.parse(selectedOption.value);
+    console.log(selectedIds);
+
+    var question_answer_possibility_ids = document.getElementById('question_answer_possibility_ids');
+
+    for (var i = 0; i < question_answer_possibility_ids.children.length; i++) {
+      var option = question_answer_possibility_ids.children[i];
+      option.removeAttribute('selected');
+      if (selectedIds.includes(option.value)) {
+        option.setAttribute('selected', 'selected');
+      }
+    }
+  });
 </script>
