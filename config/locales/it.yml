@@ -51,3 +51,5 @@ it:
         already_submitted: "Avete già compilato questo questionario. Grazie!"
       admin_badges:
         submission: "%{count} Antworten"
+  dashboard: "Dashboard"
+  edit: "elaborare"

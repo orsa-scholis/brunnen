@@ -52,3 +52,5 @@ en:
         already_submitted: "You've already submitted this survey. Thanks!"
       admin_badges:
         submission: "%{count} Submissions"
+  dashboard: "Dashboard"
+  edit: "Edit"

@@ -120,3 +120,5 @@ de:
           zero: "Noch keine Einreichungen"
           one: "Eine Einreichung"
           other: "%{count} Einreichungen"
+  dashboard: "Dashboard"
+  edit: "Editieren"

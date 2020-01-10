@@ -52,3 +52,5 @@ fr:
         already_submitted: "Vous avez déjà rempli ce questionnaire. Merci !"
       admin_badges:
         submission: "%{count} Antworten"
+  dashboard: "Dashboard"
+  edit: "éditer"
