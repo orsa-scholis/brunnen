@@ -11,7 +11,6 @@ class QuestionDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     answer_possibilities: Field::HasMany,
-    answers: Field::HasMany,
     question_group: Field::BelongsTo,
     id: Field::Number,
     answer_possibilities_id: Field::Number,
@@ -38,7 +37,6 @@ class QuestionDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     answer_possibilities
-    answers
     question_group
     id
     answer_possibilities_id
@@ -54,7 +52,6 @@ class QuestionDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     answer_possibilities
-    answers
     question_group
     answer_possibilities_id
     description_de
