@@ -9,7 +9,7 @@ class SurveyStatistics
   validates :survey, :averages, presence: true
 
   def results?
-    averages.values.any? { |average| average }
+    averages.values.any?
   end
 
   def export

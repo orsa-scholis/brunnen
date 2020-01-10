@@ -22,7 +22,7 @@ class AnswerGroupCalculationService
 
   def query_for_results
     Survey.select('question_groups.id', INNER_QUERY)
-          .where(Survey.arel_table[:id].eq(@survey.id)).joins(
+          .where(survey_arel_table[:id].eq(@survey.id)).joins(
             join_survey_on_question_group
           )
   end
@@ -36,8 +36,16 @@ class AnswerGroupCalculationService
   end
 
   def join_survey_on_question_group
-    Survey.arel_table.join(QuestionGroup.arel_table).on(
-      Survey.arel_table[:id].eq(QuestionGroup.arel_table[:survey_id])
+    survey_arel_table.join(question_group_arel_table).on(
+      survey_arel_table[:id].eq(question_group_arel_table[:survey_id])
     ).join_sources
+  end
+
+  def question_group_arel_table
+    @question_group_arel_table ||= QuestionGroup.arel_table
+  end
+
+  def survey_arel_table
+    @survey_arel_table ||= Survey.arel_table
   end
 end

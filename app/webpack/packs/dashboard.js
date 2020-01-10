@@ -9,7 +9,5 @@ document.addEventListener("DOMContentLoaded", () => {
       return el !== null;
     })) {
     chart.render(Evaweb.data);
-  } else {
-
   }
 });
