@@ -5,6 +5,7 @@ class AnswerPossibility < ApplicationRecord
   has_many :answers, dependent: :destroy
 
   validates :value, :description_de, presence: true
+  validates :value, numericality: { greater_than_or_equal_to: 0 }
 
   translates :description
   globalize_accessors
