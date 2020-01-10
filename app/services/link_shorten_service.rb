@@ -12,8 +12,6 @@ class LinkShortenService
                                                              'Authorization': 'Bearer ' + ENV['BITLY_ACCESS_TOKEN'] },
                                                   format: :json).parsed_response['link']
 
-    return url if result_link.nil?
-
-    result_link
+    result_link || url
   end
 end

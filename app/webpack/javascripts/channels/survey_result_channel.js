@@ -8,10 +8,12 @@ consumer.subscriptions.create({ channel: "SurveyResultChannel", survey_id: Evawe
   received(data) {
     const chartDiv = document.getElementById("chart");
 
-    if (chartDiv.classList.contains('col-12')) {
+    if (chartDiv.dataset.hasOwnProperty('statsReceived') && chartDiv.dataset.statsReceived === 'false') {
       const urlDiv = document.getElementById("url_infos");
       chartDiv.classList.replace('col-12', 'col-8');
       urlDiv.classList.replace('col-12', 'col-4');
+
+      chartDiv.dataset.statsReceived = 'true';
     }
 
     const parsedData = JSON.parse(data);
