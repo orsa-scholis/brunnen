@@ -1,69 +1,26 @@
+---
 de:
-  time:
-    formats:
-      default: "%d.%m.%y %H:%M"
-  helpers:
-    submit:
-      create: '%{model} erstellen'
-      update: '%{model} aktualisieren'
-    label:
-      question_group:
-        survey: Umfrage
-        questions: Umfragen
-        description: Beschreibung
-      question:
-        question_group: Fragengruppe
-        answers: Antworten
-        answer_possibilities: Antwortmöglichkeiten
-      survey:
-        active?: Aktiv
-        question_groups: Fragengruppen
-        title_de: Deutscher Titel
-        title_fr: Französischer Titel
-        title_it: Italienischer Titel
-        active_from: Aktiv von
-        active_to: Aktiv bis
   activerecord:
-    models:
-      administrator:
-        one: Administrator
-        other: Administratoren
-      survey_entry:
-        one: Umfrageneingabe
-        other: Umfrageneingaben
-      survey:
-        one: Umfrage
-        other: Umfragen
-      answer:
-        one: Antwort
-        other: Antworten
-      answer_possibility:
-        one: Antwortmöglichkeit
-        other: Antwortmöglichkeiten
-      question_group:
-        one: Fragengruppe
-        other: Fragengruppen
-      question:
-        one: Frage
-        other: Fragen
     attributes:
       administrator:
         email: E-Mail
         password: Passwort
         password_confirmation: Passwort-Wiederholung
-      survey:
-        title_de: Deutscher Titel
-        title_fr: Französischer Titel
-        title_it: Italienischer Titel
-        active_from: Aktiv von
-        active_to: Aktiv bis
-      question:
-        answers: Antworten
+      answer_possibility_group:
         answer_possibilities: Antwortmöglichkeiten
+      question:
+        answer_possibilities: Antwortmöglichkeiten
+        answers: Antworten
+        description: Beschreibung
         question_group:
           one: Fragengruppe
           other: Fragengruppen
-        description: Beschreibung
+      survey:
+        active_from: Aktiv von
+        active_to: Aktiv bis
+        title_de: Deutscher Titel
+        title_fr: Französischer Titel
+        title_it: Italienischer Titel
       survey_entry:
         answers: Antworten
         survey: Umfrage
@@ -72,40 +29,142 @@ de:
         survey_entry:
           attributes:
             answers:
-              not_all_answered: "es wurden nicht alle Fragen beanrwortet"
-  root:
-    active_surveys: "Aktuell aktive Umfragen"
-    all_surveys: Alle Umfragen
-  log_out: "Abmelden"
-  home: "Startseite"
-  update: "Aktualisieren"
+              not_all_answered: es wurden nicht alle Fragen beanrwortet
+    models:
+      administrator:
+        one: Administrator
+        other: Administratoren
+      answer:
+        one: Antwort
+        other: Antworten
+      answer_possibility:
+        one: Antwortmöglichkeit
+        other: Antwortmöglichkeiten
+      answer_possibility_group:
+        one: Antwortmöglichkeitgruppe
+        other: Antwortmöglichkeitgruppen
+      question:
+        one: Frage
+        other: Fragen
+      question_group:
+        one: Fragengruppe
+        other: Fragengruppen
+      survey:
+        one: Umfrage
+        other: Umfragen
+      survey_entry:
+        one: Umfrageneingabe
+        other: Umfrageneingaben
   admin_toolbar:
-    admin_dashboard: "Admin Dashboard"
-    title_html: >-
-      <strong>SBV-EvaWeb</strong>
-      <span class="text-muted ml-1">
+    admin_dashboard: Admin Dashboard
+    title_html: |-
+      <strong>SBV-EvaWeb</strong> <span class="text-muted ml-1">
         Eingeloggt als Administrator
       </span>
-  flashes:
-    survey:
-      create:
-        successful: "Vielen Dank für das Mitmachen bei der Umfrage!"
-        failure: "Wir konnten Ihre Antwort leider nicht abspeichern"
   administrate:
+    actions:
+      confirm: Confirm
+      destroy: Destroy
+      edit: Edit
+      edit_resource: Edit resource
+      new_resource: New resource
+      show_resource: Show resource
+    error: Fehler
+    form:
+      error: Error
+      errors: Errors
     surveys:
-      show:
-        export: "Excel exportieren"
       export:
         excel:
-          worksheets:
-            analysis: "Auswertung"
-            raw_data: "Rohdaten"
           columns:
             headers:
               analysis:
-                - Frage
-                - Antworten
+              - Frage
+              - Antworten
               raw_data:
-                - Bewertung
-                - Beschreibung
-                - Zeit
+              - Bewertung
+              - Beschreibung
+              - Zeit
+          worksheets:
+            analysis: Auswertung
+            raw_data: Rohdaten
+      show:
+        export: Excel exportieren
+  devise:
+    confirmations:
+      new:
+        resend_confirmation_instructions: Resend confirmation instructions
+    passwords:
+      edit:
+        change_my_password: Change my password
+        change_your_password: Change your password
+        confirm_new_password: Confirm new password
+        new_password: New password
+      new:
+        forgot_your_password: Forgot your password
+        send_me_reset_password_instructions: Send me reset password instructions
+    registrations:
+      edit:
+        are_you_sure: Are you sure
+        back: Back
+        cancel_my_account: Cancel my account
+        leave_blank_if_you_don_t_want_to_change_it: Leave blank if you don t want to change it
+        title: Title
+        unhappy: Unhappy
+        update: Update
+        we_need_your_current_password_to_confirm_your_changes: We need your current password to confirm your changes
+      new:
+        sign_up: Sign up
+    sessions:
+      new:
+        sign_in: Sign in
+    shared:
+      links:
+        didn_t_receive_confirmation_instructions: Didn t receive confirmation instructions
+        didn_t_receive_unlock_instructions: Didn t receive unlock instructions
+        forgot_your_password: Forgot your password
+        sign_in: Sign in
+        sign_in_with_provider: Sign in with provider
+        sign_up: Sign up
+      minimum_password_length: Minimum password length
+    unlocks:
+      new:
+        resend_unlock_instructions: Resend unlock instructions
+  flashes:
+    survey:
+      create:
+        failure: Wir konnten Ihre Antwort leider nicht abspeichern
+        successful: Vielen Dank für das Mitmachen bei der Umfrage!
+  helpers:
+    label:
+      answer_possibility_group:
+        answer_possibilities: Antwortmöglichkeiten
+        id: ID
+      question:
+        answer_possibilities: Antwortmöglichkeiten
+        answers: Antworten
+        question_group: Fragengruppe
+      question_group:
+        description: Beschreibung
+        questions: Umfragen
+        survey: Umfrage
+      survey:
+        active?: Aktiv
+        active_from: Aktiv von
+        active_to: Aktiv bis
+        question_groups: Fragengruppen
+        title_de: Deutscher Titel
+        title_fr: Französischer Titel
+        title_it: Italienischer Titel
+    submit:
+      create: "%{model} erstellen"
+      update: "%{model} aktualisieren"
+  home: Startseite
+  log_out: Abmelden
+  root:
+    active_surveys: Aktuell aktive Umfragen
+    all_surveys: Alle Umfragen
+  time:
+    formats:
+      default: "%d.%m.%y %H:%M"
+  update: Aktualisieren
