@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_22_234043) do
+ActiveRecord::Schema.define(version: 2020_01_10_133403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +31,19 @@ ActiveRecord::Schema.define(version: 2019_12_22_234043) do
     t.integer "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "answer_possibility_group_id"
+    t.index ["answer_possibility_group_id"], name: "index_answer_possibilities_on_answer_possibility_group_id"
   end
 
   create_table "answer_possibilities_questions", id: false, force: :cascade do |t|
     t.bigint "answer_possibility_id", null: false
     t.bigint "question_id", null: false
+  end
+
+  create_table "answer_possibility_groups", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "answer_possibility_translations", force: :cascade do |t|

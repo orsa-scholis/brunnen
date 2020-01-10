@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :questions
     resources :question_groups
     resources :answer_possibilities
+    resources :answer_possibility_groups
     resources :surveys do
       post 'export', to: 'surveys#export', on: :member
     end
