@@ -1,4 +1,4 @@
-<% @sur_stat_res = @survey_statistics.results? %>
+<% statistics_has_results = @survey_statistics.results? %>
 <div class="container-fluid mt-5">
   <div class="row">
     <h1 class="col-12 text-center mb-md-5">
@@ -7,7 +7,7 @@
   </div>
 
   <div class="row">
-    <div id="url_infos" class="text-center col-<%= @sur_stat_res ? 4 : 12 %>">
+    <div id="url_infos" class="text-center col-<%= statistics_has_results ? 4 : 12 %>">
       <div id="short_url">
         <h4><%= @short_url %></h4>
       </div>
@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div id="chart" class="col-<%= @sur_stat_res ? 8 : 12 %>"  data-stats-received="<%= @sur_stat_res %>"></div>
+    <div id="chart" class="col-<%= statistics_has_results ? 8 : 12 %>"  data-stats-received="<%= statistics_has_results %>"></div>
   </div>
 
   <script>
