@@ -2,19 +2,21 @@ import consumer from "./consumer"
 import { chart } from "../chart";
 
 consumer.subscriptions.create({ channel: "SurveyResultChannel", survey_id: EvawebDashboard.surveyId }, {
-  connected() {
-    // Called when the subscription is ready for use on the server
-    console.log('connected');
-
-  },
-
-  disconnected() {
-    // Called when the subscription has been terminated by the server
-  },
+  connected() {},
+  disconnected() {},
 
   received(data) {
+    const chartDiv = document.getElementById("chart");
+
+    if (chartDiv.dataset.hasOwnProperty('statsReceived') && chartDiv.dataset.statsReceived === 'false') {
+      const urlDiv = document.getElementById("url_infos");
+      chartDiv.classList.replace('col-12', 'col-8');
+      urlDiv.classList.replace('col-12', 'col-4');
+
+      chartDiv.dataset.statsReceived = 'true';
+    }
+
     const parsedData = JSON.parse(data);
-    console.log(parsedData);
     chart.render(parsedData);
   }
 });

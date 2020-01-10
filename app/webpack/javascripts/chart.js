@@ -3,7 +3,10 @@ import ApexCharts from 'apexcharts'
 let _chart = null;
 const _options = {
   chart: {
-    type: 'bar'
+    type: 'bar',
+    toolbar: {
+      show: false
+    }
   },
   xaxis: {
     labels: {
@@ -31,6 +34,7 @@ const _options = {
   legend: {
     show: false
   },
+
 };
 
 export const chart = {
