@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe LinkShortenService, type: :service do
+RSpec.describe UrlShortenService, type: :service do
   let(:long_url) { 'https://theurltoshorten.com' }
   let(:bitly_request) do
     [

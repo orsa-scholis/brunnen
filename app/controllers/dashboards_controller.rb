@@ -21,7 +21,7 @@ class DashboardsController < ApplicationController
   end
 
   def generate_short_url
-    @short_url = LinkShortenService.new.shorten(survey_entries_url(@survey.id))
+    @short_url = UrlShortenService.new.shorten(survey_entries_url(@survey.id))
   end
 
   def generate_qr_code
