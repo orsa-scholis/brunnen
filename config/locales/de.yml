@@ -94,15 +94,13 @@ de:
         export: Excel exportieren
   dashboard: Dashboard
   edit: Editieren
+  'false': Nein
   flashes:
     survey:
       create:
         failure: Wir konnten Ihre Antwort leider nicht abspeichern
         successful: Vielen Dank für das Mitmachen bei der Umfrage!
   helpers:
-    boolean:
-      'false': Nein
-      'true': Ja
     label:
       answer_possibility_group:
         answer_possibilities: Antwortmöglichkeiten
@@ -146,4 +144,5 @@ de:
   time:
     formats:
       default: "%d.%m.%y %H:%M"
+  'true': Ja
   update: Aktualisieren

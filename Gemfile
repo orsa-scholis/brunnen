@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
-gem 'administrate'
+gem 'administrate', github: 'orsa-scholis/administrate', branch: 'master'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'caxlsx_rails'
 gem 'devise'

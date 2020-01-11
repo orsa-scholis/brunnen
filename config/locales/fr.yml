@@ -94,6 +94,7 @@ fr:
         export: Export Excel
   dashboard: Dashboard
   edit: Editieren
+  'false': Non
   flashes:
     survey:
       create:
@@ -143,4 +144,5 @@ fr:
   time:
     formats:
       default: "%d.%m.%y %H:%M"
+  'true': Oui
   update: Aktualisieren
