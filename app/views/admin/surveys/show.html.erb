@@ -33,6 +33,10 @@ as well as a link to its edit page.
     <%= link_to(export_admin_survey_path(page.resource), class: 'button', method: :post) do %>
       <i class="fas fa-file-excel mr-1"></i> <%= t('administrate.surveys.show.export') %>
     <% end %>
+
+    <%= link_to(dashboard_survey_path(page.resource), class: 'button') do %>
+      <i class="fas fa-tachometer-alt mr-1"></i> <%= t('dashboard') %>
+    <% end %>
   </div>
 </header>
 

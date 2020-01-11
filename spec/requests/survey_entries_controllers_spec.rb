@@ -6,19 +6,23 @@ RSpec.describe SurveyEntriesController, type: :request do
   include_context 'with complete survey'
 
   describe 'index' do
-    before { get survey_entries_path(survey) }
+    let(:request) { get survey_entries_path(survey) }
 
-    it 'returns 200 status code' do
-      expect(response).to have_http_status(:ok)
+    describe 'content' do
+      subject(:body) { response.body }
+
+      before { request }
+
+      it 'renders survey title' do
+        expect(body).to include survey.title
+      end
     end
 
-    it 'renders survey title' do
-      expect(response.body).to include survey.title
-    end
+    it_behaves_like 'preventing display of inactive or already submitted surveys'
   end
 
   describe 'create' do
-    let(:request) { post survey_entries_path(survey, params: params) }
+    let(:post_request) { post survey_entries_path(survey, params: params) }
     let(:answers_attributes) do
       [
         {
@@ -56,9 +60,18 @@ RSpec.describe SurveyEntriesController, type: :request do
       end
 
       it 'creates a new survey entry', :aggregate_failures do
-        expect { request }.to change(SurveyEntry, :count)
+        expect { post_request }.to change(SurveyEntry, :count)
         expect(SurveyEntry.last.answers.count).to eq 4
+        expect(response).to redirect_to root_path
+        expect(flash[:notice]).to eq I18n.t('flashes.survey.create.successful')
       end
+
+      it 'creates a cookie' do
+        post_request
+        expect(response.cookies[SubmissionTracking::COOKIE_IDENTIFIER]).to be_present
+      end
+
+      it_behaves_like 'preventing submission of inactive or already submitted surveys'
     end
 
     context 'when params are invalid' do
@@ -76,7 +89,8 @@ RSpec.describe SurveyEntriesController, type: :request do
       end
 
       it 'does not create a new survey', :aggregate_failures do
-        expect { request }.not_to change(SurveyEntry, :count)
+        expect { post_request }.not_to change(SurveyEntry, :count)
+        expect(flash[:alert]).to eq I18n.t('flashes.survey.create.failure')
       end
     end
   end

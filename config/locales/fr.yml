@@ -24,6 +24,10 @@ fr:
           attributes:
             answers:
               not_all_answered: "on n'a pas répondu à toutes les questions"
+    attributes:
+      survey:
+        active: "Active"
+        inactive: "Inactive"
   administrate:
     surveys:
       show:
@@ -42,3 +46,14 @@ fr:
                 - Bewertung
                 - Beschreibung
                 - Zeit
+  surveys:
+    index:
+      tooltips:
+        already_submitted: "Vous avez déjà rempli ce questionnaire. Merci !"
+      admin_badges:
+        submission:
+          zero: "No submissions yet"
+          one: "One submission"
+          other: "%{count} submissions"
+  dashboard: "Dashboard"
+  edit: "éditer"

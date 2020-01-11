@@ -57,6 +57,8 @@ de:
         title_it: Italienischer Titel
         active_from: Aktiv von
         active_to: Aktiv bis
+        active: "Aktiv"
+        inactive: "Inaktiv"
       question:
         answers: Antworten
         answer_possibilities: Antwortmöglichkeiten
@@ -109,3 +111,14 @@ de:
                 - Bewertung
                 - Beschreibung
                 - Zeit
+  surveys:
+    index:
+      tooltips:
+        already_submitted: "Du hast diese Umfrage bereits ausgefüllt. Danke!"
+      admin_badges:
+        submission:
+          zero: "Noch keine Einreichungen"
+          one: "Eine Einreichung"
+          other: "%{count} Einreichungen"
+  dashboard: "Dashboard"
+  edit: "Editieren"
