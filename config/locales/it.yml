@@ -7,9 +7,9 @@ it:
         password: Passwort
         password_confirmation: Passwort-Wiederholung
       answer_possibility_group:
-        answer_possibilities: Antwortmöglichkeiten
+        answer_possibilities: Possibili risposte
       question:
-        answer_possibilities: Antwortmöglichkeiten
+        answer_possibilities: Possibili risposte
         answers: Antworten
         description: Beschreibung
         question_group:
@@ -38,8 +38,8 @@ it:
         one: Antwort
         other: Antworten
       answer_possibility:
-        one: Antwortmöglichkeit
-        other: Antwortmöglichkeiten
+        one: Possibilità di risposta
+        other: Possibili risposte
       answer_possibility_group:
         one: Antwortmöglichkeitgruppe
         other: Antwortmöglichkeitgruppen
@@ -138,10 +138,10 @@ it:
   helpers:
     label:
       answer_possibility_group:
-        answer_possibilities: Antwortmöglichkeiten
-        id: ID
+        answer_possibilities: Possibili risposte
+        select_answer_possibility_group: Selezionare un gruppo predefinito
       question:
-        answer_possibilities: Antwortmöglichkeiten
+        answer_possibilities: Possibili risposte
         answers: Antworten
         question_group: Fragengruppe
       question_group:

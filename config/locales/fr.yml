@@ -138,8 +138,8 @@ fr:
   helpers:
     label:
       answer_possibility_group:
-        answer_possibilities: Antwortmöglichkeiten
-        id: ID
+        answer_possibilities: Réponses possibles
+        select_answer_possibility_group: Sélectionnez un groupe prédéfini
       question:
         answer_possibilities: Antwortmöglichkeiten
         answers: Antworten

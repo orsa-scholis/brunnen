@@ -52,19 +52,32 @@ and renders all form fields for a resource's editable attributes.
 <% end %>
 
 <script>
-  document.getElementById('answer_possibility_groups').addEventListener("change", function (element) {
+  var question_answer_possibility_ids_id = '#question_answer_possibility_ids';
+  var answer_possibility_groups_id = '#answer_possibility_groups';
+
+  var question_answer_possibility_ids = $(question_answer_possibility_ids_id);
+  var answer_possibility_groups = $(answer_possibility_groups_id);
+
+  answer_possibility_groups.on("change", function (element) {
     var selectedOption = element.target.selectedOptions[0];
     var selectedIds = JSON.parse(selectedOption.value);
-    console.log(selectedIds);
 
-    var question_answer_possibility_ids = document.getElementById('question_answer_possibility_ids');
+    $(question_answer_possibility_ids_id + ' > option').each(function (_, option) {
+      var $option = $(option);
+      $option.prop('selected', false);
 
-    for (var i = 0; i < question_answer_possibility_ids.children.length; i++) {
-      var option = question_answer_possibility_ids.children[i];
-      option.removeAttribute('selected');
-      if (selectedIds.includes(option.value)) {
-        option.setAttribute('selected', 'selected');
+      if (selectedIds.includes($option.val()) || selectedIds.includes(parseInt($option.val()))) {
+        $option.prop('selected', true);
       }
-    }
+    });
+  });
+
+  question_answer_possibility_ids.on("change", function (_) {
+    $(answer_possibility_groups_id + ' > option').each(function (_, option) {
+      var $option = $(option);
+      $option.prop('selected', false);
+    });
+
+    $(answer_possibility_groups_id + ' > option').first().prop('selected', true);
   });
 </script>
