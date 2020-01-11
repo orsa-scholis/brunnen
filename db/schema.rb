@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_01_10_133403) do
   end
 
   create_table "answer_possibility_groups", force: :cascade do |t|
-    t.string "description"
+    t.string "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
