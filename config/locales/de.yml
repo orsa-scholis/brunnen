@@ -147,10 +147,10 @@ de:
       question:
         answer_possibilities: Antwortmöglichkeiten
         answers: Antworten
-        question_group: Fragengruppe
         description_de: Deutsche Beschreibung
         description_fr: Französische Beschreibung
         description_it: Italienische Beschreibung
+        question_group: Fragengruppe
       question_group:
         description: Beschreibung
         questions: Umfragen

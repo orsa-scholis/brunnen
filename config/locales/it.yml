@@ -147,6 +147,9 @@ it:
       question:
         answer_possibilities: Possibili risposte
         answers: Antworten
+        description_de: Deutsche Beschreibung
+        description_fr: Französische Beschreibung
+        description_it: Italienische Beschreibung
         question_group: Fragengruppe
       question_group:
         description: Beschreibung
