@@ -16,8 +16,10 @@ en:
           one: Fragengruppe
           other: Fragengruppen
       survey:
+        active: Aktiv
         active_from: Aktiv von
         active_to: Aktiv bis
+        inactive: Inaktiv
         title_de: Deutscher Titel
         title_fr: Französischer Titel
         title_it: Italienischer Titel
@@ -90,6 +92,7 @@ en:
             raw_data: Raw data
       show:
         export: Export Excel
+  dashboard: Dashboard
   devise:
     confirmations:
       new:
@@ -130,6 +133,7 @@ en:
     unlocks:
       new:
         resend_unlock_instructions: Resend unlock instructions
+  edit: Editieren
   flashes:
     survey:
       create:
@@ -164,6 +168,15 @@ en:
   root:
     active_surveys: Currently active surveys
     all_surveys: All surveys
+  surveys:
+    index:
+      admin_badges:
+        submission:
+          one: Eine Einreichung
+          other: "%{count} Einreichungen"
+          zero: Noch keine Einreichungen
+      tooltips:
+        already_submitted: Du hast diese Umfrage bereits ausgefüllt. Danke!
   time:
     formats:
       default: "%d.%m.%y %H:%M"
