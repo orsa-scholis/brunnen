@@ -39,7 +39,6 @@ class QuestionDashboard < Administrate::BaseDashboard
     answer_possibilities
     question_group
     id
-    answer_possibilities_id
     description_de
     description_fr
     description_it
@@ -53,7 +52,6 @@ class QuestionDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     answer_possibilities
     question_group
-    answer_possibilities_id
     description_de
     description_fr
     description_it
