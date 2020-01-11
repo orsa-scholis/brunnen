@@ -51,6 +51,9 @@ en:
       tooltips:
         already_submitted: "You've already submitted this survey. Thanks!"
       admin_badges:
-        submission: "%{count} Submissions"
+        submission:
+          zero: "No submissions yet"
+          one: "One submission"
+          other: "%{count} submissions"
   dashboard: "Dashboard"
   edit: "Edit"

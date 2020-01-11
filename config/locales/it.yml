@@ -50,6 +50,9 @@ it:
       tooltips:
         already_submitted: "Avete già compilato questo questionario. Grazie!"
       admin_badges:
-        submission: "%{count} Antworten"
+        submission:
+          zero: "No submissions yet"
+          one: "One submission"
+          other: "%{count} submissions"
   dashboard: "Dashboard"
   edit: "elaborare"

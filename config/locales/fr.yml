@@ -51,6 +51,9 @@ fr:
       tooltips:
         already_submitted: "Vous avez déjà rempli ce questionnaire. Merci !"
       admin_badges:
-        submission: "%{count} Antworten"
+        submission:
+          zero: "No submissions yet"
+          one: "One submission"
+          other: "%{count} submissions"
   dashboard: "Dashboard"
   edit: "éditer"
