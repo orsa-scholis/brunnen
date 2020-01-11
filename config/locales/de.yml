@@ -65,16 +65,16 @@ de:
       </span>
   administrate:
     actions:
-      confirm: Confirm
-      destroy: Destroy
-      edit: Edit
-      edit_resource: Edit resource
-      new_resource: New resource
-      show_resource: Show resource
+      confirm: Willst du diesen Datensatz wirklich löschen?
+      destroy: Löschen
+      edit: Bearbeiten
+      edit_resource: "%{name} bearbeiten"
+      new_resource: "Neue %{name} erstellen"
+      show_resource: "%{name}"
     error: Fehler
     form:
-      error: Error
-      errors: Errors
+      error: Fehler
+      errors: Fehler
     surveys:
       export:
         excel:
