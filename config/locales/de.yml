@@ -69,7 +69,7 @@ de:
       destroy: Löschen
       edit: Bearbeiten
       edit_resource: "%{name} bearbeiten"
-      new_resource: "Neue %{name} erstellen"
+      new_resource: Neue %{name} erstellen
       show_resource: "%{name}"
     error: Fehler
     form:
@@ -100,6 +100,9 @@ de:
         failure: Wir konnten Ihre Antwort leider nicht abspeichern
         successful: Vielen Dank für das Mitmachen bei der Umfrage!
   helpers:
+    boolean:
+      'false': Nein
+      'true': Ja
     label:
       answer_possibility_group:
         answer_possibilities: Antwortmöglichkeiten
