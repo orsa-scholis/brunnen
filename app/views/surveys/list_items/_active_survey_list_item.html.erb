@@ -1,0 +1,21 @@
+<%= link_to survey_entries_path(survey),
+            class: active_survey_list_class(survey) do %>
+  <%= survey.title %>
+  <% if administrator_signed_in? %>
+    <div>
+      <% if survey.active? %>
+        <span class="badge badge-success badge-pill"><%= t('activerecord.attributes.survey.active') %></span>
+      <% else %>
+        <span class="badge badge-secondary badge-pill"
+              title="<%= "#{l(survey.active_from)} - #{l(survey.active_to)}" %>"
+              data-toggle="tooltip"
+        >
+          <%= t('activerecord.attributes.survey.inactive') %>
+        </span>
+      <% end %>
+      <span class="badge badge-primary badge-pill">
+        <%= t('surveys.index.admin_badges.submission', count: survey.survey_entries.count) %>
+      </span>
+    </div>
+  <% end %>
+<% end %>

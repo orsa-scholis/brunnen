@@ -1,4 +1,17 @@
-<h1 class="text-center mb-md-5"><%= @survey_entry.survey.title %></h1>
+<div class="d-flex justify-content-between align-items-center mb-md-5">
+  <h1 class="text-center d-inline-block mb-0">
+    <%= @survey_entry.survey.title %>
+  </h1>
+  <div>
+    <%= link_to dashboard_survey_path(@survey_entry.survey), class: 'mr-3' do %>
+      <i class="fas fa-tachometer-alt"></i> <%= t('dashboard') %>
+    <% end %>
+
+    <%= link_to edit_admin_survey_path(@survey_entry.survey) do %>
+      <i class="fas fa-edit"></i> <%= t('edit') %>
+    <% end %>
+  </div>
+</div>
 
 <%= simple_form_for @survey_entry do |f| %>
   <% @grouped_answers.each do |question_group, answers| %>

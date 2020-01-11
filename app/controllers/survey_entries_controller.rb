@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
+require 'concerns/submission_trackable'
+
 class SurveyEntriesController < ApplicationController
+  include SubmissionTrackable
+
   before_action :load_survey
+  before_action :protect_from_resubmission!, unless: :administrator_signed_in?
+  before_action :protect_from_inactive_surveys!, unless: :administrator_signed_in?
 
   def index
     @survey_entry = SurveyEntryBlueprint.new(@survey).survey_entry
@@ -11,6 +17,7 @@ class SurveyEntriesController < ApplicationController
   def create
     @survey_entry = @survey.survey_entries.build survey_entry_params
     if @survey_entry.save
+      track_survey_submission @survey_entry
       redirect_to root_path, notice: I18n.t('flashes.survey.create.successful', resource: @survey_entry)
     else
       set_grouped_answers
@@ -20,6 +27,14 @@ class SurveyEntriesController < ApplicationController
   end
 
   private
+
+  def protect_from_inactive_surveys!
+    raise ActiveRecord::RecordNotFound unless @survey.active?
+  end
+
+  def protect_from_resubmission!
+    raise ActiveRecord::RecordNotFound if @submission_tracking.submitted?(@survey)
+  end
 
   def set_grouped_answers
     @grouped_answers = @survey_entry.answers.group_by { |answer| answer.question.question_group }
