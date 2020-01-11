@@ -11,7 +11,6 @@ class AnswerPossibilityDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     questions: Field::HasMany,
-    answers: Field::HasMany,
     id: Field::Number,
     value: Field::Number,
     description: Field::String,
