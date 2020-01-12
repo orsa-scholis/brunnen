@@ -5,7 +5,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
-gem 'administrate'
+gem 'administrate', github: 'orsa-scholis/administrate', branch: 'master'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'caxlsx_rails'
 gem 'devise'
@@ -13,6 +13,7 @@ gem 'figaro'
 gem 'globalize'
 gem 'globalize-accessors'
 gem 'httparty'
+gem 'i18n-tasks'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.12'
 gem 'rails', '~> 6.0.0'

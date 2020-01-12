@@ -1,0 +1,24 @@
+# i18n-tasks finds and manages missing and unused translations: https://github.com/glebm/i18n-tasks
+
+# The "main" locale.
+base_locale: de
+
+data:
+  read:
+  write:
+  external:
+  yaml:
+    write:
+      line_width: -1
+search:
+  exclude:
+    - app/assets/images
+    - app/assets/fonts
+    - app/assets/videos
+ignore_missing:
+  - 'devise.*'
+ignore_unused:
+ - 'activerecord.attributes.*'
+ - 'activerecord.models.*'
+ - 'activerecord.errors.*'
+ - 'time.*'

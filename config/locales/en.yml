@@ -1,59 +1,148 @@
+---
 en:
-  root:
-    active_surveys: Currently active surveys
-    all_surveys: All surveys
-  log_out: "Log out"
-  admin_toolbar:
-    admin_dashboard: "Admin Dashboard"
-    title_html: >-
-      <strong>SBV-EvaWeb</strong>
-      <span class="text-muted ml-1">
-        Logged in as Administrator
-      </span>
-
-  home: "Home"
-  flashes:
-    survey:
-      create:
-        successful: "Thank you very much for participating!"
-        failure: "Unfortunately we could not save your answer"
   activerecord:
+    attributes:
+      administrator:
+        email: E-Mail
+        password: Passwort
+        password_confirmation: Passwort-Wiederholung
+      answer_possibility_group:
+        answer_possibilities: Antwortmöglichkeiten
+      question:
+        answer_possibilities: Antwortmöglichkeiten
+        answers: Antworten
+        description: Beschreibung
+        question_group:
+          one: Fragengruppe
+          other: Fragengruppen
+      survey:
+        active: Aktiv
+        active_from: Aktiv von
+        active_to: Aktiv bis
+        inactive: Inaktiv
+        title_de: Deutscher Titel
+        title_fr: Französischer Titel
+        title_it: Italienischer Titel
+      survey_entry:
+        answers: Antworten
+        survey: Umfrage
     errors:
       models:
         survey_entry:
           attributes:
             answers:
-              not_all_answered: "not all questions have been answered"
-    attributes:
+              not_all_answered: not all questions have been answered
+    models:
+      administrator:
+        one: Administrator
+        other: Administratoren
+      answer:
+        one: Antwort
+        other: Antworten
+      answer_possibility:
+        one: Antwortmöglichkeit
+        other: Antwortmöglichkeiten
+      answer_possibility_group:
+        one: Antwortmöglichkeitgruppe
+        other: Antwortmöglichkeitgruppen
+      question:
+        one: Frage
+        other: Fragen
+      question_group:
+        one: Fragengruppe
+        other: Fragengruppen
       survey:
-        active: "Active"
-        inactive: "Inactive"
+        one: Umfrage
+        other: Umfragen
+      survey_entry:
+        one: Umfrageneingabe
+        other: Umfrageneingaben
+  admin_toolbar:
+    admin_dashboard: Admin Dashboard
+    title_html: |-
+      <strong>SBV-EvaWeb</strong> <span class="text-muted ml-1">
+        Logged in as Administrator
+      </span>
   administrate:
+    actions:
+      confirm: Confirm
+      destroy: Destroy
+      edit: Edit
+      edit_resource: Edit resource
+      new_resource: New resource
+      show_resource: Show resource
+    error: Fehler
+    form:
+      error: Error
+      errors: Errors
     surveys:
-      show:
-        export: "Export Excel"
       export:
         excel:
-          worksheets:
-            analysis: "Auswertung"
-            raw_data: "Raw data"
           columns:
             headers:
               analysis:
-                - Frage
-                - Antworten
+              - Frage
+              - Antworten
               raw_data:
-                - Bewertung
-                - Beschreibung
-                - Zeit
+              - Bewertung
+              - Beschreibung
+              - Zeit
+          worksheets:
+            analysis: Auswertung
+            raw_data: Raw data
+      show:
+        export: Export Excel
+  dashboard: Dashboard
+  edit: Editieren
+  'false': false
+  flashes:
+    survey:
+      create:
+        failure: Unfortunately we could not save your answer
+        successful: Thank you very much for participating!
+  helpers:
+    label:
+      answer_possibility_group:
+        answer_possibilities: Answer possiblities
+        select_answer_possibility_group: Pick a predefined group
+      question:
+        answer_possibilities: Antwortmöglichkeiten
+        answers: Antworten
+        description_de: Deutsche Beschreibung
+        description_fr: Französische Beschreibung
+        description_it: Italienische Beschreibung
+        question_group: Fragengruppe
+      question_group:
+        description: Beschreibung
+        questions: Umfragen
+        survey: Umfrage
+      survey:
+        active?: Aktiv
+        active_from: Aktiv von
+        active_to: Aktiv bis
+        question_groups: Fragengruppen
+        title_de: Deutscher Titel
+        title_fr: Französischer Titel
+        title_it: Italienischer Titel
+    submit:
+      create: "%{model} erstellen"
+      update: "%{model} aktualisieren"
+  home: Home
+  log_out: Log out
+  root:
+    active_surveys: Currently active surveys
+    all_surveys: All surveys
   surveys:
     index:
-      tooltips:
-        already_submitted: "You've already submitted this survey. Thanks!"
       admin_badges:
         submission:
-          zero: "No submissions yet"
-          one: "One submission"
-          other: "%{count} submissions"
-  dashboard: "Dashboard"
-  edit: "Edit"
+          one: Eine Einreichung
+          other: "%{count} Einreichungen"
+          zero: Noch keine Einreichungen
+      tooltips:
+        already_submitted: Du hast diese Umfrage bereits ausgefüllt. Danke!
+  time:
+    formats:
+      default: "%d.%m.%y %H:%M"
+  'true': true
+  update: Aktualisieren

@@ -2,7 +2,7 @@
 
 require 'administrate/base_dashboard'
 
-class QuestionDashboard < Administrate::BaseDashboard
+class AnswerPossibilityGroupDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -11,13 +11,8 @@ class QuestionDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     answer_possibilities: Field::HasMany,
-    question_group: Field::BelongsTo,
-    id: Field::Number,
-    answer_possibilities_id: Field::Number,
     description: Field::String,
-    description_de: Field::String,
-    description_fr: Field::String,
-    description_it: Field::String,
+    id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -28,20 +23,16 @@ class QuestionDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    answer_possibilities
-    question_group
     description
+    answer_possibilities
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     answer_possibilities
-    question_group
+    description
     id
-    description_de
-    description_fr
-    description_it
     created_at
     updated_at
   ].freeze
@@ -51,10 +42,7 @@ class QuestionDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     answer_possibilities
-    question_group
-    description_de
-    description_fr
-    description_it
+    description
   ].freeze
 
   # COLLECTION_FILTERS
@@ -69,10 +57,10 @@ class QuestionDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how questions are displayed
+  # Overwrite this method to customize how answer possibility groups are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(question)
-    "\"#{question.description}\""
-  end
+  # def display_resource(answer_possibility_group)
+  #   "AnswerPossibilityGroup ##{answer_possibility_group.id}"
+  # end
 end
