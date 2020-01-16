@@ -1,4 +1,12 @@
 #!/bin/sh
 
 set -e
-bundle exec rubocop
+
+if [ $# -eq 1 ] && [ $1 = "--pre-commit" ]; then
+  echo "Running Rubocop..."
+  bundle exec rubocop > /dev/null
+  echo "Rubocop Ok"
+else
+  bundle exec rubocop
+fi
+
