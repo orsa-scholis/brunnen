@@ -1,24 +1,45 @@
-# README
+# Evaweb
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Ruby CLI CI Status](https://github.com/orsa-scholis/evaweb/workflows/Rails/badge.svg)](https://github.com/orsa-scholis/orsum-inflandi/actions)
 
-Things you may want to cover:
+A survey tool with live statistics and simple survey submission
 
-* Ruby version
+### Prerequisites
 
-* System dependencies
+1.  Install Ruby, preferably with rbenv: `rbenv install 2.6.3`
+    
+2.  Install PostgreSQL
+    
+3.  Install Redis if you want production behaviour
+    
 
-* Configuration
+## Setup
 
-* Database creation
+1.  Clone Repository `git clone https://github.com/orsa-scholis/evaweb.git`
+    
+2.  Switch working directory `cd evaweb`
+    
+3.  Run `bin/setup`
+    
 
-* Database initialization
+### Development
 
-* How to run the test suite
+Processes:
 
-* Services (job queues, cache servers, search engines, etc.)
+-   Development Rails Server: `rails server`
+    
+-   Webpack Server: `bin/webpack-dev-server`
+    
+-   Worker: `bundle exec sidekiq -C config/sidekiq.yml`
+    
 
-* Deployment instructions
+You can also use a tool like foreman or procodile to start all services at once
 
-* ...
+The tool is tested using RSpec and coverage is set to 100%
+
+### Deployment
+
+The live version is deployed to Heroku. To production environment, a Postgres and Redis container should be attached. Be sure to configure all environment variables required, which are listed in `config/application.example.yml`
+
+Development deployment: https://evaweb-develop.herokuapp.com
+Production deployment: https://evaweb-production.herokuapp.com
