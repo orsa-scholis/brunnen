@@ -4,6 +4,7 @@ class Survey < ApplicationRecord
   has_many :question_groups, inverse_of: :survey, dependent: :destroy
   has_many :survey_entries, inverse_of: :survey, dependent: :destroy
   has_many :questions, through: :question_groups, inverse_of: :survey
+  has_many :answer_possibility_submissions, through: :question_groups
 
   validates :active_from, :active_to, :title, presence: true
   validates :active_from, timeliness: { type: :datetime }

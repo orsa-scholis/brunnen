@@ -4,6 +4,7 @@ class QuestionGroup < ApplicationRecord
   belongs_to :survey, inverse_of: :question_groups
 
   has_many :questions, dependent: :destroy, inverse_of: :question_group
+  has_many :answer_possibility_submissions, dependent: :restrict_with_exception
 
   validates :survey, presence: true
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_10_133403) do
+ActiveRecord::Schema.define(version: 2020_01_22_163851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,4 +127,15 @@ ActiveRecord::Schema.define(version: 2020_01_10_133403) do
     t.datetime "active_to"
   end
 
+
+  create_view "answer_possibility_submissions", sql_definition: <<-SQL
+      SELECT answer_possibilities.id AS answer_possibility_id,
+      answer_possibilities.value,
+      qg.id AS question_group_id
+     FROM (((question_groups qg
+       JOIN questions ON ((qg.id = questions.question_group_id)))
+       JOIN answers ON ((questions.id = answers.question_id)))
+       JOIN answer_possibilities ON ((answers.answer_possibility_id = answer_possibilities.id)))
+    ORDER BY qg.id;
+  SQL
 end
