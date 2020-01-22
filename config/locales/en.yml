@@ -127,8 +127,10 @@ en:
         title_fr: Französischer Titel
         title_it: Italienischer Titel
     submit:
-      create: "%{model} erstellen"
-      update: "%{model} aktualisieren"
+      create: "Create %{model}"
+      update: "Update %{model}"
+      survey_entry:
+        create: Send survey submission
   home: Home
   log_out: Log out
   root:

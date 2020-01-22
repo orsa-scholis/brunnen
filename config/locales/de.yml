@@ -129,6 +129,8 @@ de:
     submit:
       create: "%{model} erstellen"
       update: "%{model} aktualisieren"
+      survey_entry:
+        create: Umfrage absenden
   home: Startseite
   log_out: Abmelden
   root:

@@ -127,8 +127,10 @@ fr:
         title_fr: Französischer Titel
         title_it: Italienischer Titel
     submit:
-      create: "%{model} erstellen"
-      update: "%{model} aktualisieren"
+      create: "créer %{model}"
+      update: "mise à jour %{model}"
+      survey_entry:
+        create: "Envoyer l'enquête"
   home: Home
   log_out: Déconnexion
   root:

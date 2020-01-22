@@ -129,6 +129,8 @@ it:
     submit:
       create: "%{model} erstellen"
       update: "%{model} aktualisieren"
+      survey_entry:
+        create: inviare il sondaggio
   home: Home
   log_out: Log out
   root:
