@@ -2,12 +2,9 @@
 
 class AnswerGroupCalculationService
   INNER_QUERY = <<~SQL
-    (select avg(answer_possibilities.value)
-        from question_groups qg
-        join questions on qg.id = questions.question_group_id
-        join answers on questions.id = answers.question_id
-        join answer_possibilities on answers.answer_possibility_id = answer_possibilities.id
-        where qg.id = question_groups.id) "avg"
+    (SELECT AVG(value)
+      FROM "answer_possibility_submissions"
+      WHERE question_group_id = question_groups.id) "avg"
   SQL
 
   def initialize(survey)
