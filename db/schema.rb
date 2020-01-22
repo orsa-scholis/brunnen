@@ -129,11 +129,8 @@ ActiveRecord::Schema.define(version: 2020_01_22_163851) do
 
 
   create_view "answer_possibility_submissions", sql_definition: <<-SQL
-      SELECT answer_possibilities.id,
+      SELECT answer_possibilities.id AS answer_possibility_id,
       answer_possibilities.value,
-      answer_possibilities.created_at,
-      answer_possibilities.updated_at,
-      answer_possibilities.answer_possibility_group_id,
       qg.id AS question_group_id
      FROM (((question_groups qg
        JOIN questions ON ((qg.id = questions.question_group_id)))
