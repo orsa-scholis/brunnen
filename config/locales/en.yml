@@ -108,18 +108,20 @@ en:
       question:
         answer_possibilities: Antwortmöglichkeiten
         answers: Antworten
+        description: Beschreibung
         description_de: Deutsche Beschreibung
         description_fr: Französische Beschreibung
         description_it: Italienische Beschreibung
         question_group: Fragengruppe
       question_group:
         description: Beschreibung
-        questions: Umfragen
+        questions: Fragen
         survey: Umfrage
       survey:
         active?: Aktiv
         active_from: Aktiv von
         active_to: Aktiv bis
+        description: Beschreibung
         question_groups: Fragengruppen
         title_de: Deutscher Titel
         title_fr: Französischer Titel
