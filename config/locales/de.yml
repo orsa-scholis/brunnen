@@ -128,6 +128,8 @@ de:
         title_it: Italienischer Titel
     submit:
       create: "%{model} erstellen"
+      survey_entry:
+        create: Umfrage absenden
       update: "%{model} aktualisieren"
   home: Startseite
   log_out: Abmelden
@@ -148,3 +150,9 @@ de:
       default: "%d.%m.%y %H:%M"
   'true': Ja
   update: Aktualisieren
+  views:
+    pagination:
+      first: Erste Seite
+      last: Letzte Seite
+      next: Nächste Seite
+      previous: Vorherige Seite
