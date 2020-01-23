@@ -63,4 +63,34 @@ RSpec.describe Survey, type: :model do
       it { is_expected.to be false }
     end
   end
+
+  describe '#short_url' do
+    let(:shorten_service) { instance_double UrlShortenService, shorten: nil }
+
+    before { allow(UrlShortenService).to receive(:new).and_return(shorten_service) }
+
+    context 'when the url has never been shortened' do
+      let(:survey) { create :survey }
+
+      before do
+        survey.short_url
+      end
+
+      it 'calls the UrlShortenService' do
+        expect(shorten_service).to have_received(:shorten)
+      end
+    end
+
+    context 'when the url has been shortened before' do
+      let(:survey) { create :survey, short_url: 'the_short_url' }
+
+      before do
+        survey.short_url
+      end
+
+      it 'does not calls the UrlShortenService' do
+        expect(shorten_service).not_to have_received(:shorten)
+      end
+    end
+  end
 end
