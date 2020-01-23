@@ -5,7 +5,6 @@ class DashboardsController < ApplicationController
 
   before_action :load_survey
   before_action :load_survey_statistics
-  before_action :generate_short_url
   before_action :generate_qr_code
 
   def index; end
@@ -20,11 +19,7 @@ class DashboardsController < ApplicationController
     @survey_statistics = AnswerGroupCalculationService.new(@survey).calculate
   end
 
-  def generate_short_url
-    @short_url = UrlShortenService.new.shorten(survey_entries_url(@survey.id))
-  end
-
   def generate_qr_code
-    @qr_code = QrCodeService.new(@short_url)
+    @qr_code = QrCodeService.new(@survey.short_url)
   end
 end

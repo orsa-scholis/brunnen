@@ -9,7 +9,7 @@
   <div class="row">
     <div id="url_infos" class="text-center col-<%= statistics_has_results ? 4 : 12 %>">
       <div id="short_url">
-        <h4><%= @short_url %></h4>
+        <h4><%= @survey.short_url %></h4>
       </div>
       <div id="qr">
         <%= raw @qr_code.to_svg %>
