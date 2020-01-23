@@ -19,4 +19,18 @@ class Survey < ApplicationRecord
   def active?
     Time.zone.now.in?(active_from..active_to)
   end
+
+  def short_url
+    return self[:short_url] if self[:short_url].present?
+
+    update(short_url: UrlShortenService.new.shorten(survey_entries_url))
+
+    self[:short_url]
+  end
+
+  private
+
+  def survey_entries_url
+    Rails.application.routes.url_helpers.survey_entries_url(id, host: ENV.fetch('APP_HOST', 'localhost'))
+  end
 end
