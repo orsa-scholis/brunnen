@@ -127,10 +127,10 @@ en:
         title_fr: Französischer Titel
         title_it: Italienischer Titel
     submit:
-      create: "Create %{model}"
-      update: "Update %{model}"
+      create: Create %{model}
       survey_entry:
         create: Send survey submission
+      update: Update %{model}
   home: Home
   log_out: Log out
   root:
@@ -152,7 +152,7 @@ en:
   update: Aktualisieren
   views:
     pagination:
-      next: "Next"
-      last: "Last"
-      first: "First"
-      previous: "Previous"
+      first: First
+      last: Last
+      next: Next
+      previous: Previous

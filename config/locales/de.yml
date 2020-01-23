@@ -128,9 +128,9 @@ de:
         title_it: Italienischer Titel
     submit:
       create: "%{model} erstellen"
-      update: "%{model} aktualisieren"
       survey_entry:
         create: Umfrage absenden
+      update: "%{model} aktualisieren"
   home: Startseite
   log_out: Abmelden
   root:
@@ -152,7 +152,7 @@ de:
   update: Aktualisieren
   views:
     pagination:
-      next: "Nächste Seite"
-      last: "Letzte Seite"
-      first: "Erste Seite"
-      previous: "Vorherige Seite"
+      first: Erste Seite
+      last: Letzte Seite
+      next: Nächste Seite
+      previous: Vorherige Seite
