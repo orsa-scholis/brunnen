@@ -19,7 +19,8 @@ class SurveyStatistics
         group_labels: averages.keys.map(&:description),
         group_values: averages.values,
         min: min_possible_value,
-        max: max_possible_value
+        max: max_possible_value,
+        vote_options: group_vote_options
       }
     }
   end
@@ -36,5 +37,15 @@ class SurveyStatistics
 
   def min_possible_value
     averages.keys.map(&:questions_min_possible_value).min
+  end
+
+  def group_vote_options
+    averages.keys.flat_map do |average|
+      average.questions.flat_map do |question|
+        question.answer_possibilities.flat_map do |answer_possibility|
+          { answer_possibility.value => answer_possibility.description }
+        end
+      end
+    end.uniq.reduce(&:merge)
   end
 end

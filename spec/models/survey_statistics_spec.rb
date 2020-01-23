@@ -9,6 +9,16 @@ RSpec.describe SurveyStatistics, type: :model do
   describe '#export' do
     include_context 'with completely filled out survey'
 
+    let(:first_scale) do
+      [
+        create(:answer_possibility, value: 0, description: 'first first'),
+        create(:answer_possibility, value: 1, description: 'first second'),
+        create(:answer_possibility, value: 2, description: 'first third'),
+        create(:answer_possibility, value: 3, description: 'first last')
+      ]
+    end
+    let(:second_scale) { first_scale }
+
     let(:survey_statistics) { AnswerGroupCalculationService.new(survey).calculate }
     let(:expected_hash) do
       {
@@ -18,11 +28,17 @@ RSpec.describe SurveyStatistics, type: :model do
             nil, nil
           ],
           group_values: [
-            3.0,
-            0.0
+            1.2,
+            1.2
           ],
           min: 0,
-          max: 3
+          max: 3,
+          vote_options: {
+            0 => 'first first',
+            1 => 'first second',
+            2 => 'first third',
+            3 => 'first last'
+          }
         }
       }
     end
@@ -35,6 +51,16 @@ RSpec.describe SurveyStatistics, type: :model do
   describe '#to_json' do
     include_context 'with completely filled out survey'
 
+    let(:first_scale) do
+      [
+        create(:answer_possibility, value: 0, description: 'first first'),
+        create(:answer_possibility, value: 1, description: 'first second'),
+        create(:answer_possibility, value: 2, description: 'first third'),
+        create(:answer_possibility, value: 3, description: 'first last')
+      ]
+    end
+    let(:second_scale) { first_scale }
+
     let(:survey_statistics) { AnswerGroupCalculationService.new(survey).calculate }
     let(:expected_json) do
       {
@@ -43,9 +69,15 @@ RSpec.describe SurveyStatistics, type: :model do
           group_labels: [
             nil, nil
           ],
-          group_values: %w[3.0 0.0],
+          group_values: %w[1.2 1.2],
           min: 0,
-          max: 3
+          max: 3,
+          vote_options: {
+            0 => 'first first',
+            1 => 'first second',
+            2 => 'first third',
+            3 => 'first last'
+          }
         }
       }.to_json
     end
