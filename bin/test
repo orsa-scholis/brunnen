@@ -2,10 +2,4 @@
 
 set -e
 
-if [ $# -eq 1 ] && [ $1 = "--pre-push" ]; then
-  echo "Running RSpec..."
-  bundle exec rspec > /dev/null
-  echo "RSpec Ok"
-else
-  bundle exec rspec
-fi
+bundle exec rspec
