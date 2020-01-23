@@ -150,3 +150,9 @@ fr:
       default: "%d.%m.%y %H:%M"
   'true': Oui
   update: Aktualisieren
+  views:
+    pagination:
+      next: "Next"
+      last: "Last"
+      first: "First"
+      previous: "Previous"

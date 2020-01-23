@@ -29,11 +29,11 @@
                                          as: :radio_buttons,
                                          label: answer.question.description,
                                          label_method: :description,
-                                         wrapper: :survey_vertical_collection %>
+                                         wrapper: :survey_collection %>
           </div>
         <% end %>
       <% end %>
     </div>
   <% end %>
-  <%= f.button :submit, class: 'mt-4' %>
+  <%= f.button :submit, class: 'my-4' %>
 <% end %>
