@@ -2,15 +2,17 @@
   <h1 class="text-center d-inline-block mb-0">
     <%= @survey_entry.survey.title %>
   </h1>
-  <div>
-    <%= link_to dashboard_survey_path(@survey_entry.survey), class: 'mr-3' do %>
-      <i class="fas fa-tachometer-alt"></i> <%= t('dashboard') %>
-    <% end %>
+  <% if administrator_signed_in? %>
+    <div>
+      <%= link_to dashboard_survey_path(@survey_entry.survey), class: 'mr-3' do %>
+        <i class="fas fa-tachometer-alt"></i> <%= t('dashboard') %>
+      <% end %>
 
-    <%= link_to edit_admin_survey_path(@survey_entry.survey) do %>
-      <i class="fas fa-edit"></i> <%= t('edit') %>
-    <% end %>
-  </div>
+      <%= link_to edit_admin_survey_path(@survey_entry.survey) do %>
+        <i class="fas fa-edit"></i> <%= t('edit') %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 <%= simple_form_for @survey_entry do |f| %>
@@ -27,11 +29,11 @@
                                          as: :radio_buttons,
                                          label: answer.question.description,
                                          label_method: :description,
-                                         wrapper: :survey_vertical_collection %>
+                                         wrapper: :survey_collection %>
           </div>
         <% end %>
       <% end %>
     </div>
   <% end %>
-  <%= f.button :submit, class: 'mt-4' %>
+  <%= f.button :submit, class: 'my-4' %>
 <% end %>
