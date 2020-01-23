@@ -10,7 +10,7 @@ class SurveyDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    question_groups: ::ScopedHasManyField.with_options(
+    question_groups: ScopedHasManyField.with_options(
       scope: lambda do |first_associated|
         return QuestionGroup.not_associated if first_associated.nil?
 
