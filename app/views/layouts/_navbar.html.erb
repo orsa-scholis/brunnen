@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary py-2 py-lg-0">
+  <%= link_to t('tool_name'), surveys_path, class: 'navbar-brand' %>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarText"
+    aria-controls="navbarText"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <%= navbar_item(t('root.all_surveys'), surveys_path) %>
+      <% if administrator_signed_in? %>
+        <%= navbar_item(t('admin_toolbar.admin_dashboard'), admin_questions_path) %>
+        <%= navbar_item(t('log_out'), destroy_administrator_session_path, method: :delete) %>
+      <% end %>
+    </ul>
+    <div class="navbar-text">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Deutsch</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Französisch</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Italienisch</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

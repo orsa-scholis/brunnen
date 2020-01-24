@@ -60,8 +60,8 @@ de:
   admin_toolbar:
     admin_dashboard: Admin Dashboard
     title_html: |-
-      <strong>SBV-EvaWeb</strong> <span class="text-muted ml-1">
-        Eingeloggt als Administrator
+      <span class="text-muted ml-1">
+        <i class="fas fa-user-shield"></i> Eingeloggt als Administrator
       </span>
   administrate:
     actions:
@@ -156,3 +156,4 @@ de:
       last: Letzte Seite
       next: Nächste Seite
       previous: Vorherige Seite
+  tool_name: Evaweb
