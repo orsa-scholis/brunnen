@@ -12,8 +12,11 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-    locale_param = params[:locale]
-    I18n.locale = I18n.locale_available?(locale_param.try(:to_sym)) ? locale_param : :de
+    I18n.locale = I18n.locale_available?(locale_param.try(:to_sym)) ? locale_param : I18n.default_locale
+  end
+
+  def locale_param
+    params[:locale]
   end
 
   def set_content_language_header
