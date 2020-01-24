@@ -14,6 +14,9 @@ class AnswerPossibilityDashboard < Administrate::BaseDashboard
     id: Field::Number,
     value: Field::Number,
     description: Field::String,
+    description_de: Field::String,
+    description_fr: Field::String,
+    description_it: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -35,7 +38,9 @@ class AnswerPossibilityDashboard < Administrate::BaseDashboard
     questions
     id
     value
-    description
+    description_de
+    description_fr
+    description_it
     created_at
     updated_at
   ].freeze
@@ -46,7 +51,9 @@ class AnswerPossibilityDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     questions
     value
-    description
+    description_de
+    description_fr
+    description_it
   ].freeze
 
   # COLLECTION_FILTERS
