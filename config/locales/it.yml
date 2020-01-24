@@ -134,8 +134,8 @@ it:
   home: Home
   log_out: Log out
   root:
-    active_surveys: Currently active surveys
-    all_surveys: All surveys
+    active_surveys: Indagini attualmente attive
+    all_surveys: Tutti i sondaggi
   surveys:
     index:
       admin_badges:
@@ -157,3 +157,7 @@ it:
       next: Next
       previous: Previous
   tool_name: "Evaweb"
+  languages:
+    french: "Francese"
+    german: "Tedesco"
+    italian: "Italiano"

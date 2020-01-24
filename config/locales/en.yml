@@ -157,3 +157,7 @@ en:
       next: Next
       previous: Previous
   tool_name: "Evaweb"
+  languages:
+    french: "French"
+    german: "German"
+    italian: "Italian"

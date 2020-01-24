@@ -22,13 +22,13 @@
     <div class="navbar-text">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Deutsch</a>
+          <%= link_to t('languages.german'), { locale: :de }, class: 'nav-link', data: { turbolinks: false } %>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Französisch</a>
+          <%= link_to t('languages.french'), { locale: :fr }, class: 'nav-link', data: { turbolinks: false } %>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Italienisch</a>
+          <%= link_to t('languages.italian'), { locale: :it }, class: 'nav-link', data: { turbolinks: false } %>
         </li>
       </ul>
     </div>
