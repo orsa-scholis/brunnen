@@ -132,6 +132,10 @@ en:
         create: Send survey submission
       update: Update %{model}
   home: Home
+  languages:
+    french: French
+    german: German
+    italian: Italian
   log_out: Log out
   root:
     active_surveys: Currently active surveys
@@ -148,6 +152,7 @@ en:
   time:
     formats:
       default: "%d.%m.%y %H:%M"
+  tool_name: Evaweb
   'true': true
   update: Aktualisieren
   views:
@@ -156,8 +161,3 @@ en:
       last: Last
       next: Next
       previous: Previous
-  tool_name: "Evaweb"
-  languages:
-    french: "French"
-    german: "German"
-    italian: "Italian"

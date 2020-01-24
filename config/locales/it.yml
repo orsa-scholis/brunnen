@@ -132,6 +132,10 @@ it:
         create: inviare il sondaggio
       update: "%{model} aktualisieren"
   home: Home
+  languages:
+    french: Francese
+    german: Tedesco
+    italian: Italiano
   log_out: Log out
   root:
     active_surveys: Indagini attualmente attive
@@ -148,6 +152,7 @@ it:
   time:
     formats:
       default: "%d.%m.%y %H:%M"
+  tool_name: Evaweb
   'true': Ja
   update: Aktualisieren
   views:
@@ -156,8 +161,3 @@ it:
       last: ''
       next: Next
       previous: Previous
-  tool_name: "Evaweb"
-  languages:
-    french: "Francese"
-    german: "Tedesco"
-    italian: "Italiano"

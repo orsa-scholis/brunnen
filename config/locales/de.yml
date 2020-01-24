@@ -132,6 +132,10 @@ de:
         create: Umfrage absenden
       update: "%{model} aktualisieren"
   home: Startseite
+  languages:
+    french: Französisch
+    german: Deutsch
+    italian: Italienisch
   log_out: Abmelden
   root:
     active_surveys: Aktuell aktive Umfragen
@@ -148,6 +152,7 @@ de:
   time:
     formats:
       default: "%d.%m.%y %H:%M"
+  tool_name: Evaweb
   'true': Ja
   update: Aktualisieren
   views:
@@ -156,8 +161,3 @@ de:
       last: Letzte Seite
       next: Nächste Seite
       previous: Vorherige Seite
-  tool_name: Evaweb
-  languages:
-    french: "Französisch"
-    german: "Deutsch"
-    italian: "Italienisch"

@@ -132,6 +132,10 @@ fr:
         create: Envoyer l'enquête
       update: mise à jour %{model}
   home: Home
+  languages:
+    french: Français
+    german: Allemand
+    italian: Italien
   log_out: Déconnexion
   root:
     active_surveys: Enquêtes actuellement en cours
@@ -148,6 +152,7 @@ fr:
   time:
     formats:
       default: "%d.%m.%y %H:%M"
+  tool_name: Evaweb
   'true': Oui
   update: Aktualisieren
   views:
@@ -156,8 +161,3 @@ fr:
       last: Last
       next: Next
       previous: Previous
-  tool_name: "Evaweb"
-  languages:
-    french: "Français"
-    german: "Allemand"
-    italian: "Italien"
