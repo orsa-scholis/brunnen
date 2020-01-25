@@ -31,10 +31,7 @@ RSpec.describe ScopedHasManyField do
 
     context 'when there is a scope defined' do
       let(:scoped_field) do
-        p SurveyDashboard::QUESTION_GROUP_SCOPE
-
-        described_class.new('question_groups', data, 'page')
-                       .with_options(scope: SurveyDashboard::QUESTION_GROUP_SCOPE)
+        described_class.new('question_groups', data, 1, scope: SurveyDashboard::QUESTION_GROUP_SCOPE)
       end
 
       it 'does scope' do
