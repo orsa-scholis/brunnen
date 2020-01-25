@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'administrate/field/base'
+require 'administrate/field/has_many'
 
 class ScopedHasManyField < Administrate::Field::HasMany
   def associated_resource_options
