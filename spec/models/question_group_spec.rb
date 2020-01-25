@@ -3,10 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe QuestionGroup, type: :model do
-  it { is_expected.to belong_to :survey }
+  it { is_expected.to belong_to(:survey).required(false) }
   it { is_expected.to have_many :questions }
   it { is_expected.to have_many(:answer_possibility_submissions) }
-  it { is_expected.to validate_presence_of :survey }
 
   describe '#questions_min/max_possible_value' do
     context 'when there is a question' do
