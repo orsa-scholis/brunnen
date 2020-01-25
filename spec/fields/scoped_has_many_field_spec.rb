@@ -20,9 +20,6 @@ RSpec.describe ScopedHasManyField do
       create_list(:question_group, 2, survey: survey) + [other_question_group]
     end
 
-    before do
-    end
-
     context 'when there is no scope defined' do
       it 'does not scope' do
         expect(associated_resource_options.length).to eq(data.length)
