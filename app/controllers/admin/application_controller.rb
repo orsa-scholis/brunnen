@@ -9,6 +9,7 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
     before_action :authenticate_administrator!
+    before_action -> { I18n.locale = :de }
 
     # Override this value to specify the number of elements to display at a time
     # on index pages. Defaults to 20.

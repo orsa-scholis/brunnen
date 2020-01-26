@@ -83,7 +83,7 @@ RSpec.shared_examples_for 'preventing submission of inactive or already submitte
 
     it 'is successful' do
       post_request
-      expect(response).to redirect_to(root_path)
+      expect(response).to redirect_to(root_path(locale: :de))
     end
 
     context 'when survey is inactive' do
@@ -93,7 +93,7 @@ RSpec.shared_examples_for 'preventing submission of inactive or already submitte
       end
 
       it 'returns successful response' do
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(root_path(locale: :de))
       end
     end
 
@@ -108,7 +108,7 @@ RSpec.shared_examples_for 'preventing submission of inactive or already submitte
       end
 
       it 'returns successful response' do
-        expect(response).to redirect_to(root_path)
+        expect(response).to redirect_to(root_path(locale: :de))
       end
     end
   end

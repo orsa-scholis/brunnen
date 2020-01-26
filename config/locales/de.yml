@@ -60,8 +60,8 @@ de:
   admin_toolbar:
     admin_dashboard: Admin Dashboard
     title_html: |-
-      <strong>SBV-EvaWeb</strong> <span class="text-muted ml-1">
-        Eingeloggt als Administrator
+      <span class="text-muted ml-1">
+        <i class="fas fa-user-shield"></i> Eingeloggt als Administrator
       </span>
   administrate:
     actions:
@@ -132,6 +132,10 @@ de:
         create: Umfrage absenden
       update: "%{model} aktualisieren"
   home: Startseite
+  languages:
+    french: Französisch
+    german: Deutsch
+    italian: Italienisch
   log_out: Abmelden
   root:
     active_surveys: Aktuell aktive Umfragen
@@ -148,6 +152,7 @@ de:
   time:
     formats:
       default: "%d.%m.%y %H:%M"
+  tool_name: Evaweb
   'true': Ja
   update: Aktualisieren
   views:

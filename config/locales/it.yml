@@ -60,8 +60,8 @@ it:
   admin_toolbar:
     admin_dashboard: Admin Dashboard
     title_html: |-
-      <strong>SBV-EvaWeb</strong> <span class="text-muted ml-1">
-        Accesso come amministratore
+      <span class="text-muted ml-1">
+        <i class="fas fa-user-shield"></i> Accesso come amministratore
       </span>
   administrate:
     actions:
@@ -132,10 +132,14 @@ it:
         create: inviare il sondaggio
       update: "%{model} aktualisieren"
   home: Home
+  languages:
+    french: Francese
+    german: Tedesco
+    italian: Italiano
   log_out: Log out
   root:
-    active_surveys: Currently active surveys
-    all_surveys: All surveys
+    active_surveys: Indagini attualmente attive
+    all_surveys: Tutti i sondaggi
   surveys:
     index:
       admin_badges:
@@ -148,6 +152,7 @@ it:
   time:
     formats:
       default: "%d.%m.%y %H:%M"
+  tool_name: Evaweb
   'true': Ja
   update: Aktualisieren
   views:
