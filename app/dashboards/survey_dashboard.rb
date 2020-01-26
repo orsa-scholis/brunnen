@@ -9,8 +9,14 @@ class SurveyDashboard < Administrate::BaseDashboard
   # Each different type represents an Administrate::Field object,
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
+  QUESTION_GROUP_SCOPE = (lambda do |first_associated|
+    return QuestionGroup.not_associated if first_associated.nil?
+
+    QuestionGroup.not_associated_or_with(first_associated.survey)
+  end)
+
   ATTRIBUTE_TYPES = {
-    question_groups: Field::HasMany,
+    question_groups: ScopedHasManyField.with_options(scope: QUESTION_GROUP_SCOPE),
     id: Field::Number,
     title: Field::String,
     title_de: Field::String,
