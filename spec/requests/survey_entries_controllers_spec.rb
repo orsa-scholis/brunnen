@@ -62,7 +62,7 @@ RSpec.describe SurveyEntriesController, type: :request do
       it 'creates a new survey entry', :aggregate_failures do
         expect { post_request }.to change(SurveyEntry, :count)
         expect(SurveyEntry.last.answers.count).to eq 4
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to root_path(locale: :de)
         expect(flash[:notice]).to eq I18n.t('flashes.survey.create.successful')
       end
 
