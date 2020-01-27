@@ -2,6 +2,7 @@ import ApexCharts from 'apexcharts'
 
 let _chart = null;
 const _options = {
+  series: [{}],
   chart: {
     type: 'bar',
     toolbar: {
@@ -41,7 +42,7 @@ export const chart = {
   render(data) {
     const { group_labels, group_values, min, max, vote_options } = data.averages;
 
-    let options = _options;
+    let options = { ..._options };
     options.series = [{
       name: '∅',
       data: group_values.map((group_value) => parseFloat(group_value).toFixed(2))
