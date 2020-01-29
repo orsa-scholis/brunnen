@@ -161,3 +161,8 @@ en:
       last: Last
       next: Next
       previous: Previous
+  survey_entries:
+    index:
+      form:
+        errors:
+          answer_possibility: "No answer on mandatory question"

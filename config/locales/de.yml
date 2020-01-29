@@ -149,6 +149,11 @@ de:
           zero: Noch keine Einreichungen
       tooltips:
         already_submitted: Du hast diese Umfrage bereits ausgefüllt. Danke!
+  survey_entries:
+    index:
+      form:
+        errors:
+          answer_possibility: Keine Antwort auf obligatorische Frage
   time:
     formats:
       default: "%d.%m.%y %H:%M"

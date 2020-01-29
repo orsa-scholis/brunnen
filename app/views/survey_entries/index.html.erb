@@ -29,7 +29,8 @@
                                          as: :radio_buttons,
                                          label: answer.question.description,
                                          label_method: :description,
-                                         wrapper: :survey_collection %>
+                                         wrapper: :survey_collection,
+                                         error: I18n.t('survey_entries.index.form.errors.answer_possibility') %>
           </div>
         <% end %>
       <% end %>

@@ -16,13 +16,13 @@ fr:
           one: Fragengruppe
           other: Fragengruppen
       survey:
-        active: Aktiv
-        active_from: Aktiv von
-        active_to: Aktiv bis
-        inactive: Inaktiv
-        title_de: Deutscher Titel
-        title_fr: Französischer Titel
-        title_it: Italienischer Titel
+        active: Actif
+        active_from: Actif à partir de
+        active_to: Actif jusqu'à
+        inactive: Inactif
+        title_de: Titre allemand
+        title_fr: Titre français
+        title_it: Titre italien
       survey_entry:
         answers: Antworten
         survey: Umfrage
@@ -58,7 +58,7 @@ fr:
         one: Umfrageneingabe
         other: Umfrageneingaben
   admin_toolbar:
-    admin_dashboard: Admin Dashboard
+    admin_dashboard: Tableau de bord de l'administrateur
     title_html: |-
       <span class="text-muted ml-1">
         <i class="fas fa-user-shield"></i> Connecté en tant qu'administrateur
@@ -93,7 +93,7 @@ fr:
       show:
         export: Export Excel
   dashboard: Dashboard
-  edit: Editieren
+  edit: Éditer
   'false': Non
   flashes:
     survey:
@@ -118,14 +118,14 @@ fr:
         questions: Fragen
         survey: Umfrage
       survey:
-        active?: Aktiv
-        active_from: Aktiv von
-        active_to: Aktiv bis
-        description: Beschreibung
-        question_groups: Fragengruppen
-        title_de: Deutscher Titel
-        title_fr: Französischer Titel
-        title_it: Italienischer Titel
+        active?: Actif
+        active_from: Actif à partir de
+        active_to: Actif jusqu'à
+        description: Description
+        question_groups: Groupes de questions
+        title_de: Titre allemand
+        title_fr: Titre français
+        title_it: Titre italien
     submit:
       create: créer %{model}
       survey_entry:
@@ -144,11 +144,11 @@ fr:
     index:
       admin_badges:
         submission:
-          one: Eine Einreichung
-          other: "%{count} Einreichungen"
-          zero: Noch keine Einreichungen
+          one: Une soumission
+          other: "%{count} soumissions"
+          zero: Aucune soumission pour l'instant
       tooltips:
-        already_submitted: Du hast diese Umfrage bereits ausgefüllt. Danke!
+        already_submitted: Vous avez déjà répondu à cette enquête. Merci!
   time:
     formats:
       default: "%d.%m.%y %H:%M"
@@ -161,3 +161,8 @@ fr:
       last: Last
       next: Next
       previous: Previous
+  survey_entries:
+    index:
+      form:
+        errors:
+          answer_possibility: "Pas de réponse à la question obligatoire"

@@ -4,28 +4,28 @@ it:
     attributes:
       administrator:
         email: E-Mail
-        password: Passwort
-        password_confirmation: Passwort-Wiederholung
+        password: Password
+        password_confirmation: Ripetere la password
       answer_possibility_group:
         answer_possibilities: Possibili risposte
       question:
         answer_possibilities: Possibili risposte
-        answers: Antworten
-        description: Beschreibung
+        answers: Risposte
+        description: Descrizione
         question_group:
-          one: Fragengruppe
-          other: Fragengruppen
+          one: Gruppo di domande
+          other: Gruppi di domande
       survey:
-        active: Aktiv
-        active_from: Aktiv von
-        active_to: Aktiv bis
-        inactive: Inaktiv
-        title_de: Deutscher Titel
-        title_fr: Französischer Titel
-        title_it: Italienischer Titel
+        active: Attivo
+        active_from: Attivo da
+        active_to: Attivo fino a quando
+        inactive: Inattivo
+        title_de: Titolo tedesco
+        title_fr: Titolo francese
+        title_it: Titolo italiano
       survey_entry:
-        answers: Antworten
-        survey: Umfrage
+        answers: Risposte
+        survey: Sondaggio
     errors:
       models:
         survey_entry:
@@ -34,31 +34,31 @@ it:
               not_all_answered: non tutte le domande hanno avuto risposta
     models:
       administrator:
-        one: Administrator
-        other: Administratoren
+        one: Amministratore
+        other: Amministratori
       answer:
-        one: Antwort
-        other: Antworten
+        one: Rispondi
+        other: Risposte
       answer_possibility:
         one: Possibilità di risposta
         other: Possibili risposte
       answer_possibility_group:
-        one: Antwortmöglichkeitgruppe
-        other: Antwortmöglichkeitgruppen
+        one: Gruppo di risposta
+        other: Gruppi di opzioni di risposta
       question:
-        one: Frage
-        other: Fragen
+        one: Domanda
+        other: Domande
       question_group:
-        one: Fragengruppe
-        other: Fragengruppen
+        one: Gruppo di domande
+        other: Gruppi di domande
       survey:
-        one: Umfrage
-        other: Umfragen
+        one: Sondaggio
+        other: Sondaggi
       survey_entry:
-        one: Umfrageneingabe
-        other: Umfrageneingaben
+        one: Inserimento del sondaggio
+        other: Input per i sondaggi
   admin_toolbar:
-    admin_dashboard: Admin Dashboard
+    admin_dashboard: Cruscotto dell'amministratore
     title_html: |-
       <span class="text-muted ml-1">
         <i class="fas fa-user-shield"></i> Accesso come amministratore
@@ -92,9 +92,9 @@ it:
             raw_data: Raw data
       show:
         export: Export Excel
-  dashboard: Dashboard
-  edit: Editieren
-  'false': Nein
+  dashboard: Cruscotto
+  edit: Modifica
+  'false': No
   flashes:
     survey:
       create:
@@ -107,11 +107,11 @@ it:
         select_answer_possibility_group: Selezionare un gruppo predefinito
       question:
         answer_possibilities: Possibili risposte
-        answers: Antworten
-        description: Beschreibung
-        description_de: Deutsche Beschreibung
-        description_fr: Französische Beschreibung
-        description_it: Italienische Beschreibung
+        answers: Risposte
+        description: Descrizione
+        description_de: Descrizione tedesco
+        description_fr: Descrizione francese
+        description_it: Descrizione italiana
         question_group: Fragengruppe
       question_group:
         description: Beschreibung
@@ -136,7 +136,7 @@ it:
     french: Francese
     german: Tedesco
     italian: Italiano
-  log_out: Log out
+  log_out: Esci fuori
   root:
     active_surveys: Indagini attualmente attive
     all_surveys: Tutti i sondaggi
@@ -144,20 +144,25 @@ it:
     index:
       admin_badges:
         submission:
-          one: Eine Einreichung
-          other: "%{count} Einreichungen"
-          zero: Noch keine Einreichungen
+          one: Una presentazione
+          other: "%{count} invii"
+          zero: Ancora nessuna presentazione
       tooltips:
-        already_submitted: Du hast diese Umfrage bereits ausgefüllt. Danke!
+        already_submitted: Avete già compilato questo questionario. Grazie!
   time:
     formats:
       default: "%d.%m.%y %H:%M"
   tool_name: Evaweb
-  'true': Ja
-  update: Aktualisieren
+  'true': Sì
+  update: Aggiorna
   views:
     pagination:
       first: First
       last: ''
       next: Next
       previous: Previous
+  survey_entries:
+    index:
+      form:
+        errors:
+          answer_possibility: "Nessuna risposta alla domanda obbligatoria"
