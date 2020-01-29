@@ -140,6 +140,11 @@ de:
   root:
     active_surveys: Aktuell aktive Umfragen
     all_surveys: Alle Umfragen
+  survey_entries:
+    index:
+      form:
+        errors:
+          answer_possibility: Keine Antwort auf obligatorische Frage
   surveys:
     index:
       admin_badges:
