@@ -94,7 +94,7 @@ it:
         export: Export Excel
   dashboard: Cruscotto
   edit: Modifica
-  'false': No
+  'false': false
   flashes:
     survey:
       create:
@@ -140,6 +140,11 @@ it:
   root:
     active_surveys: Indagini attualmente attive
     all_surveys: Tutti i sondaggi
+  survey_entries:
+    index:
+      form:
+        errors:
+          answer_possibility: Nessuna risposta alla domanda obbligatoria
   surveys:
     index:
       admin_badges:
@@ -161,8 +166,3 @@ it:
       last: ''
       next: Next
       previous: Previous
-  survey_entries:
-    index:
-      form:
-        errors:
-          answer_possibility: "Nessuna risposta alla domanda obbligatoria"

@@ -140,6 +140,11 @@ fr:
   root:
     active_surveys: Enquêtes actuellement en cours
     all_surveys: Toutes les enquêtes
+  survey_entries:
+    index:
+      form:
+        errors:
+          answer_possibility: Pas de réponse à la question obligatoire
   surveys:
     index:
       admin_badges:
@@ -161,8 +166,3 @@ fr:
       last: Last
       next: Next
       previous: Previous
-  survey_entries:
-    index:
-      form:
-        errors:
-          answer_possibility: "Pas de réponse à la question obligatoire"
