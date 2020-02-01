@@ -1,4 +1,4 @@
-import ApexCharts from 'apexcharts'
+import ApexCharts from 'apexcharts';
 
 let _chart = null;
 const _options = {
@@ -54,10 +54,10 @@ export const chart = {
     options.yaxis.labels.formatter = (value) => vote_options[value];
 
     if (_chart == null) {
-      _chart = new ApexCharts(document.querySelector("#chart"), options);
+      _chart = new ApexCharts(document.querySelector('#chart'), options);
       _chart.render();
     } else {
-      _chart.updateOptions(options)
+      _chart.updateOptions(options);
     }
   },
 };
