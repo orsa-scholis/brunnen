@@ -3,3 +3,4 @@
 set -e
 
 bundle exec rspec
+bin/yarn run eslint app/webpack/javascripts
