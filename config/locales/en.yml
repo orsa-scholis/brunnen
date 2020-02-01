@@ -140,7 +140,7 @@ en:
   root:
     active_surveys: Currently active surveys
     all_surveys: All surveys
-    no_active_surveys: "No active surveys"
+    no_active_surveys: No active surveys
   survey_entries:
     index:
       form:
