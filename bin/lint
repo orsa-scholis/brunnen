@@ -9,4 +9,5 @@ if [ $# -eq 1 ] && [ "$1" = "--pre-push" ]; then
 else
   bundle exec rubocop
   bundle exec brakeman -q -z --no-summary --no-pager
+  bin/yarn run eslint app/webpack/javascripts
 fi
