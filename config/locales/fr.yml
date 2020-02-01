@@ -140,6 +140,7 @@ fr:
   root:
     active_surveys: Enquêtes actuellement en cours
     all_surveys: Toutes les enquêtes
+    no_active_surveys: Aucune enquête en cours
   survey_entries:
     index:
       form:

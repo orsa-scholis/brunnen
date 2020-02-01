@@ -140,6 +140,7 @@ de:
   root:
     active_surveys: Aktuell aktive Umfragen
     all_surveys: Alle Umfragen
+    no_active_surveys: Keine aktuell aktive Umfragen
   survey_entries:
     index:
       form:
