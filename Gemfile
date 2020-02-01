@@ -27,6 +27,7 @@ gem 'validates_timeliness', '~> 5.0.0.alpha3'
 gem 'webpacker', '~> 4.0'
 
 group :development, :test do
+  gem 'brakeman', require: false
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'pry-byebug'
@@ -50,6 +51,7 @@ group :development do
 end
 
 group :production do
+  gem 'lograge'
   gem 'redis'
   gem 'sentry-raven'
 end
