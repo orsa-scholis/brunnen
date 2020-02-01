@@ -1,5 +1,5 @@
-import flatpickr from 'flatpickr'
-import { German } from 'flatpickr/dist/l10n/de'
+import flatpickr from 'flatpickr';
+import { German } from 'flatpickr/dist/l10n/de';
 
 function bindDateTimePickers() {
   [...document.querySelectorAll('[data-type="time"]')].forEach((time) => {
@@ -11,7 +11,7 @@ function bindDateTimePickers() {
       altInput: true,
       altFormat: ' h:i:S K',
       dateFormat: 'H:i:S' // H:i
-    })
+    });
   });
 
   [...document.querySelectorAll('[data-type="datetime"]')].forEach((time) => {
@@ -22,10 +22,10 @@ function bindDateTimePickers() {
       locale: German,
       altFormat: 'l, j.m.Y H:i',
       dateFormat: 'Z' // Y-m-d H:i
-    })
-  })
+    });
+  });
 }
 
-document.addEventListener("turbolinks:load", function () {
-  bindDateTimePickers()
-})
+document.addEventListener('turbolinks:load', function () {
+  bindDateTimePickers();
+});

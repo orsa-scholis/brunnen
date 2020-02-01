@@ -1,15 +1,15 @@
-import consumer from "./consumer"
-import { chart } from "../chart";
+import consumer from './consumer';
+import { chart } from '../chart';
 
-consumer.subscriptions.create({ channel: "SurveyResultChannel", survey_id: EvawebDashboard.surveyId }, {
+consumer.subscriptions.create({ channel: 'SurveyResultChannel', survey_id: window.EvawebDashboard.surveyId }, {
   connected() {},
   disconnected() {},
 
   received(data) {
-    const chartDiv = document.getElementById("chart");
+    const chartDiv = document.getElementById('chart');
 
-    if (chartDiv.dataset.hasOwnProperty('statsReceived') && chartDiv.dataset.statsReceived === 'false') {
-      const urlDiv = document.getElementById("url_infos");
+    if (Object.prototype.hasOwnProperty.call(chartDiv.dataset, 'statsReceived') && chartDiv.dataset.statsReceived === 'false') {
+      const urlDiv = document.getElementById('url_infos');
       chartDiv.classList.replace('col-12', 'col-8');
       urlDiv.classList.replace('col-12', 'col-4');
 

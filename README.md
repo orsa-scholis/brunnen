@@ -33,7 +33,9 @@ Processes:
 -   Worker: `bundle exec sidekiq -C config/sidekiq.yml`
     
 
-You can also use a tool like foreman or procodile to start all services at once
+You can also use a tool like foreman or procodile to start all services at once, specified in `Procfile`.
+
+Before running a new version, call `bin/rails db:migrate`.
 
 The tool is tested using RSpec and coverage is set to 100%
 
@@ -43,3 +45,10 @@ The live version is deployed to Heroku. To production environment, a Postgres an
 
 Development deployment: https://evaweb-develop.herokuapp.com
 Production deployment: https://evaweb-production.herokuapp.com
+
+Required Add-Ons:
+
+- Redis
+- Postgres
+- Some mail service e.g. Sendgrid or Sparkpost
+- Optionally Papertrail
