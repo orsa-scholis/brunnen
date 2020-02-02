@@ -92,6 +92,7 @@ de:
             raw_data: Rohdaten
       show:
         export: Excel exportieren
+        preview: Vorschau
   dashboard: Dashboard
   edit: Editieren
   'false': Nein
@@ -102,30 +103,47 @@ de:
         successful: Vielen Dank für das Mitmachen bei der Umfrage!
   helpers:
     label:
+      answer_possibility:
+        created_at: Erstellt am
+        description: Beschreibung
+        description_de: Deutsche Beschreibung
+        questions: Fragen
+        updated_at: Aktualisiert am
+        value: Wert
       answer_possibility_group:
         answer_possibilities: Antwortmöglichkeiten
+        created_at: Erstellt am
+        description: Beschreibung
         select_answer_possibility_group: Wähle eine vordefinierte Gruppe aus
+        updated_at: Aktualisiert am
       question:
         answer_possibilities: Antwortmöglichkeiten
         answers: Antworten
+        created_at: Erstellt am
         description: Beschreibung
         description_de: Deutsche Beschreibung
         description_fr: Französische Beschreibung
         description_it: Italienische Beschreibung
         question_group: Fragengruppe
+        updated_at: Aktualisiert am
       question_group:
+        created_at: Erstellt am
         description: Beschreibung
         questions: Fragen
         survey: Umfrage
+        updated_at: Aktualisiert am
       survey:
         active?: Aktiv
         active_from: Aktiv von
         active_to: Aktiv bis
+        created_at: Erstellt am
         description: Beschreibung
         question_groups: Fragengruppen
+        title: Titel
         title_de: Deutscher Titel
         title_fr: Französischer Titel
         title_it: Italienischer Titel
+        updated_at: Aktualisiert am
     submit:
       create: "%{model} erstellen"
       survey_entry:

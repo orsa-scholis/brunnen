@@ -70,4 +70,10 @@
   padding-right: 0.5em;
 }
 
+.has-many-field.add-button {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
 @import "~flatpickr/dist/flatpickr.min";
