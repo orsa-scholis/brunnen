@@ -27,10 +27,8 @@ class QuestionGroup < ApplicationRecord
     end.max
   end
 
-  private
-
   def survey_change_only_without_answers
-    return unless survey_id_changed? && persisted? && questions.any? { |q| q.answers.present? }
+    return unless survey_id_changed? && persisted? && answers.any?
 
     errors.add(:survey_id, I18n.t('activerecord.errors.models.question_group.attributes.survey.change_with_answers'))
   end

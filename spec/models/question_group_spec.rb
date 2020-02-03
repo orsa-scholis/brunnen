@@ -51,20 +51,15 @@ RSpec.describe QuestionGroup, type: :model do
       let!(:question_group) { create :question_group }
 
       context 'when there is answers' do
-        let(:new_survey) { create :survey }
+        include_context 'with completely filled out survey'
 
-        let(:questions) do
-          create_pair :question, question_group: question_group
-        end
+        subject(:question_group) { question_groups.first }
 
-        let(:answer_1) { create_pair :answer, question: questions.first }
-        let(:answer_2) { create_pair :answer, question: questions.last }
+        let(:other_survey) { create :survey }
 
         it 'adds an error to the question_group' do
-          question_group.survey = new_survey
+          question_group.survey = other_survey
           question_group.valid?
-
-          pp question_group.errors
 
           expect(question_group.errors[:survey_id])
             .to include(I18n.t('activerecord.errors.models.question_group.attributes.survey.change_with_answers'))
@@ -72,6 +67,10 @@ RSpec.describe QuestionGroup, type: :model do
       end
 
       context 'when there is no answers' do
+        include_context 'with complete survey'
+
+        subject(:question_group) { question_groups.first }
+
         let(:new_description) { 'Neue Beschreibung' }
 
         before do
