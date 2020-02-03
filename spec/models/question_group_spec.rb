@@ -39,4 +39,48 @@ RSpec.describe QuestionGroup, type: :model do
       end
     end
   end
+
+  describe '#survey_change_only_without_answers' do
+    context 'when the question_group gets created' do
+      it 'creates without error' do
+        expect { create :question_group }.to change { described_class.all.count }.by(1)
+      end
+    end
+
+    context 'when the question_group gets updated' do
+      let!(:question_group) { create :question_group }
+
+      context 'when there is answers' do
+        include_context 'with completely filled out survey'
+
+        subject(:question_group) { question_groups.first }
+
+        let(:other_survey) { create :survey }
+
+        it 'adds an error to the question_group' do
+          question_group.survey = other_survey
+          question_group.valid?
+
+          expect(question_group.errors[:survey_id])
+            .to include(I18n.t('activerecord.errors.models.question_group.attributes.survey.change_with_answers'))
+        end
+      end
+
+      context 'when there is no answers' do
+        include_context 'with complete survey'
+
+        subject(:question_group) { question_groups.first }
+
+        let(:new_description) { 'Neue Beschreibung' }
+
+        before do
+          question_group.update(description: new_description)
+        end
+
+        it 'updates the question_group' do
+          expect(described_class.find(question_group.id).description).to eq(new_description)
+        end
+      end
+    end
+  end
 end

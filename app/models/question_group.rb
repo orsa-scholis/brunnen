@@ -5,6 +5,9 @@ class QuestionGroup < ApplicationRecord
 
   has_many :questions, dependent: :destroy, inverse_of: :question_group
   has_many :answer_possibility_submissions, dependent: :restrict_with_exception
+  has_many :answers, through: :questions
+
+  validate :survey_change_only_without_answers
 
   translates :description
   globalize_accessors
@@ -22,5 +25,11 @@ class QuestionGroup < ApplicationRecord
     questions.map do |question|
       question.answer_possibilities.maximum(:value)
     end.max
+  end
+
+  def survey_change_only_without_answers
+    return unless survey_id_changed? && persisted? && answers.any?
+
+    errors.add(:survey_id, I18n.t('activerecord.errors.models.question_group.attributes.survey.change_with_answers'))
   end
 end

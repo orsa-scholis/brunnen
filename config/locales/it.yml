@@ -28,6 +28,10 @@ it:
         survey: Sondaggio
     errors:
       models:
+        question_group:
+          attributes:
+            survey:
+              change_with_answers: l'assegnazione al sondaggio non può essere modificata perché le risposte sono già state inviate.
         survey_entry:
           attributes:
             answers:

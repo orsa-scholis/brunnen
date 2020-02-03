@@ -28,6 +28,10 @@ fr:
         survey: Umfrage
     errors:
       models:
+        question_group:
+          attributes:
+            survey:
+              change_with_answers: l'affectation à l'enquête ne peut pas être modifiée parce que les réponses ont déjà été soumises.
         survey_entry:
           attributes:
             answers:
