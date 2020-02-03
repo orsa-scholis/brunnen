@@ -14,6 +14,9 @@ class QuestionGroupDashboard < Administrate::BaseDashboard
     questions: Field::HasMany,
     id: Field::Number,
     description: Field::String,
+    description_de: Field::String,
+    description_fr: Field::String,
+    description_it: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -24,9 +27,6 @@ class QuestionGroupDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    survey
-    questions
-    id
     description
   ].freeze
 
@@ -36,7 +36,9 @@ class QuestionGroupDashboard < Administrate::BaseDashboard
     survey
     questions
     id
-    description
+    description_de
+    description_fr
+    description_it
     created_at
     updated_at
   ].freeze
@@ -47,7 +49,9 @@ class QuestionGroupDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     survey
     questions
-    description
+    description_de
+    description_fr
+    description_it
   ].freeze
 
   # COLLECTION_FILTERS

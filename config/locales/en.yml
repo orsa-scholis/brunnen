@@ -92,6 +92,7 @@ en:
             raw_data: Raw data
       show:
         export: Export Excel
+        preview: Preview
   dashboard: Dashboard
   edit: Editieren
   'false': false

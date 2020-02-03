@@ -92,6 +92,7 @@ it:
             raw_data: Raw data
       show:
         export: Export Excel
+        preview: Vorschau
   dashboard: Cruscotto
   edit: Modifica
   'false': false

@@ -25,7 +25,7 @@
           <div class="question-container">
             <%= answer_field.input :question_id, as: :hidden, input_html: { value: answer.question.id } %>
             <%= answer_field.association :answer_possibility,
-                                         collection: answer.question.answer_possibilities,
+                                         collection: answer.question.answer_possibilities.order(value: :desc),
                                          as: :radio_buttons,
                                          label: answer.question.description,
                                          label_method: :description,

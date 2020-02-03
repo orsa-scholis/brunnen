@@ -92,6 +92,7 @@ fr:
             raw_data: Raw data
       show:
         export: Export Excel
+        preview: Vorschau
   dashboard: Dashboard
   edit: Éditer
   'false': Non

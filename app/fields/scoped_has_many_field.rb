@@ -3,6 +3,13 @@
 require 'administrate/field/has_many'
 
 class ScopedHasManyField < Administrate::Field::HasMany
+  attr_reader :new_path
+
+  def initialize(*args)
+    super(*args)
+    @new_path = options[:new_path]
+  end
+
   def associated_resource_options
     custom_candidate_resources.map do |resource|
       [display_candidate_resource(resource), resource.send(primary_key)]

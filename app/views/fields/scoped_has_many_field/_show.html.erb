@@ -1,1 +1,7 @@
 <%= render '/fields/has_many/show', field: field, page: page %>
+
+<div>
+  <%= link_to I18n.t('administrate.actions.new_resource', name: field.data.model_name.human),
+              field.new_path,
+              class: 'has-many-field add-button' %>
+</div>

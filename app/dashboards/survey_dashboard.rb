@@ -15,8 +15,10 @@ class SurveyDashboard < Administrate::BaseDashboard
     QuestionGroup.not_associated_or_with(first_associated.survey)
   end)
 
+  NEW_ADMIN_QUESTION_GROUP_PATH = Rails.application.routes.url_helpers.new_admin_question_group_path.freeze
   ATTRIBUTE_TYPES = {
-    question_groups: ScopedHasManyField.with_options(scope: QUESTION_GROUP_SCOPE),
+    question_groups: ScopedHasManyField.with_options(scope: QUESTION_GROUP_SCOPE,
+                                                     new_path: NEW_ADMIN_QUESTION_GROUP_PATH),
     id: Field::Number,
     title: Field::String,
     title_de: Field::String,
@@ -83,7 +85,6 @@ class SurveyDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(survey)
-    model_name = I18n.t('activerecord.models.survey', count: 1)
-    "#{model_name} ##{survey.id}"
+    survey.title
   end
 end
