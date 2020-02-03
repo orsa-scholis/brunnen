@@ -28,6 +28,10 @@ en:
         survey: Umfrage
     errors:
       models:
+        question_group:
+          attributes:
+            survey:
+              change_with_answers: the assignment to the survey cannot be changed because answers have already been submitted.
         survey_entry:
           attributes:
             answers:

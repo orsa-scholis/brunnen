@@ -28,6 +28,10 @@ de:
         survey: Umfrage
     errors:
       models:
+        question_group:
+          attributes:
+            survey:
+              change_with_answers: die Zuweisung zur Umfrage kann nicht geändert werden, da bereits Antworten eingereicht wurden.
         survey_entry:
           attributes:
             answers:
