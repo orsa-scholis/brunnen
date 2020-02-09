@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :surveys, only: :index do
     resources :survey_entries, only: %i[index create], as: 'entries'
     get 'dashboard', to: 'dashboards#index', on: :member
+    get 'qrcode', to: 'surveys#qrcode', on: :member
   end
 
   namespace :admin do

@@ -13,3 +13,9 @@ $toolbar-item-spacing: .75em;
     color: lighten($text-muted, 40%) !important;
   }
 }
+
+@media print {
+  .admin-toolbar {
+    display: none !important;
+  }
+}

@@ -97,6 +97,7 @@ it:
       show:
         export: Export Excel
         preview: Vorschau
+        qrcode: QR-Code
   dashboard: Cruscotto
   edit: Modifica
   'false': false

@@ -97,6 +97,7 @@ fr:
       show:
         export: Export Excel
         preview: Vorschau
+        qrcode: QR-Code
   dashboard: Dashboard
   edit: Éditer
   'false': Non

@@ -1,0 +1,17 @@
+<div class="row">
+  <h1 class="col-12 text-center mb-5 display-3">
+    <%= @survey.title %>
+  </h1>
+</div>
+
+<div class="row">
+  <div id="url_infos" class="text-center col-12">
+    <div id="short_url">
+      <h3><%= @survey.short_url %></h3>
+    </div>
+    <div id="qr" style="width: 100%">
+      <%= raw @qr_code.to_svg(options: {module_size: 9}) %>
+    </div>
+  </div>
+
+</div>
