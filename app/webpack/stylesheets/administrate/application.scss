@@ -28,6 +28,11 @@
 
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/tooltip";
+
 //@import "trix/dist/trix";
 
 // We need to override trix.css’s image gallery styles to accommodate the
