@@ -13,5 +13,12 @@
       <%= raw @qr_code.to_svg(options: {module_size: 9}) %>
     </div>
   </div>
+</div>
 
+<div class="row mt-4">
+  <div class="col-12">
+    <p>
+      <%= raw I18n.t('surveys.qrcode.scan_explanation') %>
+    </p>
+  </div>
 </div>
