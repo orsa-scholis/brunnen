@@ -8,6 +8,4 @@ require('@fortawesome/fontawesome-free/css/solid.min.css');
 require('jquery/dist/jquery');
 require('bootstrap/dist/js/bootstrap.bundle');
 
-import * as $ from 'jquery';
-
-$(document).ready(() => $('[data-toggle="tooltip"]').tooltip());
+require('./components/tooltip');
