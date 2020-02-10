@@ -12,7 +12,7 @@ class QuestionGroup < ApplicationRecord
   translates :description
   globalize_accessors
 
-  scope :not_associated_or_with, ->(survey) { where(survey: survey).or(QuestionGroup.not_associated) }
+  scope :not_associated_or_with, ->(survey) { where(survey: survey).or(unscoped.not_associated) }
   scope :not_associated, -> { where(survey: nil) }
 
   def questions_min_possible_value

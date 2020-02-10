@@ -11,8 +11,8 @@ class SurveysController < ApplicationController
 
   def qrcode
     @survey = Survey.find(params[:id])
-    @qr_code = QrCodeService.new(@survey.short_url)
+    return redirect_to surveys_url unless administrator_signed_in?
 
-    render 'qrcode'
+    @qr_code = QrCodeService.new(@survey.short_url)
   end
 end
