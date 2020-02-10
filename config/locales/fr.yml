@@ -162,7 +162,10 @@ fr:
       tooltips:
         already_submitted: Vous avez déjà répondu à cette enquête. Merci!
     qrcode:
-      scan_explanation: '- Ouvrez l''application caméra sur l''iPhone et sur Android le QR-Droid ou un autre lecteur de QR Code ("Barcode", "I-nigma")<br>- Alignez la caméra sur le QR Code<br>- Ouvrez le lien.'
+      scan_explanation:
+        - Ouvrez l'application caméra sur l'iPhone et sur Android le QR-Droid ou un autre lecteur de QR Code ("Barcode", "I-nigma")
+        - Alignez la caméra sur le QR Code
+        - Ouvrez le lien
   time:
     formats:
       default: "%d.%m.%y %H:%M"

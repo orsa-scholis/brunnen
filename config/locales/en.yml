@@ -162,7 +162,10 @@ en:
       tooltips:
         already_submitted: Du hast diese Umfrage bereits ausgefüllt. Danke!
     qrcode:
-      scan_explanation: '- Open the camera app on the iPhone and on Android the QR-Droid or another QR Code reader ("Barcode", "I-nigma")<br>- Align the camera to the QR Code<br>- Open the link'
+      scan_explanation:
+        - Open the camera app on the iPhone and on Android the QR-Droid or another QR Code reader ("Barcode", "I-nigma")
+        - Align the camera to the QR Code
+        - Open the link
   time:
     formats:
       default: "%d.%m.%y %H:%M"
