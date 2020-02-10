@@ -1,24 +1,20 @@
-<div class="row">
-  <h1 class="col-12 text-center mb-5 display-3">
-    <%= @survey.title %>
-  </h1>
-</div>
+<h1 class="w-100 text-center mb-5 display-3">
+  <%= @survey.title %>
+</h1>
 
-<div class="row">
-  <div id="url_infos" class="text-center col-12">
-    <div id="short_url">
-      <h3><%= @survey.short_url %></h3>
-    </div>
-    <div id="qr" style="width: 100%">
-      <%= raw @qr_code.to_svg(options: {module_size: 9}) %>
-    </div>
+<div id="url_infos" class="text-center col-12">
+  <div id="short_url">
+    <h3><%= @survey.short_url %></h3>
+  </div>
+  <div id="qr" class="w-100">
+    <%= raw @qr_code.to_svg(options: { module_size: 9 }) %>
   </div>
 </div>
 
-<div class="row mt-4">
-  <div class="col-12">
-    <p>
-      <%= raw I18n.t('surveys.qrcode.scan_explanation') %>
-    </p>
-  </div>
+<div class="w-100 mt-4">
+  <ol>
+    <% I18n.t('surveys.qrcode.scan_explanation').each do |step| %>
+      <li><%= step %></li>
+    <% end %>
+  </ol>
 </div>
