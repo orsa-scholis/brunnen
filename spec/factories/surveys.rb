@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :survey do
-    title { 'My Survey' }
+    sequence(:title) { |i| "My Survey #{i}" }
     active_from { 1.day.ago }
     active_to { 2.hours.since }
 
