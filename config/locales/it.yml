@@ -163,9 +163,9 @@ it:
         already_submitted: Avete già compilato questo questionario. Grazie!
     qrcode:
       scan_explanation:
-        - Aprire l'app della fotocamera sull'iPhone e su Android il QR-Droid o un altro lettore di QR Code ("Barcode", "I-nigma")
-        - Allineare la fotocamera al QR Code
-        - Aprire il link
+      - Aprire l'app della fotocamera sull'iPhone e su Android il QR-Droid o un altro lettore di QR Code ("Barcode", "I-nigma")
+      - Allineare la fotocamera al QR Code
+      - Aprire il link
   time:
     formats:
       default: "%d.%m.%y %H:%M"
