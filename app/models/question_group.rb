@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class QuestionGroup < ApplicationRecord
-  belongs_to :survey, inverse_of: :question_groups, required: false
+  belongs_to :survey, inverse_of: :question_groups, optional: true
 
   has_many :questions, dependent: :destroy, inverse_of: :question_group
   has_many :answer_possibility_submissions, dependent: :restrict_with_exception

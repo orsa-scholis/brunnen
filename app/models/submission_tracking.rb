@@ -9,6 +9,8 @@ class SubmissionTracking
 
   attr_accessor :survey_entries
 
+  delegate :<<, to: :survey_entries
+
   def initialize(survey_entries:)
     @survey_entries = survey_entries || []
   end
@@ -29,10 +31,6 @@ class SubmissionTracking
 
   def decode(encoded)
     deserialize(Base64.decode64(encoded))
-  end
-
-  def <<(survey_entry)
-    survey_entries << survey_entry
   end
 
   private
