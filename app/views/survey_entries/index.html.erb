@@ -8,8 +8,12 @@
         <i class="fas fa-tachometer-alt"></i> <%= t('dashboard') %>
       <% end %>
 
-      <%= link_to edit_admin_survey_path(@survey_entry.survey) do %>
+      <%= link_to edit_admin_survey_path(@survey_entry.survey), class: 'mr-3' do %>
         <i class="fas fa-edit"></i> <%= t('edit') %>
+      <% end %>
+
+      <%= link_to qrcode_survey_path(@survey_entry.survey) do %>
+        <i class="fas fa-qrcode"></i> <%= t('administrate.surveys.show.qrcode') %>
       <% end %>
     </div>
   <% end %>

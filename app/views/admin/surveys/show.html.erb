@@ -30,16 +30,33 @@ as well as a link to its edit page.
           class: 'button',
         ) if valid_action?(:edit) && show_action?(:edit, page.resource) %>
 
-    <%= link_to(export_admin_survey_path(page.resource), class: 'button', method: :post) do %>
-      <i class="fas fa-file-excel mr-1"></i> <%= t('administrate.surveys.show.export') %>
+    <%= link_to(export_admin_survey_path(page.resource),
+                class: 'button',
+                method: :post,
+                title: t('administrate.surveys.show.export'),
+                data: { toggle: 'tooltip', placement: 'bottom' }) do %>
+      <i class="fas fa-file-excel"></i>
     <% end %>
 
-    <%= link_to(dashboard_survey_path(page.resource), class: 'button') do %>
-      <i class="fas fa-tachometer-alt mr-1"></i> <%= t('dashboard') %>
+    <%= link_to(dashboard_survey_path(page.resource),
+                class: 'button',
+                title: t('dashboard'),
+                data: { toggle: 'tooltip', placement: 'bottom' }) do %>
+      <i class="fas fa-tachometer-alt"></i>
     <% end %>
 
-    <%= link_to(survey_entries_path(page.resource), class: 'button') do %>
-      <i class="fas fa-eye mr-1"></i> <%= t('administrate.surveys.show.preview') %>
+    <%= link_to(survey_entries_path(page.resource),
+                class: 'button',
+                title: t('administrate.surveys.show.preview'),
+                data: { toggle: 'tooltip', placement: 'bottom' }) do %>
+      <i class="fas fa-eye"></i>
+    <% end %>
+
+    <%= link_to(qrcode_survey_path(page.resource),
+                class: 'button',
+                title: t('administrate.surveys.show.qrcode'),
+                data: { toggle: 'tooltip', placement: 'bottom' }) do %>
+      <i class="fas fa-qrcode"></i>
     <% end %>
   </div>
 </header>

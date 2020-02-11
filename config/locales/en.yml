@@ -97,6 +97,7 @@ en:
       show:
         export: Export Excel
         preview: Preview
+        qrcode: QR-Code
   dashboard: Dashboard
   edit: Editieren
   'false': false
@@ -160,6 +161,11 @@ en:
           zero: Noch keine Einreichungen
       tooltips:
         already_submitted: Du hast diese Umfrage bereits ausgefüllt. Danke!
+    qrcode:
+      scan_explanation:
+      - Open the camera app on the iPhone and on Android the QR-Droid or another QR Code reader ("Barcode", "I-nigma")
+      - Align the camera to the QR Code
+      - Open the link
   time:
     formats:
       default: "%d.%m.%y %H:%M"
