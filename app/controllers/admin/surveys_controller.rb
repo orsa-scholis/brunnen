@@ -3,7 +3,9 @@
 module Admin
   class SurveysController < Admin::ApplicationController
     def export
-      @survey = Survey.includes(questions: [:answers]).find(requested_resource.id)
+      @survey = Survey.includes(questions: [:translations,
+                                            answers: :answer_possibility,
+                                            answer_possibilities: :translations]).find(requested_resource.id)
 
       render xlsx: 'admin/surveys/export.xlsx', filename: 'export.xlsx'
     end
