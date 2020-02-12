@@ -19,7 +19,7 @@
   <% end %>
 </div>
 
-<%= simple_form_for @survey_entry do |f| %>
+<%= simple_form_for @survey_entry, url: { survey_id: @survey_entry.survey_id } do |f| %>
   <% @grouped_answers.each do |question_group, answers| %>
     <div class="card card-body mt-4">
       <h2 class="card-title"><%= question_group.description %></h2>
