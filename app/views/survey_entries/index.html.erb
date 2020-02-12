@@ -26,7 +26,7 @@
 
       <% answers.each do |answer| %>
         <%= f.simple_fields_for :answers, answer do |answer_field| %>
-          <div class="question-container">
+          <div class="question-container" id="question-<%= answer.question.id %>">
             <%= answer_field.input :question_id, as: :hidden, input_html: { value: answer.question.id } %>
             <%= answer_field.association :answer_possibility,
                                          collection: answer.question.answer_possibilities.order(value: :desc),
