@@ -46,6 +46,6 @@ class SubmissionTracking
   def deserialize(serialized)
     return if serialized.empty?
 
-    self.survey_entries = SurveyEntry.where(id: serialized.split(DELIMITER).map(&:to_i)).to_a
+    self.survey_entries = SurveyEntry.includes(:survey).where(id: serialized.split(DELIMITER).map(&:to_i)).to_a
   end
 end
