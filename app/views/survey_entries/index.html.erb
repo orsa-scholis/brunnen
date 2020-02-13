@@ -19,14 +19,14 @@
   <% end %>
 </div>
 
-<%= simple_form_for @survey_entry do |f| %>
+<%= simple_form_for @survey_entry, url: { survey_id: @survey_entry.survey_id } do |f| %>
   <% @grouped_answers.each do |question_group, answers| %>
     <div class="card card-body mt-4">
       <h2 class="card-title"><%= question_group.description %></h2>
 
       <% answers.each do |answer| %>
         <%= f.simple_fields_for :answers, answer do |answer_field| %>
-          <div class="question-container">
+          <div class="question-container" id="question-<%= answer.question.id %>">
             <%= answer_field.input :question_id, as: :hidden, input_html: { value: answer.question.id } %>
             <%= answer_field.association :answer_possibility,
                                          collection: answer.question.answer_possibilities.order(value: :desc),

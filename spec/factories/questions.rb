@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :question do
     answer_possibilities { build_pair :answer_possibility }
-    description { 'My description' }
+    sequence(:description) { |i| "My question No. #{i}" }
   end
 end

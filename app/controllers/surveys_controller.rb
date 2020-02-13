@@ -8,7 +8,7 @@ class SurveysController < ApplicationController
   before_action :authenticate_administrator!, only: :qrcode
 
   def index
-    @surveys = (administrator_signed_in? ? Survey.all : Survey.active).descending
+    @surveys = (administrator_signed_in? ? Survey.all : Survey.active).includes(:translations).descending
   end
 
   def qrcode
