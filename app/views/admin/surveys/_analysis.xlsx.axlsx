@@ -13,13 +13,17 @@ def data_range_at_index(sheet, index, row_length)
   sheet["B#{index}:#{column_end_letter}#{index}"]
 end
 
+def chart_title(question)
+  question.description.strip.parameterize
+end
+
 def add_chart(index, question, sheet)
   answer_possibility_count = question.answer_possibilities.count
 
   sheet.add_chart(Axlsx::BarChart,
                   start_at: start_at(index),
                   end_at: end_at(index),
-                  title: question.description) do |chart|
+                  title: chart_title(question)) do |chart|
     data_range = data_range_at_index(sheet, 3 + (index * 2), answer_possibility_count)
     label_range = data_range_at_index(sheet, 2 + (index * 2), answer_possibility_count)
 
