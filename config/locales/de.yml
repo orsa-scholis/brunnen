@@ -183,6 +183,7 @@ de:
       - Öffnen Sie auf dem iPhone die Kamera-App und auf Android den QR-Droid oder einen anderen QR-Code-Leser ("Barcode", "I-nigma")
       - Richten Sie die Kamera auf den QR-Code aus
       - Öffnen Sie den Link.
+      - Falls Sie keine App auf ihrem (Android) Telefon haben, geben sie den Link oberhalb des QR-Codes direkt in ihrem Browser ein.
   time:
     formats:
       default: "%d.%m.%y %H:%M"
