@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary py-2 py-lg-0">
-  <%= link_to t('tool_name'), surveys_path, class: 'navbar-brand' %>
+  <%= link_to surveys_path, class: 'navbar-brand' do %>
+    <img src="/logo.jpg" height="40" class="mr-1"/>
+    <%= t('tool_name') %>
+  <% end %>
   <button
     class="navbar-toggler"
     type="button"
