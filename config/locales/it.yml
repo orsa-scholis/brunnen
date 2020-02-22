@@ -169,7 +169,7 @@ it:
   time:
     formats:
       default: "%d.%m.%y %H:%M"
-  tool_name: Evaweb
+  tool_name: EvaEeB
   'true': Sì
   update: Aggiorna
   views:
