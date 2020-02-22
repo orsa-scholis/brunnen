@@ -166,6 +166,7 @@ fr:
       - Ouvrez l'application caméra sur l'iPhone et sur Android le QR-Droid ou un autre lecteur de QR Code ("Barcode", "I-nigma")
       - Alignez la caméra sur le QR Code
       - Ouvrez le lien
+      - Si vous n'avez pas d'application sur votre téléphone (Android), entrez le lien au-dessus du code QR directement dans votre navigateur.
   time:
     formats:
       default: "%d.%m.%y %H:%M"
