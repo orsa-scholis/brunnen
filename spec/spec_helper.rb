@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'webmock/rspec'
 require 'simplecov'
 SimpleCov.start 'rails' do
   add_filter 'app/controllers/admin'

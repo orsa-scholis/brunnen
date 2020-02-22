@@ -35,6 +35,10 @@ RSpec.configure do |config|
   config.before(:all, type: :system) { Capybara.server = :puma, { Silent: true } }
   config.before(:each, type: :system) { driven_by :rack_test }
   config.before(:each, type: :system, js: true) { driven_by :selenium_chrome_headless }
+  config.before do
+    stub_request(:post, 'https://api-ssl.bitly.com/v4/bitlinks')
+      .to_return(body: { link: 'https://theshorturl' }.to_json)
+  end
 
   config.after(:each, type: :system, js: true) do
     errors = page.driver.browser.manage.logs.get(:browser)
