@@ -49,7 +49,7 @@ class SurveyConsistencyChecker
     return @empty_question_groups if @empty_question_groups
 
     actual_question_groups = @survey.question_groups.pluck(:id)
-    valid_question_groups = @survey.survey_consistency_overviews.distinct.pluck(:question_group_id)
+    valid_question_groups = @survey.survey_consistency_overviews.valid_question_groups
 
     @empty_question_groups = actual_question_groups - valid_question_groups
   end
