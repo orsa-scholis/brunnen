@@ -36,6 +36,10 @@ it:
           attributes:
             answers:
               not_all_answered: non tutte le domande hanno avuto risposta
+        survey:
+          attributes:
+            active_to:
+              invalid_datetime: "Ende ungültig"
     models:
       administrator:
         one: Amministratore
@@ -98,6 +102,8 @@ it:
         export: Export Excel
         preview: Vorschau
         qrcode: QR-Code
+        inconsistencies: "Avvertenze sulla completezza"
+        consistent: "Sondaggio completato"
   dashboard: Cruscotto
   edit: Modifica
   'false': false

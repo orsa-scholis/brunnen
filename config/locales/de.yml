@@ -36,6 +36,10 @@ de:
           attributes:
             answers:
               not_all_answered: es wurden nicht alle Fragen beanrwortet
+        survey:
+          attributes:
+            active_to:
+              invalid_datetime: "Ende ungültig"
     models:
       administrator:
         one: Administrator
@@ -98,6 +102,8 @@ de:
         export: Excel exportieren
         preview: Vorschau
         qrcode: QR-Code
+        inconsistencies: Warnungen
+        consistent: "Umfrage vollständig"
   dashboard: Dashboard
   edit: Editieren
   'false': Nein
@@ -170,6 +176,14 @@ de:
         errors:
           answer_possibility: Keine Antwort auf obligatorische Frage
   surveys:
+    consistency_issues:
+      no_question_groups: Umfrage hat keine Umfragegruppen
+      no_answer_possibilities:
+        one: Eine Frage hat keine Antwortmöglichkeiten (%{questions})
+        other: Fragen haben keine Antwortmöglichkeiten (%{questions})
+      empty_question_groups:
+        one: Eine Umfrage hat Umfragegruppen ohne Fragen (%{question_groups})
+        other: Einige Umfragen haben Umfragegruppen ohne Fragen (%{question_groups})
     index:
       admin_badges:
         submission:

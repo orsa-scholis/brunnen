@@ -5,6 +5,7 @@ class Survey < ApplicationRecord
   has_many :survey_entries, inverse_of: :survey, dependent: :restrict_with_error
   has_many :questions, through: :question_groups, inverse_of: :survey
   has_many :answer_possibility_submissions, through: :question_groups
+  has_many :survey_consistency_overviews, inverse_of: :survey, dependent: :restrict_with_exception
 
   validates :active_from, :active_to, :title, presence: true
   validates :active_from, timeliness: { type: :datetime }
@@ -26,6 +27,18 @@ class Survey < ApplicationRecord
     update(short_url: UrlShortenService.new.shorten(survey_entries_url))
 
     self[:short_url]
+  end
+
+  def consistent?
+    consistency_issues.empty?
+  end
+
+  def consistency_message
+    consistency_issues.to_sentence
+  end
+
+  def consistency_issues
+    @consistency_issues ||= SurveyConsistencyChecker.new(self).consistency_issues
   end
 
   private

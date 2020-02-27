@@ -6,6 +6,7 @@ class QuestionGroup < ApplicationRecord
   has_many :questions, dependent: :destroy, inverse_of: :question_group
   has_many :answer_possibility_submissions, dependent: :restrict_with_exception
   has_many :answers, through: :questions
+  has_many :survey_consistency_overviews, dependent: :restrict_with_exception, inverse_of: :question_group
 
   validate :survey_change_only_without_answers
 

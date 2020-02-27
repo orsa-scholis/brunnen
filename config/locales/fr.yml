@@ -36,6 +36,10 @@ fr:
           attributes:
             answers:
               not_all_answered: on n'a pas répondu à toutes les questions
+        survey:
+          attributes:
+            active_to:
+              invalid_datetime: "Ende ungültig"
     models:
       administrator:
         one: Administrator
@@ -98,6 +102,8 @@ fr:
         export: Export Excel
         preview: Vorschau
         qrcode: QR-Code
+        inconsistencies: "Avertissements sur l'exhaustivité"
+        consistent: "Enquête terminée"
   dashboard: Dashboard
   edit: Éditer
   'false': Non
