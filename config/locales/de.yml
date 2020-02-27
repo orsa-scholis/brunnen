@@ -179,6 +179,7 @@ de:
       tooltips:
         already_submitted: Du hast diese Umfrage bereits ausgefüllt. Danke!
     qrcode:
+      print: Drucken
       scan_explanation:
       - Öffnen Sie auf dem iPhone die Kamera-App und auf Android den QR-Droid oder einen anderen QR-Code-Leser ("Barcode", "I-nigma")
       - Richten Sie die Kamera auf den QR-Code aus

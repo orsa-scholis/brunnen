@@ -1,3 +1,11 @@
+<button class='btn btn-primary float-right d-print-none'
+        onclick="window.print();return false;"
+        data-toggle="tooltip"
+        data-placement="bottom"
+        title="<%= t('surveys.qrcode.print') %>">
+  <i class="fas fa-print"></i>
+</button>
+
 <h1 class="w-100 text-center mb-5 display-3">
   <%= @survey.title %>
 </h1>
