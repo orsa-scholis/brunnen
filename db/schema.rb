@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_110105) do
+ActiveRecord::Schema.define(version: 2020_02_27_115841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,5 +136,19 @@ ActiveRecord::Schema.define(version: 2020_02_27_110105) do
        JOIN answers ON ((questions.id = answers.question_id)))
        JOIN answer_possibilities ON ((answers.answer_possibility_id = answer_possibilities.id)))
     ORDER BY qg.id;
+  SQL
+  create_view "survey_consistency_overviews", sql_definition: <<-SQL
+      SELECT surveys.id AS survey_id,
+      qg.id AS question_group_id,
+      q.id AS question_id,
+      ( SELECT count(ap.id) AS ap
+             FROM ((questions
+               LEFT JOIN answer_possibilities_questions apq ON ((questions.id = apq.question_id)))
+               LEFT JOIN answer_possibilities ap ON ((apq.answer_possibility_id = ap.id)))
+            WHERE (questions.id = q.id)) AS answer_possibilities_count
+     FROM ((surveys
+       JOIN question_groups qg ON ((surveys.id = qg.survey_id)))
+       JOIN questions q ON ((qg.id = q.question_group_id)))
+    GROUP BY surveys.id, qg.id, q.id;
   SQL
 end

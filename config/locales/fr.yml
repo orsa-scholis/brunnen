@@ -32,6 +32,10 @@ fr:
           attributes:
             survey:
               change_with_answers: l'affectation à l'enquête ne peut pas être modifiée parce que les réponses ont déjà été soumises.
+        survey:
+          attributes:
+            active_to:
+              invalid_datetime: Ende ungültig
         survey_entry:
           attributes:
             answers:
@@ -95,7 +99,9 @@ fr:
             analysis: Auswertung
             raw_data: Raw data
       show:
+        consistent: Enquête terminée
         export: Export Excel
+        inconsistencies: Avertissements sur l'exhaustivité
         preview: Vorschau
         qrcode: QR-Code
   dashboard: Dashboard
@@ -153,6 +159,14 @@ fr:
         errors:
           answer_possibility: Pas de réponse à la question obligatoire
   surveys:
+    consistency_issues:
+      empty_question_groups:
+        one: Une enquête comporte des groupes d'enquête sans questions (%{question_groups})
+        other: Certaines enquêtes ont des groupes d'enquête sans questions (%{question_groups})
+      no_answer_possibilities:
+        one: Une question n'a pas de réponse possible (%{questions})
+        other: Certaines questions n'ont pas de possibilité de réponse (%{questions})
+      no_question_groups: L'enquête n'a pas de groupes d'enquête
     index:
       admin_badges:
         submission:

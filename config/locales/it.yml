@@ -32,6 +32,10 @@ it:
           attributes:
             survey:
               change_with_answers: l'assegnazione al sondaggio non può essere modificata perché le risposte sono già state inviate.
+        survey:
+          attributes:
+            active_to:
+              invalid_datetime: Ende ungültig
         survey_entry:
           attributes:
             answers:
@@ -95,7 +99,9 @@ it:
             analysis: Auswertung
             raw_data: Raw data
       show:
+        consistent: Sondaggio completato
         export: Export Excel
+        inconsistencies: Avvertenze sulla completezza
         preview: Vorschau
         qrcode: QR-Code
   dashboard: Cruscotto
@@ -153,6 +159,14 @@ it:
         errors:
           answer_possibility: Nessuna risposta alla domanda obbligatoria
   surveys:
+    consistency_issues:
+      empty_question_groups:
+        one: Un sondaggio ha gruppi di sondaggio senza domande (%{question_groups})
+        other: Alcuni sondaggi hanno gruppi di sondaggio senza domande (%{question_groups})
+      no_answer_possibilities:
+        one: Una domanda non ha risposte possibili (%{questions})
+        other: Alcune domande non hanno possibilità di risposta (%{questions})
+      no_question_groups: Il sondaggio non ha gruppi di sondaggio
     index:
       admin_badges:
         submission:

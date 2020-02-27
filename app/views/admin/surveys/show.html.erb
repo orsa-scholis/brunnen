@@ -62,6 +62,24 @@ as well as a link to its edit page.
 </header>
 
 <section class="main-content__body">
+    <dl>
+      <% unless page.resource.consistent? %>
+        <dt class="attribute-label text-color-red">
+          <strong><%= t('administrate.surveys.show.inconsistencies') %></strong>
+        </dt>
+        <dd class="attribute-data text-color-red">
+          <strong><%= page.resource.consistency_message %></strong>
+        </dd>
+      <% else %>
+        <dt class="attribute-label">
+          <%= t('administrate.surveys.show.inconsistencies') %>
+        </dt>
+        <dd class="attribute-data text-color-green">
+          <i class="fas fa-check"></i> <%= t('administrate.surveys.show.consistent') %>
+        </dd>
+      <% end %>
+    </dl>
+
   <dl>
     <% page.attributes.each do |attribute| %>
       <dt class="attribute-label" id="<%= attribute.name %>">

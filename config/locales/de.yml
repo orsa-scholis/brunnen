@@ -32,6 +32,10 @@ de:
           attributes:
             survey:
               change_with_answers: die Zuweisung zur Umfrage kann nicht geändert werden, da bereits Antworten eingereicht wurden.
+        survey:
+          attributes:
+            active_to:
+              invalid_datetime: Ende ungültig
         survey_entry:
           attributes:
             answers:
@@ -95,7 +99,9 @@ de:
             analysis: Auswertung
             raw_data: Rohdaten
       show:
+        consistent: Umfrage vollständig
         export: Excel exportieren
+        inconsistencies: Warnungen
         preview: Vorschau
         qrcode: QR-Code
   dashboard: Dashboard
@@ -170,6 +176,14 @@ de:
         errors:
           answer_possibility: Keine Antwort auf obligatorische Frage
   surveys:
+    consistency_issues:
+      empty_question_groups:
+        one: Eine Umfrage hat Umfragegruppen ohne Fragen (%{question_groups})
+        other: Einige Umfragen haben Umfragegruppen ohne Fragen (%{question_groups})
+      no_answer_possibilities:
+        one: Eine Frage hat keine Antwortmöglichkeiten (%{questions})
+        other: Fragen haben keine Antwortmöglichkeiten (%{questions})
+      no_question_groups: Umfrage hat keine Umfragegruppen
     index:
       admin_badges:
         submission:
