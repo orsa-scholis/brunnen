@@ -32,14 +32,14 @@ fr:
           attributes:
             survey:
               change_with_answers: l'affectation à l'enquête ne peut pas être modifiée parce que les réponses ont déjà été soumises.
+        survey:
+          attributes:
+            active_to:
+              invalid_datetime: Ende ungültig
         survey_entry:
           attributes:
             answers:
               not_all_answered: on n'a pas répondu à toutes les questions
-        survey:
-          attributes:
-            active_to:
-              invalid_datetime: "Ende ungültig"
     models:
       administrator:
         one: Administrator
@@ -99,11 +99,11 @@ fr:
             analysis: Auswertung
             raw_data: Raw data
       show:
+        consistent: Enquête terminée
         export: Export Excel
+        inconsistencies: Avertissements sur l'exhaustivité
         preview: Vorschau
         qrcode: QR-Code
-        inconsistencies: "Avertissements sur l'exhaustivité"
-        consistent: "Enquête terminée"
   dashboard: Dashboard
   edit: Éditer
   'false': Non
@@ -159,6 +159,14 @@ fr:
         errors:
           answer_possibility: Pas de réponse à la question obligatoire
   surveys:
+    consistency_issues:
+      empty_question_groups:
+        one: Une enquête comporte des groupes d'enquête sans questions (%{question_groups})
+        other: Certaines enquêtes ont des groupes d'enquête sans questions (%{question_groups})
+      no_answer_possibilities:
+        one: Une question n'a pas de réponse possible (%{questions})
+        other: Certaines questions n'ont pas de possibilité de réponse (%{questions})
+      no_question_groups: L'enquête n'a pas de groupes d'enquête
     index:
       admin_badges:
         submission:
@@ -174,14 +182,6 @@ fr:
       - Alignez la caméra sur le QR Code
       - Ouvrez le lien
       - Si vous n'avez pas d'application sur votre téléphone (Android), entrez le lien au-dessus du code QR directement dans votre navigateur.
-    consistency_issues:
-      no_question_groups: "L'enquête n'a pas de groupes d'enquête"
-      no_answer_possibilities:
-        one: "Une question n'a pas de réponse possible (%{questions})"
-        other: "Certaines questions n'ont pas de possibilité de réponse (%{questions})"
-      empty_question_groups:
-        one: "Une enquête comporte des groupes d'enquête sans questions (%{question_groups})"
-        other: "Certaines enquêtes ont des groupes d'enquête sans questions (%{question_groups})"
   time:
     formats:
       default: "%d.%m.%y %H:%M"

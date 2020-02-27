@@ -32,14 +32,14 @@ en:
           attributes:
             survey:
               change_with_answers: the assignment to the survey cannot be changed because answers have already been submitted.
+        survey:
+          attributes:
+            active_to:
+              invalid_datetime: Invalid ending
         survey_entry:
           attributes:
             answers:
               not_all_answered: not all questions have been answered
-        survey:
-          attributes:
-            active_to:
-              invalid_datetime: "Invalid ending"
     models:
       administrator:
         one: Administrator
@@ -99,11 +99,11 @@ en:
             analysis: Auswertung
             raw_data: Raw data
       show:
+        consistent: Survey consistent
         export: Export Excel
+        inconsistencies: Inconsistencies
         preview: Preview
         qrcode: QR-Code
-        inconsistencies: "Inconsistencies"
-        consistent: "Survey consistent"
   dashboard: Dashboard
   edit: Editieren
   'false': false
@@ -159,6 +159,14 @@ en:
         errors:
           answer_possibility: No answer on mandatory question
   surveys:
+    consistency_issues:
+      empty_question_groups:
+        one: A survey has question groups without questions (%{question_groups})
+        other: Some surveys have question groups without questions (%{question_groups})
+      no_answer_possibilities:
+        one: A question does not have any answer possibilities (%{questions})
+        other: Some questions don't have answer possibilities (%{questions})
+      no_question_groups: Survey does not have any question groups
     index:
       admin_badges:
         submission:
@@ -174,14 +182,6 @@ en:
       - Align the camera to the QR Code
       - Open the link
       - If you do not have an app on your (Android) phone, enter the link above the QR code directly in your browser.
-    consistency_issues:
-      no_question_groups: "Survey does not have any question groups"
-      no_answer_possibilities:
-        one: "A question does not have any answer possibilities (%{questions})"
-        other: "Some questions don't have answer possibilities (%{questions})"
-      empty_question_groups:
-        one: "A survey has question groups without questions (%{question_groups})"
-        other: "Some surveys have question groups without questions (%{question_groups})"
   time:
     formats:
       default: "%d.%m.%y %H:%M"

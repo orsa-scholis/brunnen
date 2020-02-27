@@ -32,14 +32,14 @@ it:
           attributes:
             survey:
               change_with_answers: l'assegnazione al sondaggio non può essere modificata perché le risposte sono già state inviate.
+        survey:
+          attributes:
+            active_to:
+              invalid_datetime: Ende ungültig
         survey_entry:
           attributes:
             answers:
               not_all_answered: non tutte le domande hanno avuto risposta
-        survey:
-          attributes:
-            active_to:
-              invalid_datetime: "Ende ungültig"
     models:
       administrator:
         one: Amministratore
@@ -99,11 +99,11 @@ it:
             analysis: Auswertung
             raw_data: Raw data
       show:
+        consistent: Sondaggio completato
         export: Export Excel
+        inconsistencies: Avvertenze sulla completezza
         preview: Vorschau
         qrcode: QR-Code
-        inconsistencies: "Avvertenze sulla completezza"
-        consistent: "Sondaggio completato"
   dashboard: Cruscotto
   edit: Modifica
   'false': false
@@ -159,6 +159,14 @@ it:
         errors:
           answer_possibility: Nessuna risposta alla domanda obbligatoria
   surveys:
+    consistency_issues:
+      empty_question_groups:
+        one: Un sondaggio ha gruppi di sondaggio senza domande (%{question_groups})
+        other: Alcuni sondaggi hanno gruppi di sondaggio senza domande (%{question_groups})
+      no_answer_possibilities:
+        one: Una domanda non ha risposte possibili (%{questions})
+        other: Alcune domande non hanno possibilità di risposta (%{questions})
+      no_question_groups: Il sondaggio non ha gruppi di sondaggio
     index:
       admin_badges:
         submission:
@@ -174,14 +182,6 @@ it:
       - Allineare la fotocamera al QR Code
       - Aprire il link
       - Se non avete un'applicazione sul vostro telefono (Android), inserite il link sopra il codice QR direttamente nel vostro browser.
-    consistency_issues:
-      no_question_groups: "Il sondaggio non ha gruppi di sondaggio"
-      no_answer_possibilities:
-        one: "Una domanda non ha risposte possibili (%{questions})"
-        other: "Alcune domande non hanno possibilità di risposta (%{questions})"
-      empty_question_groups:
-        one: "Un sondaggio ha gruppi di sondaggio senza domande (%{question_groups})"
-        other: "Alcuni sondaggi hanno gruppi di sondaggio senza domande (%{question_groups})"
   time:
     formats:
       default: "%d.%m.%y %H:%M"
