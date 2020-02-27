@@ -3,13 +3,13 @@
 require 'rails_helper'
 
 RSpec.describe SurveyEntriesController, type: :request do
-  include_context 'with complete survey'
-
   describe 'index' do
     let(:request) { get survey_entries_path(survey) }
 
     describe 'content' do
       subject(:body) { response.body }
+
+      let(:survey) { create :survey }
 
       before { request }
 
@@ -18,10 +18,16 @@ RSpec.describe SurveyEntriesController, type: :request do
       end
     end
 
-    it_behaves_like 'preventing display of inactive or already submitted surveys'
+    context 'with complete survey' do
+      include_context 'with complete survey'
+
+      it_behaves_like 'preventing display of inactive or already submitted surveys'
+    end
   end
 
   describe 'create' do
+    include_context 'with complete survey'
+
     let(:post_request) { post survey_entries_path(survey, params: params) }
     let(:answers_attributes) do
       [
