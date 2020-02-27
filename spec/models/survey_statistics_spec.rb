@@ -24,9 +24,7 @@ RSpec.describe SurveyStatistics, type: :model do
       {
         survey: survey.slice(:title, :id),
         averages: {
-          group_labels: [
-            nil, nil
-          ],
+          group_labels: question_groups.map(&:description),
           group_values: [
             1.2,
             1.2
@@ -66,9 +64,7 @@ RSpec.describe SurveyStatistics, type: :model do
       {
         survey: survey.slice(:title, :id),
         averages: {
-          group_labels: [
-            nil, nil
-          ],
+          group_labels: question_groups.map(&:description),
           group_values: %w[1.2 1.2],
           min: 0,
           max: 3,
