@@ -30,7 +30,7 @@ class Survey < ApplicationRecord
   end
 
   def consistent?
-    consistency_issues.empty?
+    consistency_issues.blank?
   end
 
   def consistency_message

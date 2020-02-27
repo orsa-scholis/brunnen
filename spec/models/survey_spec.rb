@@ -93,4 +93,79 @@ RSpec.describe Survey, type: :model do
       end
     end
   end
+
+  describe '#consistent?' do
+    subject { survey.consistent? }
+
+    let(:survey) { build(:survey) }
+    let(:consistency_issues) { [] }
+
+    before { allow(survey).to receive(:consistency_issues).and_return consistency_issues }
+
+    it { is_expected.to eq true }
+
+    context 'when there are consistency issues' do
+      let(:consistency_issues) { ['This is not consistent'] }
+
+      it { is_expected.to eq false }
+    end
+  end
+
+  describe '#consistency_message' do
+    subject { survey.consistency_message }
+
+    let(:survey) { build :survey }
+    let(:consistency_issues) { [] }
+
+    before { allow(survey).to receive(:consistency_issues).and_return consistency_issues }
+
+    it { is_expected.to eq '' }
+
+    context 'when there are consistency issues' do
+      let(:consistency_issues) { ['This is not consistent'] }
+
+      it { is_expected.to eq consistency_issues.first }
+    end
+
+    context 'when there are two consistency issues' do
+      let(:consistency_issues) { ['This is wrong', 'This is also wrong'] }
+
+      before { I18n.locale = :de }
+
+      after { I18n.locale = I18n.default_locale }
+
+      it { is_expected.to eq "#{consistency_issues.first} und #{consistency_issues.second}" }
+    end
+
+    context 'when there are multiple consistency issues' do
+      let(:consistency_issues) { ['This is wrong', 'This is also wrong', 'Nope, also not'] }
+      let(:expected_output) do
+        "#{consistency_issues.first}, #{consistency_issues.second} und #{consistency_issues.third}"
+      end
+
+      before { I18n.locale = :de }
+
+      after { I18n.locale = I18n.default_locale }
+
+      it { is_expected.to eq expected_output }
+    end
+  end
+
+  describe '#consistency_issues' do
+    subject(:consistency_issue_call) { survey.consistency_issues }
+
+    let(:consistency_checker) { instance_double(SurveyConsistencyChecker, consistency_issues: consistency_issues) }
+    let(:consistency_issues) { %w[Not\ good] }
+    let(:survey) { build :survey }
+
+    before { allow(SurveyConsistencyChecker).to receive(:new).and_return consistency_checker }
+
+    it { is_expected.to eq consistency_issues }
+
+    it 'caches the result' do
+      2.times { consistency_issue_call }
+
+      expect(consistency_checker).to have_received(:consistency_issues).once
+    end
+  end
 end
