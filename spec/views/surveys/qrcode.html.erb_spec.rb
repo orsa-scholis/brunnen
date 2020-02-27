@@ -15,6 +15,7 @@ RSpec.describe 'surveys/qrcode.html.erb', type: :view do
   end
 
   it { is_expected.to include survey.title }
+  it { is_expected.to include I18n.t('surveys.qrcode.print') }
   it { is_expected.to include survey.short_url }
   it { is_expected.to include qr_code.to_svg }
 

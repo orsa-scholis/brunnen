@@ -162,6 +162,7 @@ fr:
       tooltips:
         already_submitted: Vous avez déjà répondu à cette enquête. Merci!
     qrcode:
+      print: Imprimer
       scan_explanation:
       - Ouvrez l'application caméra sur l'iPhone et sur Android le QR-Droid ou un autre lecteur de QR Code ("Barcode", "I-nigma")
       - Alignez la caméra sur le QR Code
