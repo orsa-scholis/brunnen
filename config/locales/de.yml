@@ -1,0 +1,199 @@
+---
+de:
+  activerecord:
+    attributes:
+      administrator:
+        email: E-Mail
+        password: Passwort
+        password_confirmation: Passwort-Wiederholung
+      answer_possibility_group:
+        answer_possibilities: Antwortmöglichkeiten
+      question:
+        answer_possibilities: Antwortmöglichkeiten
+        answers: Antworten
+        description: Beschreibung
+        question_group:
+          one: Fragengruppe
+          other: Fragengruppen
+      survey:
+        active: Aktiv
+        active_from: Aktiv von
+        active_to: Aktiv bis
+        inactive: Inaktiv
+        title_de: Deutscher Titel
+        title_fr: Französischer Titel
+        title_it: Italienischer Titel
+      survey_entry:
+        answers: Antworten
+        survey: Umfrage
+    errors:
+      models:
+        question_group:
+          attributes:
+            survey:
+              change_with_answers: die Zuweisung zur Umfrage kann nicht geändert werden, da bereits Antworten eingereicht wurden.
+        survey_entry:
+          attributes:
+            answers:
+              not_all_answered: es wurden nicht alle Fragen beanrwortet
+    models:
+      administrator:
+        one: Administrator
+        other: Administratoren
+      answer:
+        one: Antwort
+        other: Antworten
+      answer_possibility:
+        one: Antwortmöglichkeit
+        other: Antwortmöglichkeiten
+      answer_possibility_group:
+        one: Antwortmöglichkeitgruppe
+        other: Antwortmöglichkeitgruppen
+      question:
+        one: Frage
+        other: Fragen
+      question_group:
+        one: Fragengruppe
+        other: Fragengruppen
+      survey:
+        one: Umfrage
+        other: Umfragen
+      survey_entry:
+        one: Umfrageneingabe
+        other: Umfrageneingaben
+  admin_toolbar:
+    admin_dashboard: Admin Dashboard
+    title_html: |-
+      <span class="text-muted ml-1">
+        <i class="fas fa-user-shield"></i> Eingeloggt als Administrator
+      </span>
+  administrate:
+    actions:
+      confirm: Willst du diesen Datensatz wirklich löschen?
+      destroy: Löschen
+      edit: Bearbeiten
+      edit_resource: "%{name} bearbeiten"
+      new_resource: Neue %{name} erstellen
+      show_resource: "%{name}"
+    error: Fehler
+    form:
+      error: Fehler
+      errors: Fehler
+    surveys:
+      export:
+        excel:
+          columns:
+            headers:
+              analysis:
+              - Frage
+              - Antworten
+              raw_data:
+              - Bewertung
+              - Beschreibung
+              - Zeit
+          worksheets:
+            analysis: Auswertung
+            raw_data: Rohdaten
+      show:
+        export: Excel exportieren
+        preview: Vorschau
+        qrcode: QR-Code
+  dashboard: Dashboard
+  edit: Editieren
+  'false': Nein
+  flashes:
+    survey:
+      create:
+        failure: Wir konnten Ihre Antwort leider nicht abspeichern
+        successful: Vielen Dank für das Mitmachen bei der Umfrage!
+  helpers:
+    label:
+      answer_possibility:
+        created_at: Erstellt am
+        description: Beschreibung
+        description_de: Deutsche Beschreibung
+        questions: Fragen
+        updated_at: Aktualisiert am
+        value: Wert
+      answer_possibility_group:
+        answer_possibilities: Antwortmöglichkeiten
+        created_at: Erstellt am
+        description: Beschreibung
+        select_answer_possibility_group: Wähle eine vordefinierte Gruppe aus
+        updated_at: Aktualisiert am
+      question:
+        answer_possibilities: Antwortmöglichkeiten
+        answers: Antworten
+        created_at: Erstellt am
+        description: Beschreibung
+        description_de: Deutsche Beschreibung
+        description_fr: Französische Beschreibung
+        description_it: Italienische Beschreibung
+        question_group: Fragengruppe
+        updated_at: Aktualisiert am
+      question_group:
+        created_at: Erstellt am
+        description: Beschreibung
+        questions: Fragen
+        survey: Umfrage
+        updated_at: Aktualisiert am
+      survey:
+        active?: Aktiv
+        active_from: Aktiv von
+        active_to: Aktiv bis
+        created_at: Erstellt am
+        description: Beschreibung
+        question_groups: Fragengruppen
+        title: Titel
+        title_de: Deutscher Titel
+        title_fr: Französischer Titel
+        title_it: Italienischer Titel
+        updated_at: Aktualisiert am
+    submit:
+      create: "%{model} erstellen"
+      survey_entry:
+        create: Umfrage absenden
+      update: "%{model} aktualisieren"
+  home: Startseite
+  languages:
+    french: Französisch
+    german: Deutsch
+    italian: Italienisch
+  log_out: Abmelden
+  root:
+    active_surveys: Aktuell aktive Umfragen
+    all_surveys: Alle Umfragen
+    no_active_surveys: Keine aktuell aktive Umfragen
+  survey_entries:
+    index:
+      form:
+        errors:
+          answer_possibility: Keine Antwort auf obligatorische Frage
+  surveys:
+    index:
+      admin_badges:
+        submission:
+          one: Eine Einreichung
+          other: "%{count} Einreichungen"
+          zero: Noch keine Einreichungen
+      tooltips:
+        already_submitted: Du hast diese Umfrage bereits ausgefüllt. Danke!
+    qrcode:
+      print: Drucken
+      scan_explanation:
+      - Öffnen Sie auf dem iPhone die Kamera-App und auf Android den QR-Droid oder einen anderen QR-Code-Leser ("Barcode", "I-nigma")
+      - Richten Sie die Kamera auf den QR-Code aus
+      - Öffnen Sie den Link.
+      - Falls Sie keine App auf ihrem (Android) Telefon haben, geben sie den Link oberhalb des QR-Codes direkt in ihrem Browser ein.
+  time:
+    formats:
+      default: "%d.%m.%y %H:%M"
+  tool_name: EvaWeB
+  'true': Ja
+  update: Aktualisieren
+  views:
+    pagination:
+      first: Erste Seite
+      last: Letzte Seite
+      next: Nächste Seite
+      previous: Vorherige Seite

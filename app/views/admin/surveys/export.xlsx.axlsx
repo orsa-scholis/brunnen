@@ -1,0 +1,5 @@
+# frozen_string_literal: true
+
+wb = xlsx_package.workbook
+render 'analysis', wb: wb, survey: @survey
+render 'raw_data', wb: wb, survey: @survey

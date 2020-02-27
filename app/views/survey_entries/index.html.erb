@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-between align-items-center mb-md-5">
+  <h1 class="text-center d-inline-block mb-0">
+    <%= @survey_entry.survey.title %>
+  </h1>
+  <% if administrator_signed_in? %>
+    <div>
+      <%= link_to dashboard_survey_path(@survey_entry.survey), class: 'mr-3' do %>
+        <i class="fas fa-tachometer-alt"></i> <%= t('dashboard') %>
+      <% end %>
+
+      <%= link_to edit_admin_survey_path(@survey_entry.survey), class: 'mr-3' do %>
+        <i class="fas fa-edit"></i> <%= t('edit') %>
+      <% end %>
+
+      <%= link_to qrcode_survey_path(@survey_entry.survey) do %>
+        <i class="fas fa-qrcode"></i> <%= t('administrate.surveys.show.qrcode') %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<%= simple_form_for @survey_entry, url: { survey_id: @survey_entry.survey_id } do |f| %>
+  <% @grouped_answers.each do |question_group, answers| %>
+    <div class="card card-body mt-4">
+      <h2 class="card-title"><%= question_group.description %></h2>
+
+      <% answers.each do |answer| %>
+        <%= f.simple_fields_for :answers, answer do |answer_field| %>
+          <div class="question-container" id="question-<%= answer.question.id %>">
+            <%= answer_field.input :question_id, as: :hidden, input_html: { value: answer.question.id } %>
+            <%= answer_field.association :answer_possibility,
+                                         collection: answer.question.answer_possibilities.order(value: :desc),
+                                         as: :radio_buttons,
+                                         label: answer.question.description,
+                                         label_method: :description,
+                                         wrapper: :survey_collection,
+                                         error: I18n.t('survey_entries.index.form.errors.answer_possibility') %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+  <%= f.button :submit, class: 'my-4' %>
+<% end %>

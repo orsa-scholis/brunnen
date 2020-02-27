@@ -1,33 +1,182 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      administrator:
+        email: E-Mail
+        password: Passwort
+        password_confirmation: Passwort-Wiederholung
+      answer_possibility_group:
+        answer_possibilities: Antwortmöglichkeiten
+      question:
+        answer_possibilities: Antwortmöglichkeiten
+        answers: Antworten
+        description: Beschreibung
+        question_group:
+          one: Fragengruppe
+          other: Fragengruppen
+      survey:
+        active: Aktiv
+        active_from: Aktiv von
+        active_to: Aktiv bis
+        inactive: Inaktiv
+        title_de: Deutscher Titel
+        title_fr: Französischer Titel
+        title_it: Italienischer Titel
+      survey_entry:
+        answers: Antworten
+        survey: Umfrage
+    errors:
+      models:
+        question_group:
+          attributes:
+            survey:
+              change_with_answers: the assignment to the survey cannot be changed because answers have already been submitted.
+        survey_entry:
+          attributes:
+            answers:
+              not_all_answered: not all questions have been answered
+    models:
+      administrator:
+        one: Administrator
+        other: Administratoren
+      answer:
+        one: Antwort
+        other: Antworten
+      answer_possibility:
+        one: Antwortmöglichkeit
+        other: Antwortmöglichkeiten
+      answer_possibility_group:
+        one: Antwortmöglichkeitgruppe
+        other: Antwortmöglichkeitgruppen
+      question:
+        one: Frage
+        other: Fragen
+      question_group:
+        one: Fragengruppe
+        other: Fragengruppen
+      survey:
+        one: Umfrage
+        other: Umfragen
+      survey_entry:
+        one: Umfrageneingabe
+        other: Umfrageneingaben
+  admin_toolbar:
+    admin_dashboard: Admin Dashboard
+    title_html: |-
+      <span class="text-muted ml-1">
+        <i class="fas fa-user-shield"></i> Logged in as Administrator
+      </span>
+  administrate:
+    actions:
+      confirm: Confirm
+      destroy: Destroy
+      edit: Edit
+      edit_resource: Edit resource
+      new_resource: New resource
+      show_resource: Show resource
+    error: Fehler
+    form:
+      error: Error
+      errors: Errors
+    surveys:
+      export:
+        excel:
+          columns:
+            headers:
+              analysis:
+              - Frage
+              - Antworten
+              raw_data:
+              - Bewertung
+              - Beschreibung
+              - Zeit
+          worksheets:
+            analysis: Auswertung
+            raw_data: Raw data
+      show:
+        export: Export Excel
+        preview: Preview
+        qrcode: QR-Code
+  dashboard: Dashboard
+  edit: Editieren
+  'false': false
+  flashes:
+    survey:
+      create:
+        failure: Unfortunately we could not save your answer
+        successful: Thank you very much for participating!
+  helpers:
+    label:
+      answer_possibility_group:
+        answer_possibilities: Answer possiblities
+        select_answer_possibility_group: Pick a predefined group
+      question:
+        answer_possibilities: Antwortmöglichkeiten
+        answers: Antworten
+        description: Beschreibung
+        description_de: Deutsche Beschreibung
+        description_fr: Französische Beschreibung
+        description_it: Italienische Beschreibung
+        question_group: Fragengruppe
+      question_group:
+        description: Beschreibung
+        questions: Fragen
+        survey: Umfrage
+      survey:
+        active?: Aktiv
+        active_from: Aktiv von
+        active_to: Aktiv bis
+        description: Beschreibung
+        question_groups: Fragengruppen
+        title_de: Deutscher Titel
+        title_fr: Französischer Titel
+        title_it: Italienischer Titel
+    submit:
+      create: Create %{model}
+      survey_entry:
+        create: Send survey submission
+      update: Update %{model}
+  home: Home
+  languages:
+    french: French
+    german: German
+    italian: Italian
+  log_out: Log out
+  root:
+    active_surveys: Currently active surveys
+    all_surveys: All surveys
+    no_active_surveys: No active surveys
+  survey_entries:
+    index:
+      form:
+        errors:
+          answer_possibility: No answer on mandatory question
+  surveys:
+    index:
+      admin_badges:
+        submission:
+          one: Eine Einreichung
+          other: "%{count} Einreichungen"
+          zero: Noch keine Einreichungen
+      tooltips:
+        already_submitted: Du hast diese Umfrage bereits ausgefüllt. Danke!
+    qrcode:
+      print: Print
+      scan_explanation:
+      - Open the camera app on the iPhone and on Android the QR-Droid or another QR Code reader ("Barcode", "I-nigma")
+      - Align the camera to the QR Code
+      - Open the link
+      - If you do not have an app on your (Android) phone, enter the link above the QR code directly in your browser.
+  time:
+    formats:
+      default: "%d.%m.%y %H:%M"
+  tool_name: EvaWeB
+  'true': true
+  update: Aktualisieren
+  views:
+    pagination:
+      first: First
+      last: Last
+      next: Next
+      previous: Previous

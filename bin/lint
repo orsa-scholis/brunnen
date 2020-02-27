@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+if [ $# -eq 1 ] && [ "$1" = "--pre-push" ]; then
+  echo "Running Rubocop..."
+  bundle exec rubocop -a > /dev/null
+  echo "Rubocop Ok"
+else
+  bundle exec rubocop
+  bundle exec brakeman -q -z --no-summary --no-pager
+  bin/yarn run eslint app/webpack/javascripts
+fi

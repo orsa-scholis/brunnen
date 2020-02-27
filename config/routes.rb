@@ -1,3 +1,31 @@
+# frozen_string_literal: true
+
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'surveys#index'
+
+  devise_for :administrators
+
+  authenticate :administrator do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
+  resources :surveys, only: :index do
+    resources :survey_entries, only: %i[index create], as: 'entries'
+    get 'dashboard', to: 'dashboards#index', on: :member
+    get 'qrcode', to: 'surveys#qrcode', on: :member
+  end
+
+  namespace :admin do
+    resources :questions
+    resources :question_groups
+    resources :answer_possibilities
+    resources :answer_possibility_groups
+    resources :surveys do
+      post 'export', to: 'surveys#export', on: :member
+    end
+
+    root to: 'questions#index'
+  end
 end

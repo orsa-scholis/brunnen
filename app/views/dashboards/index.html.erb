@@ -1,0 +1,30 @@
+<% statistics_has_results = @survey_statistics.results? %>
+<div class="container-fluid mt-5">
+  <div class="row">
+    <h1 class="col-12 text-center mb-md-5">
+      <%= @survey.title %>
+    </h1>
+  </div>
+
+  <div class="row">
+    <div id="url_infos" class="text-center col-<%= statistics_has_results ? 4 : 12 %>">
+      <div class="mb-5">
+        <img src="/logo_full.jpg" alt="Das Logo der Brunnenmeister" style="width: 100%">
+      </div>
+      <div id="short_url" class="mt-5">
+        <h4><%= @survey.short_url %></h4>
+      </div>
+      <div id="qr">
+        <%= raw @qr_code.to_svg %>
+      </div>
+    </div>
+
+    <div id="chart" class="col-<%= statistics_has_results ? 8 : 12 %>"  data-stats-received="<%= statistics_has_results %>"></div>
+  </div>
+
+  <script>
+    var Evaweb = {
+      data: <%= raw @survey_statistics.to_json %>
+    };
+  </script>
+</div>

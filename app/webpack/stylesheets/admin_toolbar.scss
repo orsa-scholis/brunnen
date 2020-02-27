@@ -1,0 +1,23 @@
+@import "variables";
+
+$toolbar-item-spacing: .75em;
+
+.admin-toolbar {
+  background: $sbv-color-secondary;
+  color: $white;
+
+  .toolbar-item {
+    margin-right: $toolbar-item-spacing;
+  }
+  .text-muted {
+    color: lighten($text-muted, 40%) !important;
+  }
+}
+
+@media print {
+  .admin-toolbar {
+    display: none !important;
+  }
+
+  .tooltip { display: none; }
+}

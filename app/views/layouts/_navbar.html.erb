@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary py-2 py-lg-0">
+  <%= link_to surveys_path, class: 'navbar-brand' do %>
+    <img src="/logo.jpg" height="40" class="mr-1"/>
+    <%= t('tool_name') %>
+  <% end %>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarText"
+    aria-controls="navbarText"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <%= navbar_item(t('root.all_surveys'), surveys_path) %>
+      <% if administrator_signed_in? %>
+        <%= navbar_item(t('admin_toolbar.admin_dashboard'), admin_questions_path) %>
+        <%= navbar_item(t('log_out'), destroy_administrator_session_path, method: :delete) %>
+      <% end %>
+    </ul>
+    <div class="navbar-text">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <%= link_to t('languages.german'), { locale: :de }, class: 'nav-link', data: { turbolinks: false } %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to t('languages.french'), { locale: :fr }, class: 'nav-link', data: { turbolinks: false } %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to t('languages.italian'), { locale: :it }, class: 'nav-link', data: { turbolinks: false } %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

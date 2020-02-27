@@ -1,0 +1,28 @@
+<button class='btn btn-primary float-right d-print-none'
+        onclick="window.print()"
+        data-toggle="tooltip"
+        data-placement="bottom"
+        title="<%= t('surveys.qrcode.print') %>">
+  <i class="fas fa-print"></i>
+</button>
+
+<h1 class="w-100 text-center mb-5 display-3">
+  <%= @survey.title %>
+</h1>
+
+<div id="url_infos" class="text-center col-12">
+  <div id="short_url">
+    <h3><%= @survey.short_url %></h3>
+  </div>
+  <div id="qr" class="w-100">
+    <%= raw @qr_code.to_svg(options: { module_size: 9 }) %>
+  </div>
+</div>
+
+<div class="w-100 mt-4">
+  <ol>
+    <% I18n.t('surveys.qrcode.scan_explanation').each do |step| %>
+      <li><%= step %></li>
+    <% end %>
+  </ol>
+</div>

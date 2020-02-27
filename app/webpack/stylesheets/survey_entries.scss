@@ -1,0 +1,16 @@
+@import "variables";
+
+.question-container {
+  padding: 0 1em;
+  word-break: break-word;
+  hypens: auto;
+
+  &:nth-child(even) {
+    background-color: $light-grey;
+  }
+
+  .form-check-input.radio_buttons:checked + label {
+    color: darkgreen;
+    font-weight: bold;
+  }
+}
