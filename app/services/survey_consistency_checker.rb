@@ -28,7 +28,10 @@ class SurveyConsistencyChecker
   def question_inconsistencies
     return if empty_question_groups.empty?
 
-    names = empty_question_groups.map(&QuestionGroup.method(:find)).map(&:description).to_sentence
+    names = empty_question_groups
+            .map(&compose_proc(QuestionGroup.method(:find), :description, method(:quote)))
+            .to_sentence
+
     I18n.t('surveys.consistency_issues.empty_question_groups', question_groups: names,
                                                                count: empty_question_groups.length)
   end
@@ -37,7 +40,7 @@ class SurveyConsistencyChecker
     empty_questions = @survey.survey_consistency_overviews.where(answer_possibilities_count: 0)
     return if empty_questions.empty?
 
-    names = empty_questions.map(&:question).map(&:description).to_sentence
+    names = empty_questions.map(&compose_proc(:question, :description, method(:quote))).to_sentence
 
     I18n.t('surveys.consistency_issues.no_answer_possibilities', questions: names, count: empty_questions.length)
   end
@@ -49,5 +52,14 @@ class SurveyConsistencyChecker
     valid_question_groups = @survey.survey_consistency_overviews.distinct.pluck(:question_group_id)
 
     @empty_question_groups = actual_question_groups - valid_question_groups
+  end
+
+  def quote(string)
+    "\"#{string}\""
+  end
+
+  # noinspection RubyArgCount
+  def compose_proc(*methods)
+    methods.map { |method| Proc.new(&method) }.reduce(&:>>)
   end
 end
