@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+\usepackage{makeidx}
+\usepackage[english]{babel}
+\usepackage[document]{ragged2e}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Evaweb}
+\lhead{Technical Documentation}
+\lfoot{Brunnenmeister --- orsa-scholis/evaweb}
+\rfoot{Page \thepage}
+
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\lstdefinestyle{mystyle}{
+    breaklines=true,
+    breakatwhitespace=true,
+    captionpos=b,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    keywordstyle=\color{blue},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize\ttfamily
+}
+\lstset{style=mystyle}
+
+\makeindex
+\begin{document}
+\begin{titlepage}
+	\begin{center}
+		\Large\textbf{Evaweb}
+	\end{center}
+	\begin{center}
+		Technical Documentation
+	\end{center}
+	\vspace*{\stretch{1.0}}
+	\begin{center}
+		Authored by Philipp Fehr and Lukas Bischof, 2020
+	\end{center}
+\end{titlepage}
+\printindex
+\index{Abstract}
+\section{Abstract}
+EvaWeB is a survey platform with features like live evaluation of question groups
+as well as survey creation and easy access.
+This document should enable you to setup and maintain the project easily, besides helping you understand the code.
+
+
+\pagebreak
+\index{Structure}
+\section{Structure}
+\index{Structure!Language}
+\subsection{Language}
+\setlength{\parindent}{0ex}
+The project is a Ruby application using the web framework Ruby on Rails.
+Rails is designed to to be easy, maintainable without the need of configuring a lot.
+\subsection{Components}
+The app mainly consists of a "customer" / user part, consisting of the survey form
+and an administrator part, consisting of an admin dashboard and a live dashboard for the real-time evaluation of survey results.
+
+\par ~\\
+The main app is written without any third party tools and can be found in the \verb|app| directory.
+It consists of backend code and frontend code, which is located in the \verb|app/webpack| directory.
+
+\par ~\\
+The admin dashboard uses an adapted version of the the gem "administrate" from Thoughtbot,
+which can be found under \url{https://github.com/orsa-scholis/administrate}.
+It is combined with the code of the live dashboard, which can be found alongside with the main app code
+
+Furthermore, the admin adjustements are namespaced under \verb|admin|
+and can be found under \verb|app/controllers/admin|, \verb|app/dashboards|, \verb|app/fields|, \verb|app/views/admin|
+and \verb|app/webpack/{javascript,stylesheets}/administrate|.
+
+\pagebreak
+\index{Development}
+\section{Development}
+\index{Development!Prerequisites}
+\subsection{Prerequisites}
+\begin{enumerate}
+	\item Ruby installed, with bundler. Required version: 2.6.3. It's best to install Ruby with rbenv or a similar tool
+	\item Postgres installed and a server instance listening
+	\item Optionally: A Redis server, if you want to replicate "real" production behaviour
+\end{enumerate}
+
+\index{Development!Setup}
+\subsection{Setup}
+\begin{enumerate}
+	\item Clone the repository using \verb|git clone| or download with GitHub download button
+	\item Switch working directory: \verb|cd evaweb|
+	\item Run \verb|bin/setup|
+	\item Configure application by copying example file and filling in required values in \verb|config/application.yml|
+\end{enumerate}
+
+A possible sample configuration might look something like this:
+
+\begin{lstlisting}[language=bash, caption={application.yml}]
+SECRET_KEY_BASE: 2ad2be6b13a1e4094af9b16199729a91fbf
+DEVISE_SECRET_KEY: 2ad2be6b13a1e4094af9b16199729a91fb
+DEVISE_PEPPER: 2ad2be6b13a1e4094af9b16199729a91fbf3
+BITLY_ACCESS_TOKEN: adf23jkl234ij3hj64j356nj4lk356h
+APP_HOST: localhost
+\end{lstlisting}
+
+\index{Development!Working}
+\subsection{Working}
+Required processes:
+\begin{enumerate}
+	\item Rails Server: \verb|bin/rails server|
+	\item Optionally: Webpack Dev Server \verb|bin/webpack-dev-server| for hot reloading and continuous builds
+	\item Optionally: Sidekiq: \verb|bin/bundle exec sidekiq -C config/sidekiq.yml| to have a production queue worker
+\end{enumerate}
+
+Using a tool like Foreman or Procodile to start all services at once is also possible. Processes are specified in Procfile.
+
+Before running a new database variation, call \verb|bin/rails db:migrate|.
+The tool is tested using RSpec and coverage is set to 100\%, counting unit tests.
+
+\end{document}
