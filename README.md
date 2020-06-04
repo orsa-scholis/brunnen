@@ -1,6 +1,6 @@
 # Evaweb
 
-[![Ruby CLI CI Status](https://github.com/orsa-scholis/evaweb/workflows/Rails/badge.svg)](https://github.com/orsa-scholis/orsum-inflandi/actions)
+[![Ruby CLI CI Status](https://github.com/orsa-scholis/evaweb/workflows/Rails/badge.svg)](https://github.com/orsa-scholis/evaweb/actions)
 
 A survey tool with live statistics and simple survey submission
 
