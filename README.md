@@ -6,7 +6,7 @@ A survey tool with live statistics and simple survey submission
 
 ### Prerequisites
 
-1.  Install Ruby, preferably with rbenv: `rbenv install 2.6.3`
+1.  Install Ruby, preferably with rbenv: `rbenv install 2.6.6`
     
 2.  Install PostgreSQL
     
