@@ -1,5 +1,5 @@
 import 'bootstrap/dist/js/bootstrap.bundle';
-import * as $ from 'jquery'
+import * as $ from 'jquery';
 
 const setupTooltips = () => $('[data-toggle="tooltip"]').tooltip();
 
