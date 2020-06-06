@@ -51,7 +51,7 @@ export const chart = {
     options.yaxis.min = min;
     options.yaxis.max = max;
     options.yaxis.tickAmount = max - min;
-    options.yaxis.labels.formatter = (value) => vote_options;
+    options.yaxis.labels.formatter = (value) => vote_options[value];
 
     if (_chart == null) {
       _chart = new ApexCharts(document.querySelector('#chart'), options);
