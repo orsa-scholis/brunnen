@@ -47,9 +47,7 @@ jobs:
         id: rnv
 
       - name: Set up Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: '2.7.x'
+        uses: ruby/setup-ruby@v1
 
       - name: Install PostgreSQL 11 client
         run: |
